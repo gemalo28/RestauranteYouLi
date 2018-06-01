@@ -11,15 +11,30 @@ namespace ReglasDelNegocio
     public class DetalleNota
     {
         private MySqlConnection xConnection = new MySqlConnection();
+        public string sLastError = "";
 
         public DetalleNota(MySqlConnection xConnection)
         {
             this.xConnection = xConnection;
         }
 
-        public Boolean AgregarDetalle(int nIdNota, int nIdDetalle, int nIdProducto, double dPrecio)
+        public Boolean AgregarDetalle(int nIdNota, int nIdProducto)
         {
             bool bAllOk = false;
+
+            try
+            {
+                string sSQlqry = "Insert into detalle_nota(id_nota, id_producto) " +
+                                 "values(" + nIdNota + "," + nIdProducto + ")";
+                MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
+                command.ExecuteNonQuery();
+                command.Dispose();
+                bAllOk = true;
+            }
+            catch (Exception ex)
+            {
+                sLastError = "Error >>> " + ex.ToString();
+            }
 
             return bAllOk;
         }
@@ -28,13 +43,42 @@ namespace ReglasDelNegocio
         {
             DataTable dtDetalle = new DataTable();
 
+            try
+            {
+                string sSQlqry = "select * from detalle_nota d" +
+                                 "join "+
+                                 ""+
+                                 ""+
+                                 "";
+                MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                adapter.Fill(dtDetalle);
+            }
+            catch (Exception ex)
+            {
+                sLastError = "Error >>> " + ex.ToString();
+            }
 
             return dtDetalle;
         }
 
-        public Boolean BorrarDetalle(int nIdNota, int nIdDetalle)
+        public Boolean BorrarDetalle(int nIdDetalle)
         {
             bool bAllOk = false;
+
+            try
+            {
+                string sSQlqry = "delete from detalle_nota " +
+                                 "where id_detalleNota = " + nIdDetalle;
+                MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
+                command.ExecuteNonQuery();
+                command.Dispose();
+                bAllOk = true;
+            }
+            catch (Exception ex)
+            {
+                sLastError = "Error >>> " + ex.ToString();
+            }
 
             return bAllOk;
         }
@@ -42,6 +86,19 @@ namespace ReglasDelNegocio
         public Boolean ActualizarDetalle(int nIdNota, int nIdDetalle, int nIdProducto, double dPrecio)
         {
             bool bAllOk = false;
+
+            try
+            {
+                string sSQlqry = "";
+                MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
+                command.ExecuteNonQuery();
+                command.Dispose();
+                bAllOk = true;
+            }
+            catch (Exception ex)
+            {
+                sLastError = "Error >>> " + ex.ToString();
+            }
 
             return bAllOk;
         }

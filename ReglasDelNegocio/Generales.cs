@@ -9,7 +9,8 @@ namespace ReglasDelNegocio
 {
     public class Generales
     {
-        public Boolean ConectarDB(string sConnectionString, ref string sLastError, ref MySqlConnection xConnection)
+        public string sLastError = "";
+        public Boolean ConectarDB(string sConnectionString, ref MySqlConnection xConnection)
         {
             bool bAllOk = false;
 
@@ -27,7 +28,7 @@ namespace ReglasDelNegocio
             return bAllOk;
         }
 
-        public Boolean DesconectarDB(ref string sLastError, ref MySqlConnection xConnection)
+        public Boolean DesconectarDB( ref MySqlConnection xConnection)
         {
             bool bAllOk = false;
 

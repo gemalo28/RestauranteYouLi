@@ -11,15 +11,51 @@ namespace ReglasDelNegocio
     public class Notas
     {
         private MySqlConnection xConnection = new MySqlConnection();
+        public string sLastError = "";
 
         public Notas(MySqlConnection xConnection)
         {
             this.xConnection = xConnection;
         }
 
-        public Boolean AgregarNota(int nIdNota, int nMesa, DateTime Fecha, double dTotal, int nIdFactura)
+        public Boolean AgregarNota(string sPropietario, string sDescripcion, double dTotal, int nIdOrden, int nIdFactura)
         {
             bool bAllOk = false;
+
+            try
+            {
+                string sSQlqry = "insert into notas(propietario, descripcion, total, id_ordenm id_factura) " +
+                                 "values (" + sPropietario + ", " + sDescripcion + "," + dTotal + ", " + nIdOrden + ", " + nIdFactura + ")";
+                MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
+                command.ExecuteNonQuery();
+                command.Dispose();
+                bAllOk = true;
+            }
+            catch (Exception ex)
+            {
+                sLastError = "Error >>> " + ex.ToString();
+            }
+
+            return bAllOk;
+        }
+
+        public Boolean AgregarNota(string sPropietario, string sDescripcion, double dTotal, int nIdOrden)
+        {
+            bool bAllOk = false;
+
+            try
+            {
+                string sSQlqry = "insert into notas(propietario, descripcion, total, id_orden) " +
+                                 "values (" + sPropietario + ", " + sDescripcion + "," + dTotal + ", " + nIdOrden + ")";
+                MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
+                command.ExecuteNonQuery();
+                command.Dispose();
+                bAllOk = true;
+            }
+            catch (Exception ex)
+            {
+                sLastError = "Error >>> " + ex.ToString();
+            }
 
             return bAllOk;
         }
@@ -28,6 +64,17 @@ namespace ReglasDelNegocio
         {
             DataTable dtNotas = new DataTable();
 
+            try
+            {
+                string sSQlqry = "";
+                MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                adapter.Fill(dtNotas);
+            }
+            catch (Exception ex)
+            {
+                sLastError = "Error >>> " + ex.ToString();
+            }
 
             return dtNotas;
         }
@@ -36,6 +83,17 @@ namespace ReglasDelNegocio
         {
             DataTable dtNotas = new DataTable();
 
+            try
+            {
+                string sSQlqry = "";
+                MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                adapter.Fill(dtNotas);
+            }
+            catch (Exception ex)
+            {
+                sLastError = "Error >>> " + ex.ToString();
+            }
 
             return dtNotas;
         }
@@ -44,12 +102,38 @@ namespace ReglasDelNegocio
         {
             bool bAllOk = false;
 
+            try
+            {
+                string sSQlqry = "delete from notas where id_nota = " + nIdNota;
+                MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
+                command.ExecuteNonQuery();
+                command.Dispose();
+                bAllOk = true;
+            }
+            catch (Exception ex)
+            {
+                sLastError = "Error >>> " + ex.ToString();
+            }
+
             return bAllOk;
         }
 
-        public Boolean ActualizarNota(int nIdNota, int nMesa, DateTime Fecha, double dTotal, int nIdFactura)
+        public Boolean ActualizarNota(int nIdNota, string sDescripcion, double dTotal, int nIdOrden, int nIdFactura)
         {
             bool bAllOk = false;
+
+            try
+            {
+                string sSQlqry = "";
+                MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
+                command.ExecuteNonQuery();
+                command.Dispose();
+                bAllOk = true;
+            }
+            catch (Exception ex)
+            {
+                sLastError = "Error >>> " + ex.ToString();
+            }
 
             return bAllOk;
         }
