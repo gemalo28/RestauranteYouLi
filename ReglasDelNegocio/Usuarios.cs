@@ -11,6 +11,7 @@ namespace ReglasDelNegocio
     public class Usuarios
     {
         private MySqlConnection xConnection = new MySqlConnection();
+        public string sLastError = "";
 
         public Usuarios(MySqlConnection xConnection)
         {
@@ -20,6 +21,14 @@ namespace ReglasDelNegocio
         public Boolean AgregarUsuario(int nIdUsuario, string sNombre, string sContrasena)
         {
             bool bAllOk = false;
+            try
+            {
+
+            }
+            catch(Exception ex)
+            {
+                sLastError = "Error >>> " + ex.ToString();
+            }
 
             return bAllOk;
         }
