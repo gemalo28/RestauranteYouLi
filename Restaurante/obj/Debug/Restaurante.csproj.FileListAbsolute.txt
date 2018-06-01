@@ -2,3 +2,8 @@ C:\Users\gemal\source\repos\Restaurante\Restaurante\obj\Debug\Restaurante.csproj
 C:\Users\gemal\source\repos\Restaurante\Restaurante\obj\Debug\Restaurante.Properties.Resources.resources
 C:\Users\gemal\source\repos\Restaurante\Restaurante\obj\Debug\Restaurante.csproj.GenerateResource.cache
 C:\Users\gemal\source\repos\Restaurante\Restaurante\obj\Debug\Restaurante.csproj.CoreCompileInputs.cache
+C:\Users\gerardo.lopez\Source\Repos\RestauranteYouLi\Restaurante\obj\Debug\Restaurante.csprojResolveAssemblyReference.cache
+C:\Users\gerardo.lopez\Source\Repos\RestauranteYouLi\Restaurante\obj\Debug\Restaurante.Main.resources
+C:\Users\gerardo.lopez\Source\Repos\RestauranteYouLi\Restaurante\obj\Debug\Restaurante.Properties.Resources.resources
+C:\Users\gerardo.lopez\Source\Repos\RestauranteYouLi\Restaurante\obj\Debug\Restaurante.csproj.GenerateResource.cache
+C:\Users\gerardo.lopez\Source\Repos\RestauranteYouLi\Restaurante\obj\Debug\Restaurante.csproj.CoreCompileInputs.cache

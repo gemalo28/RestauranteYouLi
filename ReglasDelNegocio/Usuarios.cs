@@ -23,7 +23,10 @@ namespace ReglasDelNegocio
             bool bAllOk = false;
             try
             {
-
+                string sSQlqry = "";
+                MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
+                command.ExecuteNonQuery();
+                command.Dispose();
             }
             catch(Exception ex)
             {
