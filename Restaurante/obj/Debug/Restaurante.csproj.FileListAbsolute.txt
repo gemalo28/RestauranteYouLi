@@ -1,0 +1,4 @@
+C:\Users\gemal\source\repos\Restaurante\Restaurante\obj\Debug\Restaurante.csprojAssemblyReference.cache
+C:\Users\gemal\source\repos\Restaurante\Restaurante\obj\Debug\Restaurante.Properties.Resources.resources
+C:\Users\gemal\source\repos\Restaurante\Restaurante\obj\Debug\Restaurante.csproj.GenerateResource.cache
+C:\Users\gemal\source\repos\Restaurante\Restaurante\obj\Debug\Restaurante.csproj.CoreCompileInputs.cache
