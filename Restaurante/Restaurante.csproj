@@ -76,6 +76,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DlgAgregarInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgAgregarInventario.Designer.cs">
+      <DependentUpon>DlgAgregarInventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgInventario.Designer.cs">
+      <DependentUpon>DlgInventario.cs</DependentUpon>
+    </Compile>
     <Compile Include="logIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +102,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DlgAgregarInventario.resx">
+      <DependentUpon>DlgAgregarInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgInventario.resx">
+      <DependentUpon>DlgInventario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="logIn.resx">
       <DependentUpon>logIn.cs</DependentUpon>
     </EmbeddedResource>

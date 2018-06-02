@@ -22,5 +22,13 @@ namespace Restaurante
             this.xConnection = xConnection;
             
         }
+
+        private void btnInventario_Click(object sender, EventArgs e)
+        {
+            DlgInventario dlgInventario = new DlgInventario(xConnection);
+            this.Hide();
+            dlgInventario.ShowDialog();
+            this.Show();
+        }
     }
 }
