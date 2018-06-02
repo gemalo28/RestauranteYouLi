@@ -10,7 +10,7 @@ namespace ReglasDelNegocio
     public class Generales
     {
         public string sLastError = "";
-        public Boolean ConectarDB(string sConnectionString, ref MySqlConnection xConnection)
+        public Boolean ConectarDB(ref MySqlConnection xConnection)
         {
             bool bAllOk = false;
 
