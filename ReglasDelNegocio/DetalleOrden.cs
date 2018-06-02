@@ -16,14 +16,14 @@ namespace ReglasDelNegocio
             this.xConnection = xConnection;
         }
 
-        public Boolean AgregarDetalle( )
+        public Boolean AgregarDetalle(int nIdOrden, int nIdProducto)
         {
             bool bAllOk = false;
 
             try
             {
-                string sSQlqry = "Insert into detalle_nota(id_nota, id_producto) " +
-                                 "values(" + nIdNota + "," + nIdProducto + ")";
+                string sSQlqry = "Insert into detalle_orden(id_orden, id_producto) " +
+                                 "values(" + nIdOrden + "," + nIdProducto + ")";
                 MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
                 command.ExecuteNonQuery();
                 command.Dispose();
@@ -37,17 +37,13 @@ namespace ReglasDelNegocio
             return bAllOk;
         }
 
-        public DataTable ConsultarDetalle(int nIdNota, int nIdDetalle)
+        public DataTable ConsultarDetalle(int nIdOrden)
         {
             DataTable dtDetalle = new DataTable();
 
             try
             {
-                string sSQlqry = "select * from detalle_nota d" +
-                                 "join " +
-                                 "" +
-                                 "" +
-                                 "";
+                string sSQlqry = "select * from detalle_orden where id_orden = " + nIdOrden;
                 MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 adapter.Fill(dtDetalle);
@@ -66,8 +62,8 @@ namespace ReglasDelNegocio
 
             try
             {
-                string sSQlqry = "delete from detalle_nota " +
-                                 "where id_detalleNota = " + nIdDetalle;
+                string sSQlqry = "delete from detalle_orden " +
+                                 "where id_detalleOrden = " + nIdDetalle;
                 MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
                 command.ExecuteNonQuery();
                 command.Dispose();
@@ -81,25 +77,25 @@ namespace ReglasDelNegocio
             return bAllOk;
         }
 
-        public Boolean ActualizarDetalle(int nIdNota, int nIdDetalle, int nIdProducto, double dPrecio)
-        {
-            bool bAllOk = false;
+        //public Boolean ActualizarDetalle(int nIdOrden, int nIdDetalle, int nIdProducto)
+        //{
+        //    bool bAllOk = false;
 
-            try
-            {
-                string sSQlqry = "";
-                MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
-                command.ExecuteNonQuery();
-                command.Dispose();
-                bAllOk = true;
-            }
-            catch (Exception ex)
-            {
-                sLastError = "Error >>> " + ex.ToString();
-            }
+        //    try
+        //    {
+        //        string sSQlqry = "update detalle_orden set ";
+        //        MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
+        //        command.ExecuteNonQuery();
+        //        command.Dispose();
+        //        bAllOk = true;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        sLastError = "Error >>> " + ex.ToString();
+        //    }
 
-            return bAllOk;
-        }
+        //    return bAllOk;
+        //}
 
     }
 }

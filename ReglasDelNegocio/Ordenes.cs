@@ -39,17 +39,13 @@ namespace ReglasDelNegocio
             return bAllOk;
         }
 
-        public DataTable ConsultarOrdenes(int nIdNota, int nIdDetalle)
+        public DataTable ConsultarOrdenes()
         {
             DataTable dtDetalle = new DataTable();
 
             try
             {
-                string sSQlqry = "select * from detalle_nota d" +
-                                 "join " +
-                                 "" +
-                                 "" +
-                                 "";
+                string sSQlqry = "select * from ordenes where flag_pagado = 0";
                 MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 adapter.Fill(dtDetalle);
@@ -62,14 +58,14 @@ namespace ReglasDelNegocio
             return dtDetalle;
         }
 
-        public Boolean BorrarOrden(int nIdDetalle)
+        public Boolean BorrarOrden(int nIdOrden)
         {
             bool bAllOk = false;
 
             try
             {
-                string sSQlqry = "delete from detalle_nota " +
-                                 "where id_detalleNota = " + nIdDetalle;
+                string sSQlqry = "delete from ordenes " +
+                                 "where id_orden = " + nIdOrden;
                 MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
                 command.ExecuteNonQuery();
                 command.Dispose();
@@ -83,13 +79,14 @@ namespace ReglasDelNegocio
             return bAllOk;
         }
 
-        public Boolean ActualizarOrden(int nIdNota, int nIdDetalle, int nIdProducto, double dPrecio)
+        public Boolean ActualizarOrden(int nIdOrden, string sPropietario, string sDescripcion, double dTotal, int nFlagPagado)
         {
             bool bAllOk = false;
 
             try
             {
-                string sSQlqry = "";
+                string sSQlqry = "update ordenes set propietario = " + sPropietario + ",descripcion = " + sDescripcion + ",total = " + dTotal + ", flag_pagado = " + nFlagPagado +
+                                 "where id_orden = " + nIdOrden;
                 MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
                 command.ExecuteNonQuery();
                 command.Dispose();
