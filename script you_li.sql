@@ -34,7 +34,7 @@ id_orden int auto_increment primary key,
 
 propietario varchar(50) default '0',
 
-fecha timestamp,
+fecha timestamp default current_timestamp,
 
 descripcion varchar(100),
 
@@ -68,7 +68,7 @@ id_nota int auto_increment primary key,
 
 propietario varchar(50) default '0',
 
-fecha timestamp,
+fecha timestamp default current_timestamp,
 
 descripcion varchar(100),
 
