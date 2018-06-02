@@ -19,9 +19,10 @@ namespace Restaurante
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             MySqlConnection xConnection = new MySqlConnection();
+            xConnection.ConnectionString = "Server=localhost;Database=YouLi;Uid=root;Pwd=ml336013;";
             Generales xGen = new Generales();
 
-            if (xGen.ConectarDB("Server=localhost;Database=YouLi;Uid=root;Pwd=ml336013;", ref xConnection))
+            if (xGen.ConectarDB(ref xConnection))
             {
                 Application.Run(new Main(xConnection));
 
