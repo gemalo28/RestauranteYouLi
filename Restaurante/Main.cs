@@ -16,9 +16,11 @@ namespace Restaurante
     public partial class Main : Form
     {
         private MySqlConnection xConnection = new MySqlConnection();
-        public Main()
+        public Main(MySqlConnection xConnection)
         {
-            InitializeComponent();            
+            InitializeComponent();
+            this.xConnection = xConnection;
+            
         }
     }
 }

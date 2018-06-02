@@ -9,3 +9,13 @@ C:\Users\gemal\source\repos\Restaurante\ReglasDelNegocio\obj\Debug\ReglasDelNego
 C:\Users\gemal\source\repos\Restaurante\ReglasDelNegocio\obj\Debug\ReglasDelNegocio.dll
 C:\Users\gemal\source\repos\Restaurante\ReglasDelNegocio\obj\Debug\ReglasDelNegocio.pdb
 C:\Users\gemal\source\repos\Restaurante\ReglasDelNegocio\obj\Debug\ReglasDelNegocio.csprojAssemblyReference.cache
+C:\Users\gerardo.lopez\Source\Repos\RestauranteYouLi\ReglasDelNegocio\bin\Debug\ReglasDelNegocio.dll
+C:\Users\gerardo.lopez\Source\Repos\RestauranteYouLi\ReglasDelNegocio\bin\Debug\ReglasDelNegocio.pdb
+C:\Users\gerardo.lopez\Source\Repos\RestauranteYouLi\ReglasDelNegocio\bin\Debug\Google.Protobuf.dll
+C:\Users\gerardo.lopez\Source\Repos\RestauranteYouLi\ReglasDelNegocio\bin\Debug\MySql.Data.dll
+C:\Users\gerardo.lopez\Source\Repos\RestauranteYouLi\ReglasDelNegocio\bin\Debug\Google.Protobuf.xml
+C:\Users\gerardo.lopez\Source\Repos\RestauranteYouLi\ReglasDelNegocio\bin\Debug\MySql.Data.xml
+C:\Users\gerardo.lopez\Source\Repos\RestauranteYouLi\ReglasDelNegocio\obj\Debug\ReglasDelNegocio.csproj.CoreCompileInputs.cache
+C:\Users\gerardo.lopez\Source\Repos\RestauranteYouLi\ReglasDelNegocio\obj\Debug\ReglasDelNegocio.csproj.CopyComplete
+C:\Users\gerardo.lopez\Source\Repos\RestauranteYouLi\ReglasDelNegocio\obj\Debug\ReglasDelNegocio.dll
+C:\Users\gerardo.lopez\Source\Repos\RestauranteYouLi\ReglasDelNegocio\obj\Debug\ReglasDelNegocio.pdb
