@@ -16,7 +16,6 @@ namespace ReglasDelNegocio
 
             try
             {
-                xConnection.ConnectionString = sConnectionString;
                 xConnection.Open();
                 bAllOk = true;
             }

@@ -55,10 +55,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DetalleNota.cs" />
+    <Compile Include="DetalleOrden.cs" />
     <Compile Include="DetalleReceta.cs" />
     <Compile Include="Generales.cs" />
     <Compile Include="Inventario.cs" />
     <Compile Include="Notas.cs" />
+    <Compile Include="Ordenes.cs" />
     <Compile Include="Productos.cs" />
     <Compile Include="Recetas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
