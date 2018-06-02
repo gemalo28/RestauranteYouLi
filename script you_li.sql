@@ -1,3 +1,4 @@
+drop database if exists you_li;
 create database you_li;
 
 use you_li;
@@ -53,9 +54,9 @@ id_orden int not null,
 
 id_producto int not null,
 
-foreign key fk_ondenesInDetalle(id_orden) references ordenes(id_orden),
+foreign key fk_ondenesInDetalleOrden(id_orden) references ordenes(id_orden),
 
-foreign key fk_ProductosInDetalle(id_producto) references productos(id_producto)
+foreign key fk_ProductosInDetalleOrden(id_producto) references productos(id_producto)
 
 );
 
@@ -91,9 +92,9 @@ id_nota int not null,
 
 id_producto int not null,
 
-foreign key fk_notasInDetalle(id_nota) references notas(id_nota),
+foreign key fk_notasInDetalleNota(id_nota) references notas(id_nota),
 
-foreign key fk_productosInDetalle(id_producto) references productos(id_producto)
+foreign key fk_productosInDetalleNota(id_producto) references productos(id_producto)
 
 );
 
@@ -129,9 +130,9 @@ id_ingrediente int not null,
 
 cantidad int not null,
 
-foreign key fk_recetasInDetalle(id_receta) references recetas(id_receta),
+foreign key fk_recetasInDetalleReceta(id_receta) references recetas(id_receta),
 
-foreign key fk_inventarioInDetalle(id_ingrediente) references inventario(id_ingrediente),
+foreign key fk_inventarioInDetalleReceta(id_ingrediente) references inventario(id_ingrediente),
 
 primary key(id_receta,id_ingrediente)
 
