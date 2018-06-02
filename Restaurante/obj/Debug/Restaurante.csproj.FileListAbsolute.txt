@@ -19,3 +19,4 @@ C:\Users\gerardo.lopez\Source\Repos\RestauranteYouLi\Restaurante\obj\Debug\Resta
 C:\Users\gerardo.lopez\Source\Repos\RestauranteYouLi\Restaurante\obj\Debug\Restaurante.csproj.CopyComplete
 C:\Users\gerardo.lopez\Source\Repos\RestauranteYouLi\Restaurante\obj\Debug\Restaurante.exe
 C:\Users\gerardo.lopez\Source\Repos\RestauranteYouLi\Restaurante\obj\Debug\Restaurante.pdb
+C:\Users\Carlos\Source\Repos\RestauranteYouLi2\Restaurante\bin\Debug\Restaurante.exe.config
