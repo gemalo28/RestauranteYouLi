@@ -98,7 +98,7 @@
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.dgvInventario);
             this.Name = "DlgInventario";
-            this.Text = "Agregar";
+            this.Text = "Inventario";
             this.Load += new System.EventHandler(this.Inventario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).EndInit();
             this.ResumeLayout(false);
