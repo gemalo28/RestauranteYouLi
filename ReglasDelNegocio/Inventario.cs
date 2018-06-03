@@ -25,7 +25,7 @@ namespace ReglasDelNegocio
             try
             {
                 string sSQlqry = "insert into inventario(nombre, cantidad) " +
-                                 "values(" + sNombre + "," + nCantidad + ")";
+                                 "values('" + sNombre + "'," + nCantidad + ")";
                 MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
                 command.ExecuteNonQuery();
                 command.Dispose();
@@ -45,7 +45,7 @@ namespace ReglasDelNegocio
 
             try
             {
-                string sSQlqry = "";
+                string sSQlqry = "select * from inventario where id_ingrediente = " + nIdIngrediente;
                 MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 adapter.Fill(dtInventario);
@@ -64,7 +64,7 @@ namespace ReglasDelNegocio
 
             try
             {
-                string sSQlqry = "";
+                string sSQlqry = "select id_ingrediente, nombre as 'Nombre', cantidad as 'Cantidad' from inventario";
                 MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 adapter.Fill(dtInventario);
@@ -74,6 +74,25 @@ namespace ReglasDelNegocio
                 sLastError = "Error >>> " + ex.ToString();
             }
 
+
+            return dtInventario;
+        }
+
+        public DataTable ConsultarInventario(string sNombre)
+        {
+            DataTable dtInventario = new DataTable();
+
+            try
+            {
+                string sSQlqry = "select id_ingrediente, nombre as 'Nombre', cantidad as 'Cantidad'from inventario where nombre like '%" + sNombre + "%'";
+                MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                adapter.Fill(dtInventario);
+            }
+            catch (Exception ex)
+            {
+                sLastError = "Error >>> " + ex.ToString();
+            }
 
             return dtInventario;
         }
@@ -104,7 +123,7 @@ namespace ReglasDelNegocio
 
             try
             {
-                string sSQlqry = "update inventario set nombre = " + sNombre + ", cantidad = " + nCantidad + " where id_ingrediente = " + nIdIngrediente;
+                string sSQlqry = "update inventario set nombre = '" + sNombre + "', cantidad = " + nCantidad + " where id_ingrediente = " + nIdIngrediente;
                 MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
                 command.ExecuteNonQuery();
                 command.Dispose();
