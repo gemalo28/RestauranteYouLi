@@ -35,5 +35,13 @@ namespace Restaurante
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DlgProductos dlgProductos = new DlgProductos(xConnection);
+            this.Hide();
+            dlgProductos.ShowDialog();
+            this.Show();
+        }
     }
 }

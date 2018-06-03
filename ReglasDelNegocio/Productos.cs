@@ -45,7 +45,7 @@ namespace ReglasDelNegocio
 
             try
             {
-                string sSQlqry = "select nombre, descripcion, precio from productos " +
+                string sSQlqry = "select id_producto, nombre, descripcion, precio from productos " +
                                  "where id_producto = " + nIdProducto;
                 MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
