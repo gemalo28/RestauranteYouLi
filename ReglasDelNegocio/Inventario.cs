@@ -45,7 +45,7 @@ namespace ReglasDelNegocio
 
             try
             {
-                string sSQlqry = "";
+                string sSQlqry = "select * from inventario where id_ingrediente = " + nIdIngrediente;
                 MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 adapter.Fill(dtInventario);
@@ -64,7 +64,7 @@ namespace ReglasDelNegocio
 
             try
             {
-                string sSQlqry = "select nombre, cantidad from inventario";
+                string sSQlqry = "select id_ingrediente, nombre as 'Nombre', cantidad as 'Cantidad' from inventario";
                 MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 adapter.Fill(dtInventario);
@@ -84,7 +84,7 @@ namespace ReglasDelNegocio
 
             try
             {
-                string sSQlqry = "select nombre, cantidad from inventario where nombre like %'" + sNombre + "'%";
+                string sSQlqry = "select id_ingrediente, nombre as 'Nombre', cantidad as 'Cantidad'from inventario where nombre like '%" + sNombre + "%'";
                 MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 adapter.Fill(dtInventario);

@@ -66,12 +66,41 @@ namespace ReglasDelNegocio
                 MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
                 command.ExecuteNonQuery();
                 command.Dispose();
+                bAllOk = true;
             }
             catch (Exception ex)
             {
                 sLastError = "Error >>> " + ex.ToString();
             }
 
+            return bAllOk;
+        }
+
+        public Boolean ValidarPassword(string sUsuario, string sContrasena)
+        {
+            bool bAllOk = false;
+
+            try
+            {
+                string sSQlqry = "select contraseña from usuarios where usuarios = '" + sUsuario + "'";
+                MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
+                MySqlDataReader reader;
+                reader = command.ExecuteReader();
+
+                while(reader.Read())
+                {
+                    if(reader[0].ToString() == sContrasena)
+                    {
+                        bAllOk = true;
+                    }
+                }
+                command.Dispose();
+                reader.Dispose();
+            }
+            catch (Exception ex)
+            {
+                sLastError = "Error >>> " + ex.ToString();
+            }
 
             return bAllOk;
         }

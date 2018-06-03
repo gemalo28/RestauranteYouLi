@@ -76,11 +76,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DlgAgregarInventario.cs">
+    <Compile Include="AdminConfirmation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DlgAgregarInventario.Designer.cs">
-      <DependentUpon>DlgAgregarInventario.cs</DependentUpon>
+    <Compile Include="AdminConfirmation.Designer.cs">
+      <DependentUpon>AdminConfirmation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgModificarInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgModificarInventario.Designer.cs">
+      <DependentUpon>DlgModificarInventario.cs</DependentUpon>
     </Compile>
     <Compile Include="DlgInventario.cs">
       <SubType>Form</SubType>
@@ -102,8 +108,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="DlgAgregarInventario.resx">
-      <DependentUpon>DlgAgregarInventario.cs</DependentUpon>
+    <EmbeddedResource Include="AdminConfirmation.resx">
+      <DependentUpon>AdminConfirmation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgModificarInventario.resx">
+      <DependentUpon>DlgModificarInventario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DlgInventario.resx">
       <DependentUpon>DlgInventario.cs</DependentUpon>

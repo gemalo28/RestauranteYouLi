@@ -30,5 +30,10 @@ namespace Restaurante
             dlgInventario.ShowDialog();
             this.Show();
         }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
