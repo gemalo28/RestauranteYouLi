@@ -35,5 +35,11 @@ namespace Restaurante
         {
 
         }
+
+        private void btnRecetas_Click(object sender, EventArgs e)
+        {
+            DlgRecetas dlgRecetas = new DlgRecetas(xConnection);
+            dlgRecetas.ShowDialog();
+        }
     }
 }
