@@ -82,6 +82,12 @@
     <Compile Include="AdminConfirmation.Designer.cs">
       <DependentUpon>AdminConfirmation.cs</DependentUpon>
     </Compile>
+    <Compile Include="DlgAgregarIngrediente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgAgregarIngrediente.Designer.cs">
+      <DependentUpon>DlgAgregarIngrediente.cs</DependentUpon>
+    </Compile>
     <Compile Include="DlgModificarInventario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,18 @@
     </Compile>
     <Compile Include="DlgInventario.Designer.cs">
       <DependentUpon>DlgInventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgModificarReceta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgModificarReceta.Designer.cs">
+      <DependentUpon>DlgModificarReceta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgRecetas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgRecetas.Designer.cs">
+      <DependentUpon>DlgRecetas.cs</DependentUpon>
     </Compile>
     <Compile Include="logIn.cs">
       <SubType>Form</SubType>
@@ -111,11 +129,20 @@
     <EmbeddedResource Include="AdminConfirmation.resx">
       <DependentUpon>AdminConfirmation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DlgAgregarIngrediente.resx">
+      <DependentUpon>DlgAgregarIngrediente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DlgModificarInventario.resx">
       <DependentUpon>DlgModificarInventario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DlgInventario.resx">
       <DependentUpon>DlgInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgModificarReceta.resx">
+      <DependentUpon>DlgModificarReceta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgRecetas.resx">
+      <DependentUpon>DlgRecetas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="logIn.resx">
       <DependentUpon>logIn.cs</DependentUpon>
