@@ -25,7 +25,7 @@ namespace ReglasDelNegocio
             try
             {
                 string sSQlqry = "insert into productos(nombre, descripcion, precio) " +
-                                 "values(" + sNombre + "," + sDescripcion + "," + dPrecio + ")";
+                                 "values('" + sNombre + "','" + sDescripcion + "'," + dPrecio + ")";
                 MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
                 command.ExecuteNonQuery();
                 command.Dispose();
@@ -39,17 +39,37 @@ namespace ReglasDelNegocio
             return bAllOk;
         }
 
+        public DataTable ConsultarProductos(string sNomProducto)
+        {
+            DataTable dtProductos = new DataTable();
+
+            try
+            {
+                string sSQlqry = "select id_producto, nombre as NOMBRE, descripcion AS DESCRIPCION, precio AS PRECIO from productos " +
+                                 "where nombre like '%" + sNomProducto+"%'";
+                MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                adapter.Fill(dtProductos);
+                
+            }
+            catch (Exception ex)
+            {
+                sLastError = "Error >>> " + ex.ToString();
+            }
+
+            return dtProductos;
+        }
         public DataTable ConsultarProductos(int nIdProducto)
         {
             DataTable dtProductos = new DataTable();
 
             try
             {
-                string sSQlqry = "select nombre, descripcion, precio from productos " +
-                                 "where id_producto = " + nIdProducto;
+                string sSQlqry = "select nombre,descripcion,precio from prodcutos where id_producto = "+nIdProducto;
                 MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 adapter.Fill(dtProductos);
+
             }
             catch (Exception ex)
             {
@@ -59,13 +79,14 @@ namespace ReglasDelNegocio
             return dtProductos;
         }
 
+
         public DataTable ConsultarProductos()
         {
             DataTable dtProductos = new DataTable();
 
             try
             {
-                string sSQlqry = "select nombre, descripcion, precio from productos ";
+                string sSQlqry = "select id_producto, nombre AS NOMBRE, descripcion AS DESCRIPCION, precio AS PRECIO from productos ";
                 MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 adapter.Fill(dtProductos);

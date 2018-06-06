@@ -39,6 +39,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnInventario = new System.Windows.Forms.Button();
             this.btnRecetas = new System.Windows.Forms.Button();
+            this.btnProductos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -131,11 +132,22 @@
             this.btnRecetas.UseVisualStyleBackColor = true;
             this.btnRecetas.Click += new System.EventHandler(this.btnRecetas_Click);
             // 
+            // btnProductos
+            // 
+            this.btnProductos.Location = new System.Drawing.Point(174, 25);
+            this.btnProductos.Name = "btnProductos";
+            this.btnProductos.Size = new System.Drawing.Size(75, 32);
+            this.btnProductos.TabIndex = 4;
+            this.btnProductos.Text = "Prodcutos";
+            this.btnProductos.UseVisualStyleBackColor = true;
+            this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 624);
+            this.Controls.Add(this.btnProductos);
             this.Controls.Add(this.btnRecetas);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView2);
@@ -165,6 +177,7 @@
 
         private System.Windows.Forms.Button btnInventario;
         private System.Windows.Forms.Button btnRecetas;
+        private System.Windows.Forms.Button btnProductos;
     }
 }
 

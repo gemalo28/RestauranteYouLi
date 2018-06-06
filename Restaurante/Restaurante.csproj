@@ -100,11 +100,23 @@
     <Compile Include="DlgInventario.Designer.cs">
       <DependentUpon>DlgInventario.cs</DependentUpon>
     </Compile>
+    <Compile Include="DlgModificarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgModificarProducto.Designer.cs">
+      <DependentUpon>DlgModificarProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="DlgModificarReceta.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DlgModificarReceta.Designer.cs">
       <DependentUpon>DlgModificarReceta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgProductos.Designer.cs">
+      <DependentUpon>DlgProductos.cs</DependentUpon>
     </Compile>
     <Compile Include="DlgRecetas.cs">
       <SubType>Form</SubType>
@@ -138,8 +150,14 @@
     <EmbeddedResource Include="DlgInventario.resx">
       <DependentUpon>DlgInventario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DlgModificarProducto.resx">
+      <DependentUpon>DlgModificarProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DlgModificarReceta.resx">
       <DependentUpon>DlgModificarReceta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgProductos.resx">
+      <DependentUpon>DlgProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DlgRecetas.resx">
       <DependentUpon>DlgRecetas.cs</DependentUpon>

@@ -41,5 +41,11 @@ namespace Restaurante
             DlgRecetas dlgRecetas = new DlgRecetas(xConnection);
             dlgRecetas.ShowDialog();
         }
+
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            DlgProductos dlgProd = new DlgProductos(xConnection);
+            dlgProd.ShowDialog();
+        }
     }
 }
