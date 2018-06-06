@@ -93,7 +93,7 @@
             // cbxUnidad
             // 
             this.cbxUnidad.FormattingEnabled = true;
-            this.cbxUnidad.Location = new System.Drawing.Point(202, 73);
+            this.cbxUnidad.Location = new System.Drawing.Point(202, 75);
             this.cbxUnidad.Name = "cbxUnidad";
             this.cbxUnidad.Size = new System.Drawing.Size(47, 21);
             this.cbxUnidad.TabIndex = 8;
