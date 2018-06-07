@@ -88,6 +88,18 @@
     <Compile Include="DlgAgregarIngrediente.Designer.cs">
       <DependentUpon>DlgAgregarIngrediente.cs</DependentUpon>
     </Compile>
+    <Compile Include="DlgControlDeVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgControlDeVentas.Designer.cs">
+      <DependentUpon>DlgControlDeVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgDetalleVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgDetalleVenta.Designer.cs">
+      <DependentUpon>DlgDetalleVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="DlgModificarInventario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +155,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DlgAgregarIngrediente.resx">
       <DependentUpon>DlgAgregarIngrediente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgControlDeVentas.resx">
+      <DependentUpon>DlgControlDeVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgDetalleVenta.resx">
+      <DependentUpon>DlgDetalleVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DlgModificarInventario.resx">
       <DependentUpon>DlgModificarInventario.cs</DependentUpon>
