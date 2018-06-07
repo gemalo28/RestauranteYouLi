@@ -40,6 +40,7 @@
             this.btnInventario = new System.Windows.Forms.Button();
             this.btnRecetas = new System.Windows.Forms.Button();
             this.btnProductos = new System.Windows.Forms.Button();
+            this.btnCtrlVentas = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -116,7 +117,7 @@
             // 
             this.btnInventario.Location = new System.Drawing.Point(12, 25);
             this.btnInventario.Name = "btnInventario";
-            this.btnInventario.Size = new System.Drawing.Size(75, 32);
+            this.btnInventario.Size = new System.Drawing.Size(75, 47);
             this.btnInventario.TabIndex = 0;
             this.btnInventario.Text = "Inventario";
             this.btnInventario.UseVisualStyleBackColor = true;
@@ -126,7 +127,7 @@
             // 
             this.btnRecetas.Location = new System.Drawing.Point(93, 25);
             this.btnRecetas.Name = "btnRecetas";
-            this.btnRecetas.Size = new System.Drawing.Size(75, 32);
+            this.btnRecetas.Size = new System.Drawing.Size(75, 47);
             this.btnRecetas.TabIndex = 3;
             this.btnRecetas.Text = "Recetas";
             this.btnRecetas.UseVisualStyleBackColor = true;
@@ -136,17 +137,28 @@
             // 
             this.btnProductos.Location = new System.Drawing.Point(174, 25);
             this.btnProductos.Name = "btnProductos";
-            this.btnProductos.Size = new System.Drawing.Size(75, 32);
+            this.btnProductos.Size = new System.Drawing.Size(75, 47);
             this.btnProductos.TabIndex = 4;
-            this.btnProductos.Text = "Prodcutos";
+            this.btnProductos.Text = "Productos";
             this.btnProductos.UseVisualStyleBackColor = true;
             this.btnProductos.Click += new System.EventHandler(this.btnProductos_Click);
+            // 
+            // btnCtrlVentas
+            // 
+            this.btnCtrlVentas.Location = new System.Drawing.Point(255, 25);
+            this.btnCtrlVentas.Name = "btnCtrlVentas";
+            this.btnCtrlVentas.Size = new System.Drawing.Size(83, 47);
+            this.btnCtrlVentas.TabIndex = 5;
+            this.btnCtrlVentas.Text = "Control de Ventas";
+            this.btnCtrlVentas.UseVisualStyleBackColor = true;
+            this.btnCtrlVentas.Click += new System.EventHandler(this.btnCtrlVentas_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 624);
+            this.Controls.Add(this.btnCtrlVentas);
             this.Controls.Add(this.btnProductos);
             this.Controls.Add(this.btnRecetas);
             this.Controls.Add(this.label1);
@@ -178,6 +190,7 @@
         private System.Windows.Forms.Button btnInventario;
         private System.Windows.Forms.Button btnRecetas;
         private System.Windows.Forms.Button btnProductos;
+        private System.Windows.Forms.Button btnCtrlVentas;
     }
 }
 
