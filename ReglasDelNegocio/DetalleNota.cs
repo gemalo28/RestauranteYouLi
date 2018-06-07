@@ -39,17 +39,16 @@ namespace ReglasDelNegocio
             return bAllOk;
         }
 
-        public DataTable ConsultarDetalle(int nIdNota, int nIdDetalle)
+        public DataTable ConsultarDetalle(int nIdNota)
         {
             DataTable dtDetalle = new DataTable();
 
             try
             {
-                string sSQlqry = "select * from detalle_nota d" +
-                                 "join "+
-                                 ""+
-                                 ""+
-                                 "";
+                string sSQlqry = "select pr.nombre as Nombre, pr.descripcion as Descripcion, pr.precio as Precio " +
+                                 "from detalle_nota dn " +
+                                 "join productos pr on pr.id_producto = dn.id_producto " +
+                                 "where dn.id_nota = " + nIdNota;
                 MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 adapter.Fill(dtDetalle);

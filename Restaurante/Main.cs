@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data;
 using MySql.Data.MySqlClient;
 using ReglasDelNegocio;
 
@@ -46,6 +45,12 @@ namespace Restaurante
         {
             DlgProductos dlgProd = new DlgProductos(xConnection);
             dlgProd.ShowDialog();
+        }
+
+        private void btnCtrlVentas_Click(object sender, EventArgs e)
+        {
+            DlgControlDeVentas dlgCtrl = new DlgControlDeVentas(xConnection);
+            dlgCtrl.ShowDialog();
         }
     }
 }

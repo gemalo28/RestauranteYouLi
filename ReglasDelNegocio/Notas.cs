@@ -79,13 +79,36 @@ namespace ReglasDelNegocio
             return dtNotas;
         }
 
-        public DataTable ConsultarNota(DateTime Fecha)
+        public DataTable ConsultarNota()
         {
             DataTable dtNotas = new DataTable();
 
             try
             {
-                string sSQlqry = "";
+                string sSQlqry = "select id_nota as ID, propietario as Propietario, date(fecha) as Fecha, descripcion as Descripcion, total as Total " +
+                                 "from notas " +
+                                 "where date(fecha) = date(now())";
+                MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                adapter.Fill(dtNotas);
+            }
+            catch (Exception ex)
+            {
+                sLastError = "Error >>> " + ex.ToString();
+            }
+
+            return dtNotas;
+        }
+
+        public DataTable ConsultarNota(DateTime dtFechaIn, DateTime dtFechaFin)
+        {
+            DataTable dtNotas = new DataTable();
+
+            try
+            {
+                string sSQlqry = "select id_nota as ID, propietario as Propietario, date(fecha) as Fecha, descripcion as Descripcion, total as Total " +
+                                 "from notas " +
+                                 "where date(fecha) between '" + dtFechaIn.ToString("yyyy-MM-dd") + "' and '" + dtFechaFin.ToString("yyyy-MM-dd") + "'";
                 MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 adapter.Fill(dtNotas);
