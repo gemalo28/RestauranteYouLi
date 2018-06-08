@@ -17,7 +17,8 @@ namespace Restaurante
         MySqlConnection xConnection;
         Productos xProd;
         int nIdProdcuto;
-        public DlgModificarProducto(MySqlConnection xConnection,int nIdProdcuto = 0)
+        public DlgModificarProducto(MySqlConnection xConnection,int nIdProdcuto = 0,string sNomProd ="", string sDescProd = "",
+            string sPrecioProd = "")
         {
             InitializeComponent();
             this.xConnection = xConnection;
@@ -25,8 +26,9 @@ namespace Restaurante
             this.xProd = new Productos(xConnection);
             if (nIdProdcuto != 0)
             {
-                DataTable dt = xProd.ConsultarProductos(nIdProdcuto);
-                
+                tbNombre.Text = sNomProd;
+                tbDescripcion.Text = sDescProd;
+                tbPrecio.Text = sPrecioProd;
             }
         }
 
@@ -84,8 +86,18 @@ namespace Restaurante
             {
                 if (bAgregarOModificar())
                 {
-                    MessageBox.Show("Se Agregó correctamente el producto '"+tbNombre.Text+"'");
-                    limpiar();
+                    if (nIdProdcuto != 0)
+                    {
+                        MessageBox.Show("Se modificó correctamente el producto '" + tbNombre.Text + "'");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se Agregó correctamente el producto '" + tbNombre.Text + "'");
+                        limpiar();
+                    }
+                    
+                    
 
                 } 
             }

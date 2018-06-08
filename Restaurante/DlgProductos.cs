@@ -27,7 +27,7 @@ namespace Restaurante
         private void DlgProductoscs_Load(object sender, EventArgs e)
         {
             dgvProductos.DataSource = xProd.ConsultarProductos();
-            tbBuscar.Select();
+            tbBuscar.Focus();
         }
 
         public void btnBuscar_Click(object sender, EventArgs e)
@@ -60,7 +60,11 @@ namespace Restaurante
 
         private void dgvProductos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            DlgModificarProducto dlgModProd = new DlgModificarProducto(xConnection, Convert.ToInt32(dgvProductos.Rows[e.RowIndex].Cells[0].Value.ToString()));
+            DlgModificarProducto dlgModProd = new DlgModificarProducto(xConnection, Convert.ToInt32(dgvProductos.Rows[e.RowIndex].Cells[0].Value.ToString()),
+                dgvProductos.Rows[e.RowIndex].Cells[1].Value.ToString(),
+                dgvProductos.Rows[e.RowIndex].Cells[2].Value.ToString(),
+                dgvProductos.Rows[e.RowIndex].Cells[3].Value.ToString()
+                );
             dlgModProd.ShowDialog();
             DlgProductoscs_Load(sender, e);
         }
