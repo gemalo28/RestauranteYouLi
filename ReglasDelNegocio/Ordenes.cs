@@ -39,13 +39,13 @@ namespace ReglasDelNegocio
             return bAllOk;
         }
 
-        public DataTable ConsultarOrdenes()
+        public DataTable ConsultarOrdenes(string sNomPropietario ="")
         {
             DataTable dtDetalle = new DataTable();
 
             try
             {
-                string sSQlqry = "select * from ordenes where flag_pagado = 0";
+                string sSQlqry = "select id_orden,propietario as PROPIETARIO,FECHA,DESCRIPCION AS DESCRIPCION,TOTAL AS TOTAL,FLAG_PAGADO from ordenes where flag_pagado = 0 and propietario like '%"+sNomPropietario+"%'";
                 MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 adapter.Fill(dtDetalle);
