@@ -125,8 +125,8 @@ namespace ReglasDelNegocio
 
             try
             {
-                string sSQlqry = "update productos set nombre = " + sNombre + ", descripcion = " + sDescripcion + ", precio = " + dPrecio +
-                                 "where id_producto = " + nIdProducto;
+                string sSQlqry = "update productos set nombre = '" + sNombre + "', descripcion = '" + sDescripcion + "', precio = " + dPrecio +
+                                 " where id_producto = " + nIdProducto;
                 MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
                 command.ExecuteNonQuery();
                 command.Dispose();
