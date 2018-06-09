@@ -82,11 +82,19 @@ namespace Restaurante
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            lbPropietario.Text = dgvOrdenes.Rows[e.RowIndex].Cells[1].Value.ToString();
-            lbfecha.Text = dgvOrdenes.Rows[e.RowIndex].Cells[2].Value.ToString();
-            tbDescripcion.Text = dgvOrdenes.Rows[e.RowIndex].Cells[3].Value.ToString();
-            btnTotal.Text = "$"+ dgvOrdenes.Rows[e.RowIndex].Cells[4].Value.ToString()+"";
-            btnParcial.Text = "$00.0";
+            try
+            {
+                lbPropietario.Text = dgvOrdenes.Rows[e.RowIndex].Cells[1].Value.ToString();
+                lbfecha.Text = dgvOrdenes.Rows[e.RowIndex].Cells[2].Value.ToString();
+                tbDescripcion.Text = dgvOrdenes.Rows[e.RowIndex].Cells[3].Value.ToString();
+                btnTotal.Text = "$" + dgvOrdenes.Rows[e.RowIndex].Cells[4].Value.ToString() + "";
+                btnParcial.Text = "$00.0";
+            }
+            catch (Exception)
+            {
+                //MessageBox.Show("Seleccione una casilla correcta");
+            }
+
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -99,6 +107,14 @@ namespace Restaurante
             dgvOrdenes.Columns[0].Visible = false;
             dgvOrdenes.Columns[2].Visible = false;
             dgvOrdenes.Columns[5].Visible = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DlgAgregarOrdenes dlgOrdenes = new DlgAgregarOrdenes(xConnection);
+            dlgOrdenes.ShowDialog();
+            Main_Load(sender, e);
+            tbNombre.Focus();
         }
     }
 }
