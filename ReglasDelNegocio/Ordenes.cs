@@ -18,14 +18,14 @@ namespace ReglasDelNegocio
             this.xConnection = xConnection;
         }
 
-        public Boolean AgregarOrden(string sPropietario, string sDescripcion, double dTotal)
+        public Boolean AgregarOrden(string sPropietario, string sDescripcion)
         {
             bool bAllOk = false;
 
             try
             {
-                string sSQlqry = "Insert into detalle_nota(propiertario, descripcion, total) " +
-                                 "values(" + sPropietario + "," + sDescripcion + "," + dTotal + ")";
+                    string sSQlqry = "Insert into ordenes(propietario, descripcion) " +
+                                 "values('" + sPropietario + "','" + sDescripcion + "')";
                 MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
                 command.ExecuteNonQuery();
                 command.Dispose();
@@ -45,7 +45,7 @@ namespace ReglasDelNegocio
 
             try
             {
-                string sSQlqry = "select id_orden,propietario as PROPIETARIO,FECHA,DESCRIPCION AS DESCRIPCION,TOTAL AS TOTAL,FLAG_PAGADO from ordenes where flag_pagado = 0 and propietario like '%"+sNomPropietario+"%'";
+                string sSQlqry = "select id_orden,propietario as PROPIETARIO,FECHA as FECHA,DESCRIPCION AS DESCRIPCION,TOTAL AS TOTAL,FLAG_PAGADO from ordenes where flag_pagado = 0 and propietario like '%"+sNomPropietario+"%'";
                 MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 adapter.Fill(dtDetalle);
@@ -79,13 +79,13 @@ namespace ReglasDelNegocio
             return bAllOk;
         }
 
-        public Boolean ActualizarOrden(int nIdOrden, string sPropietario, string sDescripcion, double dTotal, int nFlagPagado)
+        public Boolean ActualizarOrden(int nIdOrden, string sPropietario, string sDescripcion)
         {
             bool bAllOk = false;
 
             try
             {
-                string sSQlqry = "update ordenes set propietario = " + sPropietario + ",descripcion = " + sDescripcion + ",total = " + dTotal + ", flag_pagado = " + nFlagPagado +
+                string sSQlqry = "update ordenes set propietario = '" + sPropietario + "',descripcion = '" + sDescripcion + "' " +
                                  "where id_orden = " + nIdOrden;
                 MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
                 command.ExecuteNonQuery();

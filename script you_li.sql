@@ -38,7 +38,7 @@ fecha timestamp default current_timestamp,
 
 descripcion varchar(100),
 
-total float(7,2) not null,
+total float(7,2) default 0,
 
 flag_pagado bit default 0
 
