@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bitacora.cs" />
     <Compile Include="DetalleNota.cs" />
     <Compile Include="DetalleOrden.cs" />
     <Compile Include="DetalleReceta.cs" />

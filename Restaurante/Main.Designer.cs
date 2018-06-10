@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvDetalles = new System.Windows.Forms.DataGridView();
             this.dgvOrdenes = new System.Windows.Forms.DataGridView();
             this.btnInventario = new System.Windows.Forms.Button();
@@ -48,6 +48,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbDescripcion = new System.Windows.Forms.TextBox();
             this.lbPropietario = new System.Windows.Forms.Label();
+            this.btnAgregarReceta = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -55,8 +56,8 @@
             // 
             // dgvDetalles
             // 
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvDetalles.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvDetalles.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDetalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetalles.Location = new System.Drawing.Point(284, 231);
             this.dgvDetalles.Name = "dgvDetalles";
@@ -67,14 +68,14 @@
             // 
             // dgvOrdenes
             // 
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvOrdenes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvOrdenes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvOrdenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrdenes.Location = new System.Drawing.Point(651, 157);
             this.dgvOrdenes.Name = "dgvOrdenes";
             this.dgvOrdenes.RowHeadersVisible = false;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvOrdenes.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvOrdenes.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvOrdenes.Size = new System.Drawing.Size(298, 470);
             this.dgvOrdenes.TabIndex = 1;
             this.dgvOrdenes.DataSourceChanged += new System.EventHandler(this.dgvOrdenes_DataSourceChanged);
@@ -83,7 +84,7 @@
             // 
             // btnInventario
             // 
-            this.btnInventario.Location = new System.Drawing.Point(12, 31);
+            this.btnInventario.Location = new System.Drawing.Point(12, 67);
             this.btnInventario.Name = "btnInventario";
             this.btnInventario.Size = new System.Drawing.Size(101, 61);
             this.btnInventario.TabIndex = 0;
@@ -93,7 +94,7 @@
             // 
             // btnRecetas
             // 
-            this.btnRecetas.Location = new System.Drawing.Point(12, 98);
+            this.btnRecetas.Location = new System.Drawing.Point(12, 134);
             this.btnRecetas.Name = "btnRecetas";
             this.btnRecetas.Size = new System.Drawing.Size(101, 61);
             this.btnRecetas.TabIndex = 3;
@@ -103,7 +104,7 @@
             // 
             // btnProductos
             // 
-            this.btnProductos.Location = new System.Drawing.Point(12, 162);
+            this.btnProductos.Location = new System.Drawing.Point(12, 198);
             this.btnProductos.Name = "btnProductos";
             this.btnProductos.Size = new System.Drawing.Size(101, 61);
             this.btnProductos.TabIndex = 4;
@@ -113,7 +114,7 @@
             // 
             // btnCtrlVentas
             // 
-            this.btnCtrlVentas.Location = new System.Drawing.Point(12, 229);
+            this.btnCtrlVentas.Location = new System.Drawing.Point(12, 265);
             this.btnCtrlVentas.Name = "btnCtrlVentas";
             this.btnCtrlVentas.Size = new System.Drawing.Size(101, 61);
             this.btnCtrlVentas.TabIndex = 5;
@@ -245,11 +246,22 @@
             this.lbPropietario.Text = "Propietario";
             this.lbPropietario.Click += new System.EventHandler(this.lbPropietario_Click);
             // 
+            // btnAgregarReceta
+            // 
+            this.btnAgregarReceta.Location = new System.Drawing.Point(49, 31);
+            this.btnAgregarReceta.Name = "btnAgregarReceta";
+            this.btnAgregarReceta.Size = new System.Drawing.Size(64, 30);
+            this.btnAgregarReceta.TabIndex = 8;
+            this.btnAgregarReceta.Text = "+ Recetas";
+            this.btnAgregarReceta.UseVisualStyleBackColor = true;
+            this.btnAgregarReceta.Click += new System.EventHandler(this.btnAgregarReceta_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1086, 657);
+            this.Controls.Add(this.btnAgregarReceta);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCtrlVentas);
             this.Controls.Add(this.btnInventario);
@@ -287,6 +299,7 @@
         private System.Windows.Forms.Button btnTotal;
         private System.Windows.Forms.Button btnParcial;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAgregarReceta;
     }
 }
 

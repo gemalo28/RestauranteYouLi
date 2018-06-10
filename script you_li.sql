@@ -139,3 +139,47 @@ primary key(id_receta,id_ingrediente)
 );
 
 
+create table bitacora_rec(
+  
+id_detalle_bit int auto_increment primary key,
+  
+id_receta int not null,
+  
+fecha timestamp default current_timestamp
+  
+);
+
+create table detalle_bitacora(
+  
+id_detalle_bit int not null,
+  
+id_ingrediente int not null, 
+  
+cantidad int not null,
+  
+foreign key fk_bitacoraInDetalleBitacora(id_detalle_bit) references bitacora_rec(id_detalle_bit),
+  
+primary key(id_detalle_bit, id_ingrediente)
+  
+);
+
+Delimiter $$
+CREATE PROCEDURE `ActualizarInventario` (IN IdReceta int)
+BEGIN
+insert into bitacora_rec(id_receta)
+values ( IdReceta ); 
+
+insert into detalle_bitacora(id_detalle_bit, id_ingrediente, cantidad)
+select last_insert_id(), id_ingrediente, cantidad
+from detalle_receta
+where id_receta = IdReceta;
+
+update inventario I, (select id_ingrediente, cantidad from detalle_bitacora where id_detalle_bit = last_insert_id()) src
+set I.cantidad = (I.cantidad - src.cantidad)
+where I.id_ingrediente = src.id_ingrediente;
+
+END
+$$
+
+
+
