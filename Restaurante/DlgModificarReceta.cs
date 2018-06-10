@@ -19,7 +19,7 @@ namespace Restaurante
         private DetalleReceta xDetalleRec;
         private int nIdReceta;
 
-        public DlgModificarReceta(MySqlConnection xConnection, int nIdReceta = 0)
+        public DlgModificarReceta(MySqlConnection xConnection, int nIdReceta = 0, bool bModify = false)
         {
             InitializeComponent();
             this.xConnection = xConnection;
@@ -30,6 +30,14 @@ namespace Restaurante
             if(nIdReceta > 0)
             {
                 ConsultarReceta();
+            }
+
+            if(bModify)
+            {
+                tbNombre.ReadOnly = true;
+                btnAgregar.Visible = false;
+                btnConfirmar.Visible = false;
+                dgvIngredientes.Columns[3].ReadOnly = true;
             }
         }
 
