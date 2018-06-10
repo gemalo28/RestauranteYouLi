@@ -33,6 +33,9 @@
             this.tbNombre = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.dgvRecetas = new System.Windows.Forms.DataGridView();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.tbCantidad = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecetas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,11 +90,43 @@
             this.dgvRecetas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRecetas_CellDoubleClick);
             this.dgvRecetas.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvRecetas_UserDeletingRow);
             // 
+            // btnAceptar
+            // 
+            this.btnAceptar.Location = new System.Drawing.Point(258, 364);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptar.TabIndex = 10;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Visible = false;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            // 
+            // tbCantidad
+            // 
+            this.tbCantidad.Location = new System.Drawing.Point(71, 366);
+            this.tbCantidad.Name = "tbCantidad";
+            this.tbCantidad.Size = new System.Drawing.Size(100, 20);
+            this.tbCantidad.TabIndex = 11;
+            this.tbCantidad.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(16, 369);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Cantidad";
+            this.label2.Visible = false;
+            // 
             // DlgRecetas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(382, 374);
+            this.ClientSize = new System.Drawing.Size(382, 416);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.tbCantidad);
+            this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.tbNombre);
@@ -113,5 +148,8 @@
         private System.Windows.Forms.TextBox tbNombre;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.DataGridView dgvRecetas;
+        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.TextBox tbCantidad;
+        private System.Windows.Forms.Label label2;
     }
 }

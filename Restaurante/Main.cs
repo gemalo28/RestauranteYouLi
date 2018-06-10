@@ -116,5 +116,11 @@ namespace Restaurante
             Main_Load(sender, e);
             tbNombre.Focus();
         }
+
+        private void btnAgregarReceta_Click(object sender, EventArgs e)
+        {
+            DlgRecetas dlgRecetas = new DlgRecetas(xConnection, true);
+            dlgRecetas.ShowDialog();
+        }
     }
 }
