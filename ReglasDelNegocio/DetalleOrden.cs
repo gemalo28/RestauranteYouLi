@@ -43,7 +43,8 @@ namespace ReglasDelNegocio
 
             try
             {
-                string sSQlqry = "select * from detalle_orden where id_orden = " + nIdOrden;
+                string sSQlqry = "select id_detalleOrden,id_orden,d.id_producto,nombre AS PRODUCTO,precio AS PRECIO from detalle_orden d " +
+                "inner join productos p on d.id_producto = p.id_producto where id_orden = " + nIdOrden+ " ORDER BY id_detalleOrden and flag_pagado = 0";
                 MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 adapter.Fill(dtDetalle);
@@ -55,6 +56,7 @@ namespace ReglasDelNegocio
 
             return dtDetalle;
         }
+
 
         public Boolean BorrarDetalle(int nIdDetalle)
         {
