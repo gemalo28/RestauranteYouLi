@@ -26,8 +26,6 @@ namespace Restaurante
              xOrdenes = new Ordenes(this.xConnection);
              xProd = new Productos(this.xConnection);
              xDetProd = new DetalleOrden(this.xConnection);
-
-
         }
 
         private void btnInventario_Click(object sender, EventArgs e)
@@ -36,11 +34,6 @@ namespace Restaurante
             this.Hide();
             dlgInventario.ShowDialog();
             this.Show();
-        }
-
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void btnRecetas_Click(object sender, EventArgs e)
@@ -69,28 +62,12 @@ namespace Restaurante
 
         private void dataGridView1_DataSourceChanged(object sender, EventArgs e)
         {
-            if (dgvDetalles.DataSource != null)
-            {
-                dgvDetalles.Columns[0].Visible = false;
-                dgvDetalles.Columns[1].Visible = false;
-                dgvDetalles.Columns[2].Visible = false;
-            }
-
-        }
-
-        private void tbNombre_TextChanged(object sender, EventArgs e)
-        {
-            
-                
-        }
-
-        private void lbPropietario_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
+            //if (dgvDetalles.DataSource != null)
+            //{
+            //    dgvDetalles.Columns[0].Visible = false;
+            //    dgvDetalles.Columns[1].Visible = false;
+            //    dgvDetalles.Columns[2].Visible = false;
+            //}
 
         }
 
@@ -105,26 +82,32 @@ namespace Restaurante
                 btnParcial.Text = "$00.0";
                 nIdSelected = Convert.ToInt32(dgvOrdenes.Rows[e.RowIndex].Cells[0].Value.ToString());
 
-                dgvDetalles.DataSource = xDetProd.ConsultarDetalle(nIdSelected);
+                // dgvDetalles.DataSource = xDetProd.ConsultarDetalle(nIdSelected);
+                llenarDetalle();
             }
             catch (Exception)
             {
                 Reset();
-                MessageBox.Show("No se pudo consular orden");
+                //MessageBox.Show("No se pudo consular orden");
+                MessageBox.Show(xDetProd.sLastError);
             }
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
 
         }
 
         private void dgvOrdenes_DataSourceChanged(object sender, EventArgs e)
         {
-            dgvOrdenes.Columns[0].Visible = false;
-            dgvOrdenes.Columns[2].Visible = false;
-            dgvOrdenes.Columns[5].Visible = false;
+            if (dgvOrdenes.Columns.Count > 0)
+            {
+                dgvOrdenes.Columns[0].Visible = false;
+                dgvOrdenes.Columns[2].Visible = false;
+                dgvOrdenes.Columns[5].Visible = false;
+                
+            }
+            else
+            {
+                MessageBox.Show(xOrdenes.sLastError);
+            }
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -147,9 +130,9 @@ namespace Restaurante
             tbDescripcion.Text = "";
             tbDescripcion.Text = "";
             nIdSelected = 0;
-            btnTotal.Text = "$00.0";
-            btnParcial.Text = "$00.0";
-            dgvDetalles.DataSource = null;
+            btnTotal.Text = "$00.00";
+            btnParcial.Text = "$00.00";
+            dgvDetalles.Rows.Clear();
             dgvOrdenes.DataSource = xOrdenes.ConsultarOrdenes();
             dgvProductos.DataSource = xProd.ConsultarProductos();
         }
@@ -167,11 +150,13 @@ namespace Restaurante
             {
                 if (xDetProd.AgregarDetalle(Convert.ToInt32(nIdSelected),Convert.ToInt32(dgvProductos.Rows[e.RowIndex].Cells[0].Value.ToString())))
                 {
-                    dgvDetalles.DataSource = xDetProd.ConsultarDetalle(nIdSelected);
+                    //dgvDetalles.DataSource = xDetProd.ConsultarDetalle(nIdSelected);
+                    llenarDetalle();
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo agregar producto a la orden");
+                    //MessageBox.Show("No se pudo agregar producto a la orden");
+                    MessageBox.Show(xDetProd.sLastError);
                 }
             }
             else
@@ -180,21 +165,32 @@ namespace Restaurante
             }
         }
 
-        private void dgvDetalles_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void dgvDetalles_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (xDetProd.BorrarDetalle(Convert.ToInt32(dgvDetalles.Rows[e.RowIndex].Cells[0].Value.ToString())))
             {
-                dgvDetalles.DataSource = xDetProd.ConsultarDetalle(nIdSelected);
+                llenarDetalle();
             }
             else
             {
-                MessageBox.Show("No se pudo eliminar el producto de la orden");
+                //MessageBox.Show("No se pudo eliminar el producto de la orden");
+                MessageBox.Show(xDetProd.sLastError);
             }
+        }
+
+        private void llenarDetalle()
+        {
+            DataTable dtDetalle = xDetProd.ConsultarDetalle(nIdSelected);
+            dgvDetalles.Rows.Clear();
+
+            foreach(DataRow row in dtDetalle.Rows)
+            {
+                dgvDetalles.Rows.Add(row[0].ToString(), row[2].ToString(), true, row[3].ToString(), row[4].ToString());
+            }
+
+            dgvOrdenes.DataSource = xOrdenes.ConsultarOrdenes();
+            
+            btnTotal.Text = "$" + xOrdenes.getTotal(nIdSelected);
         }
     }
 }

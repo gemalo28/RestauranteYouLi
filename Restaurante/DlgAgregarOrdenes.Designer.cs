@@ -100,9 +100,13 @@
             // 
             // dgvOrdenes
             // 
+            this.dgvOrdenes.AllowUserToAddRows = false;
+            this.dgvOrdenes.AllowUserToDeleteRows = false;
+            this.dgvOrdenes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvOrdenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrdenes.Location = new System.Drawing.Point(301, 42);
             this.dgvOrdenes.Name = "dgvOrdenes";
+            this.dgvOrdenes.ReadOnly = true;
             this.dgvOrdenes.Size = new System.Drawing.Size(566, 323);
             this.dgvOrdenes.TabIndex = 6;
             this.dgvOrdenes.DataSourceChanged += new System.EventHandler(this.dgvOrdenes_DataSourceChanged);
@@ -133,7 +137,7 @@
             this.Controls.Add(this.tbDesc);
             this.Controls.Add(this.tbProp);
             this.Name = "DlgAgregarOrdenes";
-            this.Text = "DlgAgregarOrdenes";
+            this.Text = "Ordenes";
             this.Load += new System.EventHandler(this.DlgAgregarOrdenes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).EndInit();
             this.ResumeLayout(false);
