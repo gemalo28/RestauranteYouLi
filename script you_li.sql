@@ -54,6 +54,8 @@ id_orden int not null,
 
 id_producto int not null,
 
+flag_pagado int not null default 0,
+
 foreign key fk_ondenesInDetalleOrden(id_orden) references ordenes(id_orden),
 
 foreign key fk_ProductosInDetalleOrden(id_producto) references productos(id_producto)
