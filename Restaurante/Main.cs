@@ -16,12 +16,18 @@ namespace Restaurante
     {
         private MySqlConnection xConnection = new MySqlConnection();
         private Ordenes xOrdenes;
+        private Productos xProd;
+        private DetalleOrden xDetProd;
+        int nIdSelected = 0;
         public Main(MySqlConnection xConnection)
         {
             InitializeComponent();
             this.xConnection = xConnection;
              xOrdenes = new Ordenes(this.xConnection);
-            
+             xProd = new Productos(this.xConnection);
+             xDetProd = new DetalleOrden(this.xConnection);
+
+
         }
 
         private void btnInventario_Click(object sender, EventArgs e)
@@ -47,6 +53,7 @@ namespace Restaurante
         {
             DlgProductos dlgProd = new DlgProductos(xConnection);
             dlgProd.ShowDialog();
+            Main_Load(sender, e);
         }
 
         private void btnCtrlVentas_Click(object sender, EventArgs e)
@@ -57,17 +64,24 @@ namespace Restaurante
 
         private void Main_Load(object sender, EventArgs e)
         {
-            dgvOrdenes.DataSource = xOrdenes.ConsultarOrdenes();
+            Reset();
         }
 
         private void dataGridView1_DataSourceChanged(object sender, EventArgs e)
         {
+            if (dgvDetalles.DataSource != null)
+            {
+                dgvDetalles.Columns[0].Visible = false;
+                dgvDetalles.Columns[1].Visible = false;
+                dgvDetalles.Columns[2].Visible = false;
+            }
 
         }
 
         private void tbNombre_TextChanged(object sender, EventArgs e)
         {
-            dgvOrdenes.DataSource = xOrdenes.ConsultarOrdenes(tbNombre.Text);
+            
+                
         }
 
         private void lbPropietario_Click(object sender, EventArgs e)
@@ -89,10 +103,14 @@ namespace Restaurante
                 tbDescripcion.Text = dgvOrdenes.Rows[e.RowIndex].Cells[3].Value.ToString();
                 btnTotal.Text = "$" + dgvOrdenes.Rows[e.RowIndex].Cells[4].Value.ToString() + "";
                 btnParcial.Text = "$00.0";
+                nIdSelected = Convert.ToInt32(dgvOrdenes.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+                dgvDetalles.DataSource = xDetProd.ConsultarDetalle(nIdSelected);
             }
             catch (Exception)
             {
-                //MessageBox.Show("Seleccione una casilla correcta");
+                Reset();
+                MessageBox.Show("No se pudo consular orden");
             }
 
         }
@@ -121,6 +139,62 @@ namespace Restaurante
         {
             DlgRecetas dlgRecetas = new DlgRecetas(xConnection, true);
             dlgRecetas.ShowDialog();
+        }
+        public void Reset()
+        {
+            lbPropietario.Text = "";
+            lbfecha.Text = "";
+            tbDescripcion.Text = "";
+            tbDescripcion.Text = "";
+            nIdSelected = 0;
+            btnTotal.Text = "$00.0";
+            btnParcial.Text = "$00.0";
+            dgvDetalles.DataSource = null;
+            dgvOrdenes.DataSource = xOrdenes.ConsultarOrdenes();
+            dgvProductos.DataSource = xProd.ConsultarProductos();
+        }
+
+        private void dgvProductos_DataSourceChanged(object sender, EventArgs e)
+        {
+            dgvProductos.Columns[0].Visible = false;
+            dgvProductos.Columns[2].Visible = false;
+        }
+
+        private void dgvProductos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //AQUI
+            if (nIdSelected >0)
+            {
+                if (xDetProd.AgregarDetalle(Convert.ToInt32(nIdSelected),Convert.ToInt32(dgvProductos.Rows[e.RowIndex].Cells[0].Value.ToString())))
+                {
+                    dgvDetalles.DataSource = xDetProd.ConsultarDetalle(nIdSelected);
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo agregar producto a la orden");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una orden, Por favor!");
+            }
+        }
+
+        private void dgvDetalles_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvDetalles_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (xDetProd.BorrarDetalle(Convert.ToInt32(dgvDetalles.Rows[e.RowIndex].Cells[0].Value.ToString())))
+            {
+                dgvDetalles.DataSource = xDetProd.ConsultarDetalle(nIdSelected);
+            }
+            else
+            {
+                MessageBox.Show("No se pudo eliminar el producto de la orden");
+            }
         }
     }
 }

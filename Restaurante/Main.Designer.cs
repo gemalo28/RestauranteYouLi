@@ -39,6 +39,8 @@
             this.btnCtrlVentas = new System.Windows.Forms.Button();
             this.tbNombre = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbNomProd = new System.Windows.Forms.TextBox();
+            this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.btnTotal = new System.Windows.Forms.Button();
             this.btnParcial = new System.Windows.Forms.Button();
@@ -52,6 +54,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvDetalles
@@ -59,12 +62,14 @@
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvDetalles.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDetalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetalles.Location = new System.Drawing.Point(284, 231);
+            this.dgvDetalles.Location = new System.Drawing.Point(284, 188);
             this.dgvDetalles.Name = "dgvDetalles";
             this.dgvDetalles.RowHeadersVisible = false;
-            this.dgvDetalles.Size = new System.Drawing.Size(352, 323);
+            this.dgvDetalles.Size = new System.Drawing.Size(352, 366);
             this.dgvDetalles.TabIndex = 0;
             this.dgvDetalles.DataSourceChanged += new System.EventHandler(this.dataGridView1_DataSourceChanged);
+            this.dgvDetalles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalles_CellContentClick);
+            this.dgvDetalles.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalles_CellDoubleClick);
             // 
             // dgvOrdenes
             // 
@@ -84,7 +89,7 @@
             // 
             // btnInventario
             // 
-            this.btnInventario.Location = new System.Drawing.Point(12, 67);
+            this.btnInventario.Location = new System.Drawing.Point(12, 169);
             this.btnInventario.Name = "btnInventario";
             this.btnInventario.Size = new System.Drawing.Size(101, 61);
             this.btnInventario.TabIndex = 0;
@@ -94,7 +99,7 @@
             // 
             // btnRecetas
             // 
-            this.btnRecetas.Location = new System.Drawing.Point(12, 134);
+            this.btnRecetas.Location = new System.Drawing.Point(12, 236);
             this.btnRecetas.Name = "btnRecetas";
             this.btnRecetas.Size = new System.Drawing.Size(101, 61);
             this.btnRecetas.TabIndex = 3;
@@ -104,9 +109,9 @@
             // 
             // btnProductos
             // 
-            this.btnProductos.Location = new System.Drawing.Point(12, 198);
+            this.btnProductos.Location = new System.Drawing.Point(6, 28);
             this.btnProductos.Name = "btnProductos";
-            this.btnProductos.Size = new System.Drawing.Size(101, 61);
+            this.btnProductos.Size = new System.Drawing.Size(272, 79);
             this.btnProductos.TabIndex = 4;
             this.btnProductos.Text = "Productos";
             this.btnProductos.UseVisualStyleBackColor = true;
@@ -114,7 +119,7 @@
             // 
             // btnCtrlVentas
             // 
-            this.btnCtrlVentas.Location = new System.Drawing.Point(12, 265);
+            this.btnCtrlVentas.Location = new System.Drawing.Point(12, 367);
             this.btnCtrlVentas.Name = "btnCtrlVentas";
             this.btnCtrlVentas.Size = new System.Drawing.Size(101, 61);
             this.btnCtrlVentas.TabIndex = 5;
@@ -135,9 +140,12 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox1.Controls.Add(this.tbNomProd);
+            this.groupBox1.Controls.Add(this.dgvProductos);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btnTotal);
             this.groupBox1.Controls.Add(this.tbNombre);
+            this.groupBox1.Controls.Add(this.btnProductos);
             this.groupBox1.Controls.Add(this.btnParcial);
             this.groupBox1.Controls.Add(this.lbfecha);
             this.groupBox1.Controls.Add(this.label3);
@@ -155,6 +163,25 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // tbNomProd
+            // 
+            this.tbNomProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNomProd.Location = new System.Drawing.Point(6, 113);
+            this.tbNomProd.Multiline = true;
+            this.tbNomProd.Name = "tbNomProd";
+            this.tbNomProd.Size = new System.Drawing.Size(272, 38);
+            this.tbNomProd.TabIndex = 18;
+            // 
+            // dgvProductos
+            // 
+            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductos.Location = new System.Drawing.Point(6, 157);
+            this.dgvProductos.Name = "dgvProductos";
+            this.dgvProductos.Size = new System.Drawing.Size(272, 470);
+            this.dgvProductos.TabIndex = 17;
+            this.dgvProductos.DataSourceChanged += new System.EventHandler(this.dgvProductos_DataSourceChanged);
+            this.dgvProductos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellDoubleClick);
             // 
             // button1
             // 
@@ -190,7 +217,7 @@
             // 
             this.lbfecha.AutoSize = true;
             this.lbfecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbfecha.Location = new System.Drawing.Point(479, 133);
+            this.lbfecha.Location = new System.Drawing.Point(488, 90);
             this.lbfecha.Name = "lbfecha";
             this.lbfecha.Size = new System.Drawing.Size(54, 20);
             this.lbfecha.TabIndex = 13;
@@ -200,7 +227,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(431, 137);
+            this.label3.Location = new System.Drawing.Point(440, 94);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 16);
             this.label3.TabIndex = 12;
@@ -210,7 +237,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(284, 137);
+            this.label2.Location = new System.Drawing.Point(293, 94);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 16);
             this.label2.TabIndex = 11;
@@ -220,7 +247,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(284, 101);
+            this.label1.Location = new System.Drawing.Point(293, 58);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 16);
             this.label1.TabIndex = 10;
@@ -228,7 +255,7 @@
             // 
             // tbDescripcion
             // 
-            this.tbDescripcion.Location = new System.Drawing.Point(284, 156);
+            this.tbDescripcion.Location = new System.Drawing.Point(284, 113);
             this.tbDescripcion.Multiline = true;
             this.tbDescripcion.Name = "tbDescripcion";
             this.tbDescripcion.Size = new System.Drawing.Size(352, 69);
@@ -239,7 +266,7 @@
             // 
             this.lbPropietario.AutoSize = true;
             this.lbPropietario.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPropietario.Location = new System.Drawing.Point(370, 84);
+            this.lbPropietario.Location = new System.Drawing.Point(379, 41);
             this.lbPropietario.Name = "lbPropietario";
             this.lbPropietario.Size = new System.Drawing.Size(196, 39);
             this.lbPropietario.TabIndex = 8;
@@ -248,11 +275,11 @@
             // 
             // btnAgregarReceta
             // 
-            this.btnAgregarReceta.Location = new System.Drawing.Point(49, 31);
+            this.btnAgregarReceta.Location = new System.Drawing.Point(12, 303);
             this.btnAgregarReceta.Name = "btnAgregarReceta";
-            this.btnAgregarReceta.Size = new System.Drawing.Size(64, 30);
+            this.btnAgregarReceta.Size = new System.Drawing.Size(101, 58);
             this.btnAgregarReceta.TabIndex = 8;
-            this.btnAgregarReceta.Text = "+ Recetas";
+            this.btnAgregarReceta.Text = "Preparación";
             this.btnAgregarReceta.UseVisualStyleBackColor = true;
             this.btnAgregarReceta.Click += new System.EventHandler(this.btnAgregarReceta_Click);
             // 
@@ -266,7 +293,6 @@
             this.Controls.Add(this.btnCtrlVentas);
             this.Controls.Add(this.btnInventario);
             this.Controls.Add(this.btnRecetas);
-            this.Controls.Add(this.btnProductos);
             this.Name = "Main";
             this.Text = "Restaurante You Li";
             this.Load += new System.EventHandler(this.Main_Load);
@@ -274,6 +300,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenes)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -300,6 +327,8 @@
         private System.Windows.Forms.Button btnParcial;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnAgregarReceta;
+        private System.Windows.Forms.DataGridView dgvProductos;
+        private System.Windows.Forms.TextBox tbNomProd;
     }
 }
 
