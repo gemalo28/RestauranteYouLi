@@ -183,5 +183,29 @@ where I.id_ingrediente = src.id_ingrediente;
 END
 $$
 
+Delimiter $$
+CREATE TRIGGER tr_Insert_Detalle 
+AFTER INSERT ON you_li.detalle_orden FOR EACH ROW
+BEGIN
+   update ordenes o, (select sum(p.precio) as Total
+						from detalle_orden d
+						join productos p on p.id_producto = d.id_producto
+						where d.id_orden = new.id_orden) src
+   set o.total = src.Total
+   where o.id_orden = new.id_orden;
+END 
+$$
 
+Delimiter $$
+CREATE TRIGGER tr_Delete_Detalle 
+AFTER DELETE ON you_li.detalle_orden FOR EACH ROW
+BEGIN
+   update ordenes o, (select sum(p.precio) as Total
+						from detalle_orden d
+						join productos p on p.id_producto = d.id_producto
+						where d.id_orden = old.id_orden) src
+   set o.total = src.Total
+   where o.id_orden = old.id_orden;
+END 
+$$
 
