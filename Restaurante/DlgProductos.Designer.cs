@@ -68,6 +68,9 @@
             // 
             // dgvProductos
             // 
+            this.dgvProductos.AllowUserToAddRows = false;
+            this.dgvProductos.AllowUserToDeleteRows = false;
+            this.dgvProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProductos.Location = new System.Drawing.Point(13, 103);
             this.dgvProductos.Name = "dgvProductos";
@@ -87,7 +90,7 @@
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.tbBuscar);
             this.Name = "DlgProductos";
-            this.Text = "DlgProductoscs";
+            this.Text = "Productos";
             this.Load += new System.EventHandler(this.DlgProductoscs_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.ResumeLayout(false);

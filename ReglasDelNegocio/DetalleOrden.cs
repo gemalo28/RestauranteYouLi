@@ -44,7 +44,7 @@ namespace ReglasDelNegocio
             try
             {
                 string sSQlqry = "select id_detalleOrden,id_orden,d.id_producto,nombre AS PRODUCTO,precio AS PRECIO from detalle_orden d " +
-                "inner join productos p on d.id_producto = p.id_producto where id_orden = " + nIdOrden+ " ORDER BY id_detalleOrden and flag_pagado = 0";
+                "inner join productos p on d.id_producto = p.id_producto where id_orden = " + nIdOrden+ " and flag_pagado = 0 ORDER BY id_detalleOrden ";
                 MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                 adapter.Fill(dtDetalle);
