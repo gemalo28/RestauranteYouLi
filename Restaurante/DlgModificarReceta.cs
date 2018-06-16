@@ -56,8 +56,7 @@ namespace Restaurante
                 if(validarDuplicado(dlgAgregar.nIdIngrediente))
                 {
                     dgvIngredientes.Rows.Add(0, dlgAgregar.nIdIngrediente, dlgAgregar.sNombre, 0);
-                }
-                
+                }                
             }
         }
 
