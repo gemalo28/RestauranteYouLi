@@ -134,8 +134,8 @@ namespace Restaurante
             nIdSelected = 0;
             btnTotal.Text = "$00.00";
             dgvDetalles.Rows.Clear();
-            dgvOrdenes.DataSource = xOrdenes.ConsultarOrdenes();
-            dgvProductos.DataSource = xProd.ConsultarProductos();
+            llenarProductos(xProd.ConsultarProductos());
+            llenarOrdenes(xOrdenes.ConsultarOrdenes());
             dTotal = 0;
         }
 
@@ -148,36 +148,12 @@ namespace Restaurante
         private void dgvProductos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             //AQUI
-            if (nIdSelected >0)
-            {
-                if (xDetProd.AgregarDetalle(Convert.ToInt32(nIdSelected),Convert.ToInt32(dgvProductos.Rows[e.RowIndex].Cells[0].Value.ToString())))
-                {
-                    //dgvDetalles.DataSource = xDetProd.ConsultarDetalle(nIdSelected);
-                    llenarDetalle();
-                }
-                else
-                {
-                    //MessageBox.Show("No se pudo agregar producto a la orden");
-                    MessageBox.Show(xDetProd.sLastError);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Seleccione una orden, Por favor!");
-            }
+
         }
 
         private void dgvDetalles_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (xDetProd.BorrarDetalle(Convert.ToInt32(dgvDetalles.Rows[e.RowIndex].Cells[0].Value.ToString())))
-            {
-                llenarDetalle();
-            }
-            else
-            {
-                //MessageBox.Show("No se pudo eliminar el producto de la orden");
-                MessageBox.Show(xDetProd.sLastError);
-            }
+
         }
 
         private void llenarDetalle()
@@ -187,14 +163,35 @@ namespace Restaurante
 
             foreach(DataRow row in dtDetalle.Rows)
             {
-                dgvDetalles.Rows.Add(row[0].ToString(), row[2].ToString(), true, row[3].ToString(), row[4].ToString());
+                dgvDetalles.Rows.Add(row[0].ToString(), row[2].ToString(), true, row[3].ToString(), row[4].ToString(), "X");
             }
 
-            dgvOrdenes.DataSource = xOrdenes.ConsultarOrdenes();
+            llenarOrdenes(xOrdenes.ConsultarOrdenes());
             
             btnTotal.Text = "$" + xOrdenes.getTotal(nIdSelected);
         }
+        public void llenarProductos(DataTable dtProductos)
+        {
+            
+            dgvProductos.Rows.Clear();
 
+            foreach (DataRow row in dtProductos.Rows)
+            {
+                dgvProductos.Rows.Add(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(),"X");
+            }
+
+        }
+        //"select id_orden,propietario as PROPIETARIO,FECHA as FECHA,DESCRIPCION AS DESCRIPCION,TOTAL AS TOTAL,FLAG_PAGADO from ordenes where flag_pagado = 0 and propietario like '%"+sNomPropietario+"%'";
+
+        public void llenarOrdenes(DataTable dtOrdenes)
+        {
+            dgvOrdenes.Rows.Clear();
+
+            foreach (DataRow row in dtOrdenes.Rows)
+            {
+                dgvOrdenes.Rows.Add(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString(), row[5].ToString());
+            }
+        }
         private void btnTotal_Click(object sender, EventArgs e)
         {
             if (nIdSelected > 0 )
@@ -318,6 +315,57 @@ namespace Restaurante
                 MessageBox.Show(ex.ToString());
             }
             return bAllOk;
+        }
+
+        private void tbNomProd_TextChanged(object sender, EventArgs e)
+        {
+            llenarProductos(xProd.ConsultarProductos(tbNomProd.Text.ToString()));
+        }
+
+        private void tbNombre_TextChanged(object sender, EventArgs e)
+        {
+
+            llenarOrdenes(xOrdenes.ConsultarOrdenes(tbNombre.Text.ToString()));
+        }
+
+        private void dgvDetalles_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvOrdenes.Rows[e.RowIndex].Cells[e.ColumnIndex]== dgvOrdenes.Rows[e.RowIndex].Cells[5])
+            {
+                if (xDetProd.BorrarDetalle(Convert.ToInt32(dgvDetalles.Rows[e.RowIndex].Cells[0].Value.ToString())))
+                {
+                    llenarDetalle();
+                }
+                else
+                {
+                    //MessageBox.Show("No se pudo eliminar el producto de la orden");
+                    MessageBox.Show(xDetProd.sLastError);
+                }
+            }
+        }
+
+        private void dgvProductos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvProductos.Rows[e.RowIndex].Cells[e.ColumnIndex] == dgvProductos.Rows[e.RowIndex].Cells[4])
+            {
+                if (nIdSelected > 0)
+                {
+                    if (xDetProd.AgregarDetalle(Convert.ToInt32(nIdSelected), Convert.ToInt32(dgvProductos.Rows[e.RowIndex].Cells[0].Value.ToString())))
+                    {
+                        //dgvDetalles.DataSource = xDetProd.ConsultarDetalle(nIdSelected);
+                        llenarDetalle();
+                    }
+                    else
+                    {
+                        //MessageBox.Show("No se pudo agregar producto a la orden");
+                        MessageBox.Show(xDetProd.sLastError);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione una orden, Por favor!");
+                }
+            }
         }
     }
 }

@@ -95,13 +95,22 @@ namespace Restaurante
 
         private void DlgAgregarOrdenes_Load(object sender, EventArgs e)
         {
-            dgvOrdenes.DataSource = xOrdenes.ConsultarOrdenes();
+            llenarOrdenes(xOrdenes.ConsultarOrdenes());
+        }
+        public void llenarOrdenes(DataTable dtOrdenes)
+        {
+            dgvOrdenes.Rows.Clear();
+
+            foreach (DataRow row in dtOrdenes.Rows)
+            {
+                dgvOrdenes.Rows.Add(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString(), row[5].ToString());
+            }
         }
 
         private void dgvOrdenes_DataSourceChanged(object sender, EventArgs e)
         {
-            dgvOrdenes.Columns[0].Visible = false;
-            dgvOrdenes.Columns[5].Visible = false;
+           
+            //dgvOrdenes.Columns[5].Visible = false;
 
         }
         public void limpiar()
@@ -128,7 +137,7 @@ namespace Restaurante
             catch (Exception)
             {
 
-
+                MessageBox.Show("Error");
             }
 
 
