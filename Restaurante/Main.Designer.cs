@@ -46,7 +46,6 @@
             this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.btnTotal = new System.Windows.Forms.Button();
-            this.btnParcial = new System.Windows.Forms.Button();
             this.lbfecha = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -185,7 +184,6 @@
             this.groupBox1.Controls.Add(this.btnTotal);
             this.groupBox1.Controls.Add(this.tbNombre);
             this.groupBox1.Controls.Add(this.btnProductos);
-            this.groupBox1.Controls.Add(this.btnParcial);
             this.groupBox1.Controls.Add(this.lbfecha);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
@@ -244,16 +242,7 @@
             this.btnTotal.TabIndex = 15;
             this.btnTotal.Text = "Total";
             this.btnTotal.UseVisualStyleBackColor = true;
-            // 
-            // btnParcial
-            // 
-            this.btnParcial.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnParcial.Location = new System.Drawing.Point(284, 560);
-            this.btnParcial.Name = "btnParcial";
-            this.btnParcial.Size = new System.Drawing.Size(172, 66);
-            this.btnParcial.TabIndex = 14;
-            this.btnParcial.Text = "Parcial";
-            this.btnParcial.UseVisualStyleBackColor = true;
+            this.btnTotal.Click += new System.EventHandler(this.btnTotal_Click);
             // 
             // lbfecha
             // 
@@ -333,6 +322,7 @@
             this.Controls.Add(this.btnCtrlVentas);
             this.Controls.Add(this.btnInventario);
             this.Controls.Add(this.btnRecetas);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Main";
             this.Text = "Restaurante You Li";
             this.Load += new System.EventHandler(this.Main_Load);
@@ -364,7 +354,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnTotal;
-        private System.Windows.Forms.Button btnParcial;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnAgregarReceta;
         private System.Windows.Forms.DataGridView dgvProductos;

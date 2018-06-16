@@ -18,21 +18,39 @@ namespace ReglasDelNegocio
             this.xConnection = xConnection;
         }
 
-        public Boolean AgregarDetalle(int nIdNota, int nIdProducto)
+        public Boolean AgregarDetalle(string sPropietario, string sDescripcion, int nIdOrden, double dTotal, DataTable dtProductos)
         {
             bool bAllOk = false;
-
+            MySqlTransaction transaction = null;
+            int nIdNota = 0;
             try
             {
-                string sSQlqry = "Insert into detalle_nota(id_nota, id_producto) " +
-                                 "values(" + nIdNota + "," + nIdProducto + ")";
-                MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
-                command.ExecuteNonQuery();
-                command.Dispose();
-                bAllOk = true;
+                transaction = xConnection.BeginTransaction();
+                Notas xNotas = new Notas(xConnection);
+
+                if(xNotas.AgregarNota(sPropietario, sDescripcion, dTotal, nIdOrden, ref nIdNota, ref transaction))
+                {
+                   foreach(DataRow row in dtProductos.Rows)
+                    {
+                        string sSQlqry = "Insert into detalle_nota(id_nota, id_producto) " +
+                                         "values(" + nIdNota + "," + row[2] + "); " +
+                                         "Update detalle_orden set flag_pagado = 1 where id_detalleOrden = " + row[0] + ";";
+                        MySqlCommand command = new MySqlCommand(sSQlqry, xConnection, transaction);
+                        command.ExecuteNonQuery();
+                        command.Dispose();
+                    }
+                    transaction.Commit();
+                    bAllOk = true;
+                }
+                else
+                {
+                    throw new Exception(xNotas.sLastError);
+                }
+                
             }
             catch (Exception ex)
             {
+                transaction.Rollback();
                 sLastError = "Error >>> " + ex.ToString();
             }
 
@@ -100,6 +118,34 @@ namespace ReglasDelNegocio
             }
 
             return bAllOk;
+        }
+
+        public int getLastNota()
+        {
+            int nIdNota = 0;
+
+            try
+            {
+                string sSQlqry = "select id_nota " +
+                                 "from notas " +
+                                 "order by id_nota desc limit 1";
+                MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
+                MySqlDataReader reader;
+                reader = command.ExecuteReader();
+
+                while(reader.Read())
+                {
+                    nIdNota = Convert.ToInt32(reader[0]);
+                }
+                reader.Dispose();
+                command.Dispose();
+            }
+            catch (Exception ex)
+            {
+                sLastError = "Error >>> " + ex.ToString();
+            }
+
+            return nIdNota;
         }
     }
 }

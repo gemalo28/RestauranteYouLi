@@ -18,16 +18,25 @@ namespace ReglasDelNegocio
             this.xConnection = xConnection;
         }
 
-        public Boolean AgregarNota(string sPropietario, string sDescripcion, double dTotal, int nIdOrden, int nIdFactura)
+        public Boolean AgregarNota(string sPropietario, string sDescripcion, double dTotal, int nIdOrden, ref int nIdNota, ref MySqlTransaction transaction)
         {
             bool bAllOk = false;
 
             try
             {
-                string sSQlqry = "insert into notas(propietario, descripcion, total, id_ordenm id_factura) " +
-                                 "values (" + sPropietario + ", " + sDescripcion + "," + dTotal + ", " + nIdOrden + ", " + nIdFactura + ")";
-                MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
-                command.ExecuteNonQuery();
+                string sSQlqry = "insert into notas(propietario, descripcion, total, id_orden) " +
+                                 "values ('" + sPropietario + "','" + sDescripcion + "'," + dTotal + ", " + nIdOrden + "); " +
+                                 "select LAST_INSERT_ID();";
+                MySqlCommand command = new MySqlCommand(sSQlqry, xConnection, transaction);
+                MySqlDataReader reader;
+                reader = command.ExecuteReader();
+
+                while(reader.Read())
+                {
+                    nIdNota = Convert.ToInt32(reader[0]);
+                }
+
+                reader.Dispose();
                 command.Dispose();
                 bAllOk = true;
             }

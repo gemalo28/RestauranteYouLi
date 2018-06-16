@@ -18,7 +18,9 @@ namespace Restaurante
         private Ordenes xOrdenes;
         private Productos xProd;
         private DetalleOrden xDetProd;
+        private DetalleNota xDetNota;
         int nIdSelected = 0;
+        double dTotal = 0;
         public Main(MySqlConnection xConnection)
         {
             InitializeComponent();
@@ -26,6 +28,7 @@ namespace Restaurante
              xOrdenes = new Ordenes(this.xConnection);
              xProd = new Productos(this.xConnection);
              xDetProd = new DetalleOrden(this.xConnection);
+             xDetNota = new DetalleNota(this.xConnection);
         }
 
         private void btnInventario_Click(object sender, EventArgs e)
@@ -79,7 +82,6 @@ namespace Restaurante
                 lbfecha.Text = dgvOrdenes.Rows[e.RowIndex].Cells[2].Value.ToString();
                 tbDescripcion.Text = dgvOrdenes.Rows[e.RowIndex].Cells[3].Value.ToString();
                 btnTotal.Text = "$" + dgvOrdenes.Rows[e.RowIndex].Cells[4].Value.ToString() + "";
-                btnParcial.Text = "$00.0";
                 nIdSelected = Convert.ToInt32(dgvOrdenes.Rows[e.RowIndex].Cells[0].Value.ToString());
 
                 // dgvDetalles.DataSource = xDetProd.ConsultarDetalle(nIdSelected);
@@ -131,10 +133,10 @@ namespace Restaurante
             tbDescripcion.Text = "";
             nIdSelected = 0;
             btnTotal.Text = "$00.00";
-            btnParcial.Text = "$00.00";
             dgvDetalles.Rows.Clear();
             dgvOrdenes.DataSource = xOrdenes.ConsultarOrdenes();
             dgvProductos.DataSource = xProd.ConsultarProductos();
+            dTotal = 0;
         }
 
         private void dgvProductos_DataSourceChanged(object sender, EventArgs e)
@@ -191,6 +193,131 @@ namespace Restaurante
             dgvOrdenes.DataSource = xOrdenes.ConsultarOrdenes();
             
             btnTotal.Text = "$" + xOrdenes.getTotal(nIdSelected);
+        }
+
+        private void btnTotal_Click(object sender, EventArgs e)
+        {
+            if (nIdSelected > 0 )
+            {    
+                DataTable dtDetalles = dgvToDataTable();
+
+                if (dTotal > 0)
+                {
+                    DlgResumenNota dlgResumen = new DlgResumenNota(lbPropietario.Text, dtDetalles);
+                    dlgResumen.ShowDialog();
+
+                    if(dlgResumen.bConfirmar)
+                    {
+                        if (xDetNota.AgregarDetalle(lbPropietario.Text, tbDescripcion.Text, nIdSelected, dTotal, dtDetalles))
+                        {
+                            if (imprimirTicket(xDetNota.getLastNota(), Convert.ToDecimal(dlgResumen.dTotal), Convert.ToDecimal(dlgResumen.dEfectivo), Convert.ToDecimal(dlgResumen.dCambio), dtDetalles))
+                            {
+                                MessageBox.Show("Nota pagada");
+
+                                if (xOrdenes.ordenPendiente(nIdSelected))
+                                {
+                                    Reset();
+                                }
+                                else
+                                {
+                                    llenarDetalle();
+                                }
+                            }   
+                        }
+                        else
+                        {
+                            MessageBox.Show(xDetNota.sLastError);
+                        }
+                    }                    
+                }
+                else
+                {
+                    MessageBox.Show("Favor de elegir productos a pagar...");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Favor de seleccionar una orden...");
+            }
+        }
+
+        private DataTable dgvToDataTable()
+        {
+            DataTable dt = new DataTable();
+
+            dt.Columns.Add("id_detalle");
+            dt.Columns.Add("id_orden");
+            dt.Columns.Add("id_producto");
+            dt.Columns.Add("nombre");
+            dt.Columns.Add("precio");
+            foreach (DataGridViewRow row in dgvDetalles.Rows)
+            {
+                if(Convert.ToBoolean(row.Cells[2].Value))
+                {
+                    dt.Rows.Add(row.Cells[0].Value, nIdSelected, row.Cells[1].Value, row.Cells[3].Value, row.Cells[4].Value);
+                    dTotal += Convert.ToDouble(row.Cells[4].Value);
+                }                
+            }
+
+            return dt;
+        }
+
+        public bool imprimirTicket(int nIdNota, decimal dTotal, decimal dEfectivo, decimal dCambio,  DataTable dtProductos)
+        {
+            bool bAllOk = false;
+
+            try
+            {
+                Ticket ticket = new Ticket();
+                
+                ticket.AbreCajon();
+
+                ticket.TextoCentro("RESTAURANTE YOU LI");
+                ticket.TextoCentro("EXPEDIDO EN: GUASAVE, SIN.");
+                ticket.TextoCentro("DIRECCION: GUASAVE, SIN.");
+                ticket.TextoCentro("TEL: 6871234567");
+                ticket.TextoCentro("RFC: YL1234556789");
+                ticket.TextoCentro("EMAIL: VENTAS@YOULI.COM");
+                ticket.TextoIzq("");
+                ticket.TextoExtremo("Caja #1", "Ticket #" + nIdNota);
+                ticket.lineasAst();
+
+                //ticket.TextoIzq("");
+                //ticket.TextoIzq("ATENDIO: ");
+                //ticket.TextoIzq("CLIENTE: ");
+                ticket.TextoIzq("");
+                ticket.TextoExtremo("FECHA: "+ DateTime.Now.ToString("dd/MM/yyyy"), "HORA: " + DateTime.Now.ToLongTimeString());
+                ticket.lineasAst();
+
+                ticket.EncabezadoVenta();
+                ticket.lineasAst();
+
+                foreach(DataRow row in dtProductos.Rows)
+                {
+                    ticket.AgregaArticulo(row[3].ToString(), 1, Convert.ToDecimal(row[4]), Convert.ToDecimal(row[4]));
+                }
+
+                ticket.AgregarTotales("          SUBTOTAL......$", dTotal);
+                ticket.AgregarTotales("          IVA...........$", 10.04M);
+                ticket.AgregarTotales("          TOTAL.........$", dTotal);
+                ticket.TextoIzq("");
+                ticket.AgregarTotales("          EFECTIVO......$", dEfectivo);
+                ticket.AgregarTotales("          CAMBIO........$", dCambio);
+
+                ticket.TextoIzq("");
+                ticket.TextoIzq("PRODUCTOS VENDIDOS: " + dtProductos.Rows.Count);
+                ticket.TextoIzq("");
+                ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
+                ticket.CortaTicket();
+                ticket.Imprimirticket("EPSON TM-U220 Receipt");
+                // ticket.Imprimirticket("Microsoft XPS Document Writer");
+                bAllOk = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            return bAllOk;
         }
     }
 }
