@@ -150,6 +150,7 @@
             this.tbEfectivo.Name = "tbEfectivo";
             this.tbEfectivo.Size = new System.Drawing.Size(100, 20);
             this.tbEfectivo.TabIndex = 9;
+            this.tbEfectivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbEfectivo_KeyPress);
             // 
             // label4
             // 
