@@ -24,7 +24,7 @@ namespace ReglasDelNegocio
 
             try
             {
-                    string sSQlqry = "Insert into ordenes(propietario, descripcion) " +
+                string sSQlqry = "Insert into ordenes(propietario, descripcion) " +
                                  "values('" + sPropietario + "','" + sDescripcion + "')";
                 MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
                 command.ExecuteNonQuery();
@@ -98,6 +98,31 @@ namespace ReglasDelNegocio
             }
 
             return bAllOk;
+        }
+
+        public double getTotal(int nIdOrden)
+        {
+            double dTotal = 0;
+            try
+            {
+                string sSQlqry = "select total from ordenes where id_orden = " + nIdOrden;
+                MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
+                MySqlDataReader reader;
+                reader = command.ExecuteReader();
+
+                while(reader.Read())
+                {
+                    dTotal = Convert.ToDouble(reader[0]);
+                }
+                reader.Dispose();
+                command.Dispose();
+            }
+            catch (Exception ex)
+            {
+                sLastError = ex.ToString();
+            }
+
+            return dTotal;
         }
 
     }

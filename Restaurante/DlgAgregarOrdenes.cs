@@ -27,28 +27,29 @@ namespace Restaurante
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (tbProp.Text.Length>0)
+            if (tbProp.Text.Length > 0)
             {
-                if (nidOrd ==0)
+                if (nidOrd == 0)
                 {
 
 
                     if (xOrdenes.AgregarOrden(tbProp.Text, tbDesc.Text))
                     {
-                        MessageBox.Show("Segregó corecamente la orden "+tbProp.Text);
+                        MessageBox.Show("Se agregó correcamente la orden " + tbProp.Text);
                         limpiar();
                         this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("no se puedo agregar la orden");
+                        MessageBox.Show(xOrdenes.sLastError);
+                        //MessageBox.Show("no se puedo agregar la orden");
                         tbProp.Focus();
                     }
                 }
                 else
                 {
-                    DialogResult dR = MessageBox.Show("¿Estas seguro que deseas actualizar los datos de la orden?","Confirmación",MessageBoxButtons.YesNo);
-                    if (dR==DialogResult.Yes)
+                    DialogResult dR = MessageBox.Show("¿Estas seguro que deseas actualizar los datos de la orden?", "Confirmación", MessageBoxButtons.YesNo);
+                    if (dR == DialogResult.Yes)
                     {
                         if (xOrdenes.ActualizarOrden(nidOrd, tbProp.Text, tbDesc.Text))
                         {
@@ -59,7 +60,8 @@ namespace Restaurante
                         }
                         else
                         {
-                            MessageBox.Show("No se pudo actualizar la orden");
+                            MessageBox.Show(xOrdenes.sLastError);
+                            //MessageBox.Show("No se pudo actualizar la orden");
                             tbProp.Focus();
                         }
                     }
@@ -77,7 +79,7 @@ namespace Restaurante
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (tbProp.Text.Length >0)
+            if (tbProp.Text.Length > 0)
             {
                 DialogResult dialogResult = MessageBox.Show("¿Esta seguro que desea cerrar?", "Confirmación", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
@@ -111,7 +113,6 @@ namespace Restaurante
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
             limpiar();
             tbProp.Focus();
         }
@@ -127,7 +128,7 @@ namespace Restaurante
             catch (Exception)
             {
 
-              
+
             }
 
 
