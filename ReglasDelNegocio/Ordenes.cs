@@ -105,14 +105,17 @@ namespace ReglasDelNegocio
             double dTotal = 0;
             try
             {
-                string sSQlqry = "select total from ordenes where id_orden = " + nIdOrden;
+                string sSQlqry = "select p.precio " +
+                                 "from detalle_orden d " +
+                                 "join productos p on d.id_producto = p.id_producto " +
+                                 "where d.id_orden = " + nIdOrden + " and flag_pagado = 0; ";
                 MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
                 MySqlDataReader reader;
                 reader = command.ExecuteReader();
 
                 while(reader.Read())
                 {
-                    dTotal = Convert.ToDouble(reader[0]);
+                    dTotal += Convert.ToDouble(reader[0]);
                 }
                 reader.Dispose();
                 command.Dispose();
@@ -123,6 +126,34 @@ namespace ReglasDelNegocio
             }
 
             return dTotal;
+        }
+
+        public Boolean ordenPendiente(int nIdOrden)
+        {
+            bool bAllOk = false;
+
+            try
+            {
+                string sSQlqry = "select flag_pagado from ordenes where id_orden = " + nIdOrden;
+                MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
+                MySqlDataReader reader;
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    if (Convert.ToInt32(reader[0]) == 1)
+                    {
+                        bAllOk = true;
+                    }
+                }
+                reader.Dispose();
+                command.Dispose();
+            }
+            catch (Exception ex)
+            {
+                sLastError = ex.ToString();
+            }
+            return bAllOk;
         }
 
     }
