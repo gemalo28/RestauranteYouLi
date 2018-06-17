@@ -1,4 +1,4 @@
-﻿namespace Restaurante
+namespace Restaurante
 {
     partial class DlgModificarInventario
     {
@@ -35,76 +35,105 @@
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.cbxUnidad = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbNombre
             // 
-            this.tbNombre.Location = new System.Drawing.Point(95, 49);
+            this.tbNombre.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNombre.ForeColor = System.Drawing.Color.Red;
+            this.tbNombre.Location = new System.Drawing.Point(28, 133);
             this.tbNombre.Name = "tbNombre";
-            this.tbNombre.Size = new System.Drawing.Size(100, 20);
+            this.tbNombre.Size = new System.Drawing.Size(256, 32);
             this.tbNombre.TabIndex = 0;
             // 
             // tbCantidad
             // 
-            this.tbCantidad.Location = new System.Drawing.Point(95, 75);
-            this.tbCantidad.MaxLength = 9;
+            this.tbCantidad.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCantidad.ForeColor = System.Drawing.Color.Red;
+            this.tbCantidad.Location = new System.Drawing.Point(331, 133);
             this.tbCantidad.Name = "tbCantidad";
-            this.tbCantidad.Size = new System.Drawing.Size(100, 20);
+            this.tbCantidad.Size = new System.Drawing.Size(103, 32);
             this.tbCantidad.TabIndex = 1;
             this.tbCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCantidad_KeyPress);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 52);
+            this.label1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(28, 106);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.Size = new System.Drawing.Size(85, 24);
             this.label1.TabIndex = 4;
             this.label1.Text = "Nombre";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(45, 78);
+            this.label2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label2.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(327, 106);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.Size = new System.Drawing.Size(89, 24);
             this.label2.TabIndex = 5;
             this.label2.Text = "Cantidad";
             // 
             // btnConfirmar
             // 
-            this.btnConfirmar.Location = new System.Drawing.Point(174, 124);
+            this.btnConfirmar.BackColor = System.Drawing.Color.LightYellow;
+            this.btnConfirmar.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirmar.Location = new System.Drawing.Point(381, 186);
             this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(75, 23);
+            this.btnConfirmar.Size = new System.Drawing.Size(110, 35);
             this.btnConfirmar.TabIndex = 6;
             this.btnConfirmar.Text = "Confirmar";
-            this.btnConfirmar.UseVisualStyleBackColor = true;
+            this.btnConfirmar.UseVisualStyleBackColor = false;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(255, 124);
+            this.btnCancelar.BackColor = System.Drawing.Color.LightYellow;
+            this.btnCancelar.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Location = new System.Drawing.Point(28, 186);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.Size = new System.Drawing.Size(110, 35);
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // cbxUnidad
             // 
+            this.cbxUnidad.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxUnidad.FormattingEnabled = true;
-            this.cbxUnidad.Location = new System.Drawing.Point(202, 75);
+            this.cbxUnidad.Location = new System.Drawing.Point(440, 133);
             this.cbxUnidad.Name = "cbxUnidad";
-            this.cbxUnidad.Size = new System.Drawing.Size(47, 21);
+            this.cbxUnidad.Size = new System.Drawing.Size(47, 32);
             this.cbxUnidad.TabIndex = 8;
             this.cbxUnidad.SelectedIndexChanged += new System.EventHandler(this.cbxUnidad_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label5.Font = new System.Drawing.Font("Tempus Sans ITC", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(224, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(267, 27);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "AGREGAR INGREDIENTE";
             // 
             // DlgModificarInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(338, 159);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackgroundImage = global::Restaurante.Properties.Resources.image;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ClientSize = new System.Drawing.Size(501, 233);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.cbxUnidad);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnConfirmar);
@@ -112,7 +141,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbCantidad);
             this.Controls.Add(this.tbNombre);
+            this.MaximizeBox = false;
             this.Name = "DlgModificarInventario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ingrediente";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -128,5 +159,6 @@
         private System.Windows.Forms.Button btnConfirmar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.ComboBox cbxUnidad;
+        private System.Windows.Forms.Label label5;
     }
 }
