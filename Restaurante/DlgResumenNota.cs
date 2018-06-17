@@ -35,11 +35,24 @@ namespace Restaurante
         {
             if(tbEfectivo.Text.Length > 0)
             {
+
                 dEfectivo = Convert.ToDouble(tbEfectivo.Text);
-                dCambio = dEfectivo - dTotal;
-                bConfirmar = true;
+                if (dEfectivo>=dTotal)
+                {
+                    dCambio = dEfectivo - dTotal;
+                    bConfirmar = true;
+                    this.Close();
+
+                }
+                else
+                {
+                    MessageBox.Show("Falta efectivo!");
+                }
                 
-                this.Close();
+
+                
+                
+                
             }
             else
             {
@@ -47,7 +60,12 @@ namespace Restaurante
             }
             
         }
+        //            dt.Columns.Add("id_detalle");
+      //  dt.Columns.Add("id_orden");
+        // dt.Columns.Add("id_producto");
 
+         //   dt.Columns.Add("nombre");
+           // dt.Columns.Add("precio");
         private void DlgResumenNota_Load(object sender, EventArgs e)
         {
             tbPropietario.Text = sPropietario;
@@ -74,6 +92,11 @@ namespace Restaurante
             {
                 e.Handled = true;
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
