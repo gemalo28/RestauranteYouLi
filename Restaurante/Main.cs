@@ -330,7 +330,7 @@ namespace Restaurante
 
         private void dgvDetalles_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvOrdenes.Rows[e.RowIndex].Cells[e.ColumnIndex]== dgvOrdenes.Rows[e.RowIndex].Cells[5])
+            if (dgvDetalles.Rows[e.RowIndex].Cells[e.ColumnIndex]== dgvDetalles.Rows[e.RowIndex].Cells[5])
             {
                 if (xDetProd.BorrarDetalle(Convert.ToInt32(dgvDetalles.Rows[e.RowIndex].Cells[0].Value.ToString())))
                 {
