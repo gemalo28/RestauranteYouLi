@@ -35,7 +35,6 @@ namespace Restaurante
         {
             if(tbEfectivo.Text.Length > 0)
             {
-
                 dEfectivo = Convert.ToDouble(tbEfectivo.Text);
                 if (dEfectivo>=dTotal)
                 {
@@ -47,12 +46,7 @@ namespace Restaurante
                 else
                 {
                     MessageBox.Show("Falta efectivo!");
-                }
-                
-
-                
-                
-                
+                }     
             }
             else
             {
@@ -60,12 +54,6 @@ namespace Restaurante
             }
             
         }
-        //            dt.Columns.Add("id_detalle");
-      //  dt.Columns.Add("id_orden");
-        // dt.Columns.Add("id_producto");
-
-         //   dt.Columns.Add("nombre");
-           // dt.Columns.Add("precio");
         private void DlgResumenNota_Load(object sender, EventArgs e)
         {
             tbPropietario.Text = sPropietario;
