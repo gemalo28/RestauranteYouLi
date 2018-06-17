@@ -20,34 +20,25 @@ namespace Restaurante
         public DlgControlDeVentas(MySqlConnection xConnection)
         {
             InitializeComponent();
-            this.xConnection = xConnection;
-            xNotas = new Notas(xConnection);
-            dateTimePicker1.Value = DateTime.Today;
-            dateTimePicker2.Value = DateTime.Today;
-        
+            this.xConnection = xConnection;        
         }
 
-        private void DlgControlDeVentas_Load(object sender, EventArgs e)
+        private void btnNotas_Click(object sender, EventArgs e)
         {
-            dgvVentas.DataSource = xNotas.ConsultarNota();
+            DlgNotas dlgNotas = new DlgNotas(xConnection);
+            dlgNotas.ShowDialog();
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void btnProductos_Click(object sender, EventArgs e)
         {
-            if(dateTimePicker1.Value.Date <= dateTimePicker2.Value.Date)
-            {
-                dgvVentas.DataSource = xNotas.ConsultarNota(dateTimePicker1.Value, dateTimePicker2.Value);
-            }
-            else
-            {
-                MessageBox.Show("Favor de verificar las fechas seleccionadas...");
-            }
+            DlgReportesProductos dlgReportes = new DlgReportesProductos(xConnection);
+            dlgReportes.ShowDialog();
         }
 
-        private void dgvVentas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void btnInventario_Click(object sender, EventArgs e)
         {
-            DlgDetalleVenta dlgDetalle = new DlgDetalleVenta(xConnection, dgvVentas.Rows[e.RowIndex]);
-            dlgDetalle.ShowDialog();
+            DlgReporteInventario dlgInventario = new DlgReporteInventario(xConnection);
+            dlgInventario.ShowDialog();
         }
     }
 }

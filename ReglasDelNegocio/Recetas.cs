@@ -186,7 +186,5 @@ namespace ReglasDelNegocio
 
             return nIdReceta = 0;
         }
-
-
     }
 }

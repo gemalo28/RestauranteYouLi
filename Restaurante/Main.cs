@@ -34,9 +34,7 @@ namespace Restaurante
         private void btnInventario_Click(object sender, EventArgs e)
         {
             DlgInventario dlgInventario = new DlgInventario(xConnection);
-            this.Hide();
             dlgInventario.ShowDialog();
-            this.Show();
         }
 
         private void btnRecetas_Click(object sender, EventArgs e)

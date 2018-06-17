@@ -108,6 +108,7 @@
             this.tbCantidad.Size = new System.Drawing.Size(100, 20);
             this.tbCantidad.TabIndex = 11;
             this.tbCantidad.Visible = false;
+            this.tbCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCantidad_KeyPress);
             // 
             // label2
             // 

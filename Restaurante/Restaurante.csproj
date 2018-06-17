@@ -130,6 +130,12 @@
     <Compile Include="DlgModificarReceta.Designer.cs">
       <DependentUpon>DlgModificarReceta.cs</DependentUpon>
     </Compile>
+    <Compile Include="DlgNotas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgNotas.Designer.cs">
+      <DependentUpon>DlgNotas.cs</DependentUpon>
+    </Compile>
     <Compile Include="DlgProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,17 +148,23 @@
     <Compile Include="DlgRecetas.Designer.cs">
       <DependentUpon>DlgRecetas.cs</DependentUpon>
     </Compile>
+    <Compile Include="DlgReporteInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgReporteInventario.Designer.cs">
+      <DependentUpon>DlgReporteInventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgReportesProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgReportesProductos.Designer.cs">
+      <DependentUpon>DlgReportesProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="DlgResumenNota.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DlgResumenNota.Designer.cs">
       <DependentUpon>DlgResumenNota.cs</DependentUpon>
-    </Compile>
-    <Compile Include="logIn.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="logIn.Designer.cs">
-      <DependentUpon>logIn.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -189,17 +201,23 @@
     <EmbeddedResource Include="DlgModificarReceta.resx">
       <DependentUpon>DlgModificarReceta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DlgNotas.resx">
+      <DependentUpon>DlgNotas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DlgProductos.resx">
       <DependentUpon>DlgProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DlgRecetas.resx">
       <DependentUpon>DlgRecetas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DlgReporteInventario.resx">
+      <DependentUpon>DlgReporteInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgReportesProductos.resx">
+      <DependentUpon>DlgReportesProductos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DlgResumenNota.resx">
       <DependentUpon>DlgResumenNota.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="logIn.resx">
-      <DependentUpon>logIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

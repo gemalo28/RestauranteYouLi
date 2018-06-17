@@ -138,7 +138,6 @@
             this.Controls.Add(this.tbNombre);
             this.Name = "DlgModificarReceta";
             this.Text = "Recetas";
-            this.Load += new System.EventHandler(this.DlgModificarReceta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvIngredientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

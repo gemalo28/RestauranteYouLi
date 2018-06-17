@@ -31,8 +31,6 @@ namespace Restaurante
             {
                 if (nidOrd == 0)
                 {
-
-
                     if (xOrdenes.AgregarOrden(tbProp.Text, tbDesc.Text))
                     {
                         MessageBox.Show("Se agregó correcamente la orden " + tbProp.Text);
@@ -65,7 +63,6 @@ namespace Restaurante
                             tbProp.Focus();
                         }
                     }
-
                 }
             }
             else
@@ -130,9 +127,12 @@ namespace Restaurante
         {
             try
             {
-                nidOrd = Convert.ToInt32(dgvOrdenes.Rows[e.RowIndex].Cells[0].Value.ToString());
-                tbProp.Text = dgvOrdenes.Rows[e.RowIndex].Cells[1].Value.ToString();
-                tbDesc.Text = dgvOrdenes.Rows[e.RowIndex].Cells[3].Value.ToString();
+                if(e.RowIndex >= 0)
+                {
+                    nidOrd = Convert.ToInt32(dgvOrdenes.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    tbProp.Text = dgvOrdenes.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    tbDesc.Text = dgvOrdenes.Rows[e.RowIndex].Cells[3].Value.ToString();
+                }               
             }
             catch (Exception)
             {

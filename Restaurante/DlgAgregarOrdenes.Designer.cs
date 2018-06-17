@@ -49,15 +49,15 @@
             // 
             // tbProp
             // 
-            this.tbProp.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbProp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbProp.Location = new System.Drawing.Point(12, 120);
             this.tbProp.Name = "tbProp";
-            this.tbProp.Size = new System.Drawing.Size(191, 32);
+            this.tbProp.Size = new System.Drawing.Size(191, 29);
             this.tbProp.TabIndex = 0;
             // 
             // tbDesc
             // 
-            this.tbDesc.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbDesc.Location = new System.Drawing.Point(12, 204);
             this.tbDesc.Multiline = true;
             this.tbDesc.Name = "tbDesc";
@@ -68,10 +68,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 93);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 24);
+            this.label1.Size = new System.Drawing.Size(124, 24);
             this.label1.TabIndex = 2;
             this.label1.Text = "Propiertario:";
             // 
@@ -79,17 +79,17 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(8, 167);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 24);
+            this.label2.Size = new System.Drawing.Size(127, 24);
             this.label2.TabIndex = 3;
             this.label2.Text = "Descripción:";
             // 
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.LightYellow;
-            this.btnCancelar.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Location = new System.Drawing.Point(16, 382);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(128, 39);
@@ -101,7 +101,7 @@
             // btnGuardar
             // 
             this.btnGuardar.BackColor = System.Drawing.Color.LightYellow;
-            this.btnGuardar.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Location = new System.Drawing.Point(187, 382);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(118, 39);
@@ -113,7 +113,7 @@
             // btnNuevo
             // 
             this.btnNuevo.BackColor = System.Drawing.Color.LightYellow;
-            this.btnNuevo.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevo.Location = new System.Drawing.Point(209, 120);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(96, 32);
@@ -126,6 +126,7 @@
             // 
             this.Column6.HeaderText = "Flag_pagado";
             this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             this.Column6.Visible = false;
             // 
             // Column5
@@ -133,35 +134,42 @@
             this.Column5.FillWeight = 50F;
             this.Column5.HeaderText = "Total";
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Descripcion";
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Fecha";
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Propietario";
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column1
             // 
             this.Column1.HeaderText = "id_orden";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             this.Column1.Visible = false;
             // 
             // dgvOrdenes
             // 
+            this.dgvOrdenes.AllowUserToAddRows = false;
+            this.dgvOrdenes.AllowUserToDeleteRows = false;
             this.dgvOrdenes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvOrdenes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightYellow;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tempus Sans ITC", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -178,13 +186,15 @@
             this.dgvOrdenes.EnableHeadersVisualStyles = false;
             this.dgvOrdenes.Location = new System.Drawing.Point(327, 12);
             this.dgvOrdenes.Name = "dgvOrdenes";
+            this.dgvOrdenes.ReadOnly = true;
             this.dgvOrdenes.RowHeadersVisible = false;
             this.dgvOrdenes.Size = new System.Drawing.Size(562, 409);
             this.dgvOrdenes.TabIndex = 8;
+            this.dgvOrdenes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrdenes_CellClick);
             // 
             // DlgAgregarOrdenes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
@@ -198,7 +208,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbDesc);
             this.Controls.Add(this.tbProp);
-            this.Font = new System.Drawing.Font("Tempus Sans ITC", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
