@@ -18,6 +18,7 @@ namespace Restaurante
         private Recetas xReceta;
         private DetalleReceta xDetalleRec;
         private Bitacora xBitacora;
+        private Inventario xInventario;
         private int nIdReceta;
         private int nIdDetalleBit;
 
@@ -27,7 +28,8 @@ namespace Restaurante
             this.xConnection = xConnection;
             this.xReceta = new Recetas(xConnection);
             this.xDetalleRec = new DetalleReceta(xConnection);
-            this.xBitacora = new Bitacora(xConnection);            
+            this.xBitacora = new Bitacora(xConnection);
+            this.xInventario = new Inventario(xConnection);
             this.nIdReceta = nIdReceta;
             this.nIdDetalleBit = nIdDetalleBit;
 
@@ -57,7 +59,7 @@ namespace Restaurante
             if(dlgAgregar.nIdIngrediente > 0)
             {
                 if(validarDuplicado(dlgAgregar.nIdIngrediente))
-                {
+                {                    
                     dgvIngredientes.Rows.Add(0, dlgAgregar.nIdIngrediente, dlgAgregar.sNombre, 0);
                 }                
             }
@@ -163,6 +165,16 @@ namespace Restaurante
             dgvIngredientes.Rows[e.Row.Index].Visible = false;
             dgvIngredientes.Rows[e.Row.Index].Cells[0].Value =-1;
             e.Cancel = true;
+        }
+
+        private void dgvIngredientes_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            int nMax = 0;
+            if (!xInventario.suficienteStock(Convert.ToInt32(dgvIngredientes.Rows[e.RowIndex].Cells[1].Value), Convert.ToInt64(dgvIngredientes.Rows[e.RowIndex].Cells[e.ColumnIndex].Value), ref nMax))
+            {
+                MessageBox.Show("Insuficiente stock...");
+                dgvIngredientes.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = nMax;
+            }
         }
     }
 }
