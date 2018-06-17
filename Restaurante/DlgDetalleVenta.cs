@@ -38,7 +38,7 @@ namespace Restaurante
 
             if(dtDetalle.Rows.Count > 0)
             {
-                dgvDetalleNo.DataSource = dtDetalle;
+                llenarDetallesNo(dtDetalle);
                 tbIdNota.Text = row.Cells[0].Value.ToString();
                 tbPropietario.Text = row.Cells[1].Value.ToString();
                 tbFecha.Text = Convert.ToDateTime(row.Cells[2].Value).ToString("dd/MM/yyyy");
@@ -50,6 +50,18 @@ namespace Restaurante
                 MessageBox.Show(xDetalleNo.sLastError);
                 this.Close();
             }
+        }
+        //select pr.nombre as Nombre, pr.descripcion as Descripcion, pr.precio as Precio
+        public void llenarDetallesNo(DataTable dtOrdenes)
+        {
+
+                dgvDetalleNo.Rows.Clear();
+
+            foreach (DataRow row in dtOrdenes.Rows)
+            {
+                dgvDetalleNo.Rows.Add(row[0].ToString(), row[1].ToString(), row[2].ToString());
+            }
+
         }
     }
 }

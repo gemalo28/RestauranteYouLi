@@ -53,11 +53,11 @@
             this.label1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Font = new System.Drawing.Font("Tempus Sans ITC", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(240, 9);
+            this.label1.Location = new System.Drawing.Point(275, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 27);
+            this.label1.Size = new System.Drawing.Size(76, 27);
             this.label1.TabIndex = 0;
-            this.label1.Text = "RESUMEN";
+            this.label1.Text = "NOTA";
             // 
             // label3
             // 
@@ -73,6 +73,7 @@
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
+            this.lblTotal.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.lblTotal.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.ForeColor = System.Drawing.Color.Red;
             this.lblTotal.Location = new System.Drawing.Point(247, 459);
@@ -216,7 +217,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DlgResumenNota";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Resumen";
+            this.Text = "Nota";
             this.Load += new System.EventHandler(this.DlgResumenNota_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.ResumeLayout(false);

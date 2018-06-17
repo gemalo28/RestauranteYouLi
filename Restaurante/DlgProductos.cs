@@ -26,21 +26,24 @@ namespace Restaurante
 
         private void DlgProductoscs_Load(object sender, EventArgs e)
         {
-            dgvProductos.DataSource = xProd.ConsultarProductos();
+            llenarProductos( xProd.ConsultarProductos());
             tbBuscar.Focus();
+        }
+        public void llenarProductos(DataTable dtProductos)
+        {
+
+            dgvProductos.Rows.Clear();
+
+            foreach (DataRow row in dtProductos.Rows)
+            {
+                dgvProductos.Rows.Add(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), "X");
+            }
+
         }
 
         public void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (tbBuscar.Text.Length >0)
-            {
-                dgvProductos.DataSource= xProd.ConsultarProductos(tbBuscar.Text);
-            }
-            else
-            {
-                dgvProductos.DataSource = xProd.ConsultarProductos();
-            }
-            tbBuscar.Select();
+
         }
 
         private void tbBuscar_KeyPress(object sender, KeyPressEventArgs e)
@@ -72,6 +75,19 @@ namespace Restaurante
         private void dgvProductos_DataSourceChanged(object sender, EventArgs e)
         {
             dgvProductos.Columns[0].Visible = false;
+        }
+
+        private void tbBuscar_TextChanged(object sender, EventArgs e)
+        {
+            if (tbBuscar.Text.Length > 0)
+            {
+                llenarProductos(xProd.ConsultarProductos(tbBuscar.Text));
+            }
+            else
+            {
+                llenarProductos(xProd.ConsultarProductos());
+            }
+            tbBuscar.Select();
         }
     }
 }

@@ -124,7 +124,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(382, 416);
+            this.ClientSize = new System.Drawing.Size(467, 474);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbCantidad);
             this.Controls.Add(this.btnAceptar);
@@ -133,6 +133,7 @@
             this.Controls.Add(this.tbNombre);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.dgvRecetas);
+            this.MaximizeBox = false;
             this.Name = "DlgRecetas";
             this.Text = "Recetas";
             this.Load += new System.EventHandler(this.DlgRecetas_Load);

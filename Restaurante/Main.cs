@@ -74,7 +74,7 @@ namespace Restaurante
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
+            if (e.RowIndex>=0)
             {
                 lbPropietario.Text = dgvOrdenes.Rows[e.RowIndex].Cells[1].Value.ToString();
                 lbfecha.Text = dgvOrdenes.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -85,12 +85,8 @@ namespace Restaurante
                 // dgvDetalles.DataSource = xDetProd.ConsultarDetalle(nIdSelected);
                 llenarDetalle();
             }
-            catch (Exception)
-            {
-                Reset();
-                //MessageBox.Show("No se pudo consular orden");
-                MessageBox.Show(xDetProd.sLastError);
-            }
+
+
 
         }
 
@@ -161,7 +157,7 @@ namespace Restaurante
 
             foreach(DataRow row in dtDetalle.Rows)
             {
-                dgvDetalles.Rows.Add(row[0].ToString(), row[2].ToString(), true, row[3].ToString(), row[4].ToString(), "X");
+                dgvDetalles.Rows.Add(row[0].ToString(), row[2].ToString(), true, row[3].ToString(), row[4].ToString(), "-");
             }
 
             llenarOrdenes(xOrdenes.ConsultarOrdenes());
@@ -175,7 +171,7 @@ namespace Restaurante
 
             foreach (DataRow row in dtProductos.Rows)
             {
-                dgvProductos.Rows.Add(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(),"X");
+                dgvProductos.Rows.Add(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(),"+");
             }
 
         }
@@ -328,41 +324,56 @@ namespace Restaurante
 
         private void dgvDetalles_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvDetalles.Rows[e.RowIndex].Cells[e.ColumnIndex]== dgvDetalles.Rows[e.RowIndex].Cells[5])
+            if (e.RowIndex>=0)
             {
-                if (xDetProd.BorrarDetalle(Convert.ToInt32(dgvDetalles.Rows[e.RowIndex].Cells[0].Value.ToString())))
+                if (dgvDetalles.Rows[e.RowIndex].Cells[e.ColumnIndex] == dgvDetalles.Rows[e.RowIndex].Cells[5])
                 {
-                    llenarDetalle();
-                }
-                else
-                {
-                    //MessageBox.Show("No se pudo eliminar el producto de la orden");
-                    MessageBox.Show(xDetProd.sLastError);
-                }
-            }
-        }
-
-        private void dgvProductos_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dgvProductos.Rows[e.RowIndex].Cells[e.ColumnIndex] == dgvProductos.Rows[e.RowIndex].Cells[4])
-            {
-                if (nIdSelected > 0)
-                {
-                    if (xDetProd.AgregarDetalle(Convert.ToInt32(nIdSelected), Convert.ToInt32(dgvProductos.Rows[e.RowIndex].Cells[0].Value.ToString())))
+                    if (xDetProd.BorrarDetalle(Convert.ToInt32(dgvDetalles.Rows[e.RowIndex].Cells[0].Value.ToString())))
                     {
-                        //dgvDetalles.DataSource = xDetProd.ConsultarDetalle(nIdSelected);
                         llenarDetalle();
                     }
                     else
                     {
-                        //MessageBox.Show("No se pudo agregar producto a la orden");
+                        //MessageBox.Show("No se pudo eliminar el producto de la orden");
                         MessageBox.Show(xDetProd.sLastError);
                     }
                 }
-                else
+
+            }
+
+        }
+
+        private void dgvProductos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+
+
+                if (dgvProductos.Rows[e.RowIndex].Cells[e.ColumnIndex] == dgvProductos.Rows[e.RowIndex].Cells[4])
                 {
-                    MessageBox.Show("Seleccione una orden, Por favor!");
+                    if (nIdSelected > 0)
+                    {
+                        if (xDetProd.AgregarDetalle(Convert.ToInt32(nIdSelected), Convert.ToInt32(dgvProductos.Rows[e.RowIndex].Cells[0].Value.ToString())))
+                        {
+                            //dgvDetalles.DataSource = xDetProd.ConsultarDetalle(nIdSelected);
+                            llenarDetalle();
+                        }
+                        else
+                        {
+                            //MessageBox.Show("No se pudo agregar producto a la orden");
+                            MessageBox.Show(xDetProd.sLastError);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Seleccione una orden, Por favor!");
+                    }
+
                 }
+            }
+
+            else
+            {
             }
         }
     }
