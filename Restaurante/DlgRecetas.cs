@@ -36,14 +36,25 @@ namespace Restaurante
 
         private void DlgRecetas_Load(object sender, EventArgs e)
         {
-            dgvRecetas.DataSource = xRecetas.ConsultarReceta();
+            llenarRecetas (xRecetas.ConsultarReceta());
+        }
+        public void llenarRecetas(DataTable dtRecetas)
+        {
+
+            dgvRecetas.Rows.Clear();
+
+            foreach (DataRow row in dtRecetas.Rows)
+            {
+                dgvRecetas.Rows.Add(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), "+");
+            }
+
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             DlgModificarReceta dlgModificar = new DlgModificarReceta(xConnection);
             dlgModificar.ShowDialog();
-            DlgRecetas_Load(sender, e);
+            llenarRecetas(xRecetas.ConsultarReceta());
         }
 
         private void dgvRecetas_DataSourceChanged(object sender, EventArgs e)
@@ -53,16 +64,7 @@ namespace Restaurante
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (tbNombre.Text.Length > 0)
-            {
-                dgvRecetas.DataSource = xRecetas.ConsultarReceta(tbNombre.Text);
-                tbNombre.Clear();
-                tbNombre.Select();
-            }
-            else
-            {
-                DlgRecetas_Load(sender, e);
-            }
+
         }
 
         private void tbNombre_KeyUp(object sender, KeyEventArgs e)
@@ -79,7 +81,7 @@ namespace Restaurante
             dlgModificar.ShowDialog();
             if(!bModify)
             {
-                DlgRecetas_Load(sender, e);
+                llenarRecetas(xRecetas.ConsultarReceta());
             }
             
         }
@@ -147,6 +149,19 @@ namespace Restaurante
             if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void tbNombre_TextChanged(object sender, EventArgs e)
+        {
+            if (tbNombre.Text.Length > 0)
+            {
+                llenarRecetas(xRecetas.ConsultarReceta(tbNombre.Text));
+                tbNombre.Select();
+            }
+            else
+            {
+                llenarRecetas(xRecetas.ConsultarReceta());
             }
         }
     }
