@@ -116,7 +116,7 @@
             this.dgvDetalles.RowHeadersVisible = false;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Tempus Sans ITC", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvDetalles.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvDetalles.Size = new System.Drawing.Size(352, 429);
+            this.dgvDetalles.Size = new System.Drawing.Size(352, 443);
             this.dgvDetalles.TabIndex = 0;
             this.dgvDetalles.DataSourceChanged += new System.EventHandler(this.dataGridView1_DataSourceChanged);
             this.dgvDetalles.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalles_CellClick);
@@ -160,7 +160,7 @@
             this.dgvOrdenes.RowHeadersVisible = false;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Tempus Sans ITC", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvOrdenes.RowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.dgvOrdenes.Size = new System.Drawing.Size(360, 533);
+            this.dgvOrdenes.Size = new System.Drawing.Size(360, 546);
             this.dgvOrdenes.TabIndex = 1;
             this.dgvOrdenes.DataSourceChanged += new System.EventHandler(this.dgvOrdenes_DataSourceChanged);
             this.dgvOrdenes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
@@ -212,7 +212,7 @@
             this.btnInventario.BackColor = System.Drawing.Color.LightYellow;
             this.btnInventario.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInventario.ForeColor = System.Drawing.Color.Black;
-            this.btnInventario.Location = new System.Drawing.Point(12, 537);
+            this.btnInventario.Location = new System.Drawing.Point(12, 550);
             this.btnInventario.Name = "btnInventario";
             this.btnInventario.Size = new System.Drawing.Size(235, 37);
             this.btnInventario.TabIndex = 0;
@@ -225,7 +225,7 @@
             this.btnRecetas.BackColor = System.Drawing.Color.LightYellow;
             this.btnRecetas.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRecetas.ForeColor = System.Drawing.Color.Black;
-            this.btnRecetas.Location = new System.Drawing.Point(12, 580);
+            this.btnRecetas.Location = new System.Drawing.Point(12, 593);
             this.btnRecetas.Name = "btnRecetas";
             this.btnRecetas.Size = new System.Drawing.Size(235, 37);
             this.btnRecetas.TabIndex = 3;
@@ -250,7 +250,7 @@
             this.btnCtrlVentas.BackColor = System.Drawing.Color.LightYellow;
             this.btnCtrlVentas.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCtrlVentas.ForeColor = System.Drawing.Color.Black;
-            this.btnCtrlVentas.Location = new System.Drawing.Point(12, 666);
+            this.btnCtrlVentas.Location = new System.Drawing.Point(12, 679);
             this.btnCtrlVentas.Name = "btnCtrlVentas";
             this.btnCtrlVentas.Size = new System.Drawing.Size(235, 37);
             this.btnCtrlVentas.TabIndex = 5;
@@ -261,6 +261,7 @@
             // tbNombre
             // 
             this.tbNombre.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNombre.ForeColor = System.Drawing.Color.Red;
             this.tbNombre.Location = new System.Drawing.Point(978, 127);
             this.tbNombre.Multiline = true;
             this.tbNombre.Name = "tbNombre";
@@ -271,6 +272,7 @@
             // tbNomProd
             // 
             this.tbNomProd.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNomProd.ForeColor = System.Drawing.Color.Red;
             this.tbNomProd.Location = new System.Drawing.Point(268, 128);
             this.tbNomProd.Multiline = true;
             this.tbNomProd.Name = "tbNomProd";
@@ -315,7 +317,7 @@
             this.dgvProductos.RowHeadersVisible = false;
             dataGridViewCellStyle11.Font = new System.Drawing.Font("Tempus Sans ITC", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvProductos.RowsDefaultCellStyle = dataGridViewCellStyle11;
-            this.dgvProductos.Size = new System.Drawing.Size(346, 532);
+            this.dgvProductos.Size = new System.Drawing.Size(346, 546);
             this.dgvProductos.TabIndex = 17;
             this.dgvProductos.DataSourceChanged += new System.EventHandler(this.dgvProductos_DataSourceChanged);
             this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellClick);
@@ -337,7 +339,7 @@
             // 
             this.btnTotal.BackColor = System.Drawing.Color.LightYellow;
             this.btnTotal.Font = new System.Drawing.Font("Tempus Sans ITC", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTotal.Location = new System.Drawing.Point(620, 637);
+            this.btnTotal.Location = new System.Drawing.Point(620, 651);
             this.btnTotal.Name = "btnTotal";
             this.btnTotal.Size = new System.Drawing.Size(352, 66);
             this.btnTotal.TabIndex = 15;
@@ -351,7 +353,7 @@
             this.lbfecha.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.lbfecha.Font = new System.Drawing.Font("Tempus Sans ITC", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbfecha.ForeColor = System.Drawing.Color.Red;
-            this.lbfecha.Location = new System.Drawing.Point(794, 108);
+            this.lbfecha.Location = new System.Drawing.Point(770, 108);
             this.lbfecha.Name = "lbfecha";
             this.lbfecha.Size = new System.Drawing.Size(50, 19);
             this.lbfecha.TabIndex = 13;
@@ -362,7 +364,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.label3.Font = new System.Drawing.Font("Tempus Sans ITC", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(742, 108);
+            this.label3.Location = new System.Drawing.Point(718, 108);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 19);
             this.label3.TabIndex = 12;
@@ -373,7 +375,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.label2.Font = new System.Drawing.Font("Tempus Sans ITC", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(629, 108);
+            this.label2.Location = new System.Drawing.Point(621, 108);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(98, 19);
             this.label2.TabIndex = 11;
@@ -384,7 +386,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.label1.Font = new System.Drawing.Font("Tempus Sans ITC", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(629, 72);
+            this.label1.Location = new System.Drawing.Point(621, 72);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 19);
             this.label1.TabIndex = 10;
@@ -406,7 +408,7 @@
             this.lbPropietario.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.lbPropietario.Font = new System.Drawing.Font("Tempus Sans ITC", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPropietario.ForeColor = System.Drawing.Color.Red;
-            this.lbPropietario.Location = new System.Drawing.Point(715, 55);
+            this.lbPropietario.Location = new System.Drawing.Point(707, 55);
             this.lbPropietario.Name = "lbPropietario";
             this.lbPropietario.Size = new System.Drawing.Size(163, 38);
             this.lbPropietario.TabIndex = 8;
@@ -417,7 +419,7 @@
             this.btnAgregarReceta.BackColor = System.Drawing.Color.LightYellow;
             this.btnAgregarReceta.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarReceta.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregarReceta.Location = new System.Drawing.Point(12, 623);
+            this.btnAgregarReceta.Location = new System.Drawing.Point(12, 636);
             this.btnAgregarReceta.Name = "btnAgregarReceta";
             this.btnAgregarReceta.Size = new System.Drawing.Size(235, 37);
             this.btnAgregarReceta.TabIndex = 8;
@@ -484,6 +486,7 @@
             this.Column7.HeaderText = "Producto";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
+            this.Column7.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // Column8
             // 
@@ -515,6 +518,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1350, 729);
@@ -537,7 +541,9 @@
             this.Controls.Add(this.dgvDetalles);
             this.Controls.Add(this.dgvOrdenes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Yoú Lí China Expréss";
             this.Load += new System.EventHandler(this.Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).EndInit();

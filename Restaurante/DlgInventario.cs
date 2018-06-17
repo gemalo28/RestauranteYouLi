@@ -26,7 +26,7 @@ namespace Restaurante
 
         private void Inventario_Load(object sender, EventArgs e)
         {
-            dgvInventario.DataSource = xInv.ConsultarInventario();
+            llenarInventario(xInv.ConsultarInventario());
             tbNombreIng.Select();
         }
 
@@ -42,6 +42,17 @@ namespace Restaurante
             {
                 Inventario_Load(sender, e);
             }
+        }
+        public void llenarInventario(DataTable dtOrdenes)
+        {
+
+            dgvInventario.Rows.Clear();
+
+            foreach (DataRow row in dtOrdenes.Rows)
+            {
+                dgvInventario.Rows.Add(row[0].ToString(), row[1].ToString(), row[2].ToString());
+            }
+
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -96,6 +107,20 @@ namespace Restaurante
                     e.Cancel = true;
                     MessageBox.Show("¡Sólo el administrador puede eliminar ingredientes del inventario!");
                 }
+            }
+        }
+
+        private void tbNombreIng_TextChanged(object sender, EventArgs e)
+        {
+            if (tbNombreIng.Text.Length > 0)
+            {
+                llenarInventario( xInv.ConsultarInventario(tbNombreIng.Text));
+
+                tbNombreIng.Select();
+            }
+            else
+            {
+                llenarInventario(xInv.ConsultarInventario());
             }
         }
     }
