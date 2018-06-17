@@ -263,12 +263,10 @@ namespace Restaurante
                 
                 ticket.AbreCajon();
 
-                ticket.TextoCentro("RESTAURANTE YOU LI");
-                ticket.TextoCentro("EXPEDIDO EN: GUASAVE, SIN.");
-                ticket.TextoCentro("DIRECCION: GUASAVE, SIN.");
-                ticket.TextoCentro("TEL: 6871234567");
-                ticket.TextoCentro("RFC: YL1234556789");
-                ticket.TextoCentro("EMAIL: VENTAS@YOULI.COM");
+                ticket.TextoCentro("YOU LI CHINA EXPRESS");
+                ticket.TextoCentro("BLVD. ROMUALDO RUIZ PAYAN S/N OLIVOS Y  EZQ. COL. LAS PALMAS, GUASAVE, SINALOA");
+                ticket.TextoCentro("TEL: 6878836442");
+                ticket.TextoCentro("EMAIL: MEYLIN.6@HOTMAIL.COM");
                 ticket.TextoIzq("");
                 ticket.TextoExtremo("Caja #1", "Ticket #" + nIdNota);
                 ticket.lineasAst();
@@ -288,8 +286,8 @@ namespace Restaurante
                     ticket.AgregaArticulo(row[3].ToString(), 1, Convert.ToDecimal(row[4]), Convert.ToDecimal(row[4]));
                 }
 
-                ticket.AgregarTotales("          SUBTOTAL......$", dTotal);
-                ticket.AgregarTotales("          IVA...........$", 10.04M);
+                //ticket.AgregarTotales("          SUBTOTAL......$", dTotal);
+                //ticket.AgregarTotales("          IVA...........$", 10.04M);
                 ticket.AgregarTotales("          TOTAL.........$", dTotal);
                 ticket.TextoIzq("");
                 ticket.AgregarTotales("          EFECTIVO......$", dEfectivo);
@@ -300,8 +298,8 @@ namespace Restaurante
                 ticket.TextoIzq("");
                 ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
                 ticket.CortaTicket();
-                ticket.Imprimirticket("EPSON TM-U220 Receipt");
-                // ticket.Imprimirticket("Microsoft XPS Document Writer");
+                //ticket.Imprimirticket("EPSON TM-U220 Receipt");
+                ticket.Imprimirticket("Microsoft XPS Document Writer");
                 bAllOk = true;
             }
             catch (Exception ex)

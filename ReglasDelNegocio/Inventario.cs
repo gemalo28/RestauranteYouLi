@@ -138,7 +138,7 @@ namespace ReglasDelNegocio
         }
 
 
-        public Boolean suficienteStock(int nIdProducto, int nCantidad)
+        public Boolean suficienteStock(int nIdIngrediente, long lCantidad, ref int nMax)
         {
             bool bAllOk = false;
 
@@ -146,20 +146,27 @@ namespace ReglasDelNegocio
 
             try
             {
-               // string sSQlqry = "update inventario set nombre = '" + sNombre + "', cantidad = " + nCantidad + " where id_ingrediente = " + nIdIngrediente;
-                //MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
-                //MySqlDataReader reader;
-                //reader = command.ExecuteReader();
+                string sSQlqry = "select cantidad from inventario where id_ingrediente =  " + nIdIngrediente;
+                MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
+                MySqlDataReader reader;
+                reader = command.ExecuteReader();
 
-                //while(reader.Read())
-                //{
-                //    nStock = Convert.ToInt32(reader[0]);
-                //}
+                while (reader.Read())
+                {
+                    nStock = Convert.ToInt32(reader[0]);
+                }
 
-                //if(nStock > nCantidad)
-                //{
-                //    bAllOk = true;
-                //}                
+                if (nStock > lCantidad)
+                {
+                    bAllOk = true;
+                }
+                else
+                {
+                    nMax = nStock;
+                }
+
+                command.Dispose();
+                reader.Dispose();
             }
             catch (Exception ex)
             {

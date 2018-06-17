@@ -104,6 +104,7 @@
             // tbCantidad
             // 
             this.tbCantidad.Location = new System.Drawing.Point(71, 366);
+            this.tbCantidad.MaxLength = 9;
             this.tbCantidad.Name = "tbCantidad";
             this.tbCantidad.Size = new System.Drawing.Size(100, 20);
             this.tbCantidad.TabIndex = 11;
@@ -124,7 +125,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(467, 474);
+            this.ClientSize = new System.Drawing.Size(467, 412);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbCantidad);
             this.Controls.Add(this.btnAceptar);

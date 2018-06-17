@@ -32,16 +32,6 @@ namespace Restaurante
             }
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             if (tbNombre.Text.Length > 0 || tbDescripcion.Text.Length > 0 || tbPrecio.Text.Length > 0)
@@ -52,7 +42,6 @@ namespace Restaurante
                     this.Close();
 
                 }
-
             }
             else
             {
@@ -96,9 +85,6 @@ namespace Restaurante
                         MessageBox.Show("Se Agregó correctamente el producto '" + tbNombre.Text + "'");
                         limpiar();
                     }
-                    
-                    
-
                 } 
             }
             else

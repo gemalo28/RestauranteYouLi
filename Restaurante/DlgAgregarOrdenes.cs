@@ -142,5 +142,10 @@ namespace Restaurante
 
 
         }
+
+        private void dgvOrdenes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

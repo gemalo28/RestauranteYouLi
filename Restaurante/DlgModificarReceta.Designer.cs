@@ -31,13 +31,13 @@
             this.tbNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvIngredientes = new System.Windows.Forms.DataGridView();
-            this.btnConfirmar = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnAgregar = new System.Windows.Forms.Button();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnConfirmar = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnAgregar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIngredientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,7 +71,31 @@
             this.dgvIngredientes.Name = "dgvIngredientes";
             this.dgvIngredientes.Size = new System.Drawing.Size(240, 150);
             this.dgvIngredientes.TabIndex = 2;
+            this.dgvIngredientes.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvIngredientes_CellEndEdit);
             this.dgvIngredientes.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvIngredientes_UserDeletingRow);
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "id_detalle";
+            this.Column4.Name = "Column4";
+            this.Column4.Visible = false;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "id_ingrediente";
+            this.Column3.Name = "Column3";
+            this.Column3.Visible = false;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Ingrediente";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Cantidad";
+            this.Column2.Name = "Column2";
             // 
             // btnConfirmar
             // 
@@ -101,29 +125,6 @@
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "id_detalle";
-            this.Column4.Name = "Column4";
-            this.Column4.Visible = false;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "id_ingrediente";
-            this.Column3.Name = "Column3";
-            this.Column3.Visible = false;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Ingrediente";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Cantidad";
-            this.Column2.Name = "Column2";
             // 
             // DlgModificarReceta
             // 

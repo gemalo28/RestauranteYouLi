@@ -23,16 +23,22 @@ namespace ReglasDelNegocio
 
             try
             {
-                for(int i = 0; i < nCantidad; i++)
+                if(suficienteStockBit(nIdReceta, nCantidad))
                 {
-                    string sSQlqry = "CALL ActualizarInventario(" + nIdReceta + ")";
+                    for (int i = 0; i < nCantidad; i++)
+                    {
+                        string sSQlqry = "CALL ActualizarInventario(" + nIdReceta + ")";
 
-                    MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
-                    command.ExecuteNonQuery();
-                    command.Dispose();
-                }                
-
-                bAllOk = true;
+                        MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
+                        command.ExecuteNonQuery();
+                        command.Dispose();
+                    }
+                    bAllOk = true;
+                }
+                else
+                {
+                    sLastError = "Stock insuficiente, favor de revisar su inventario...";
+                }      
             }
             catch (Exception ex)
             {
@@ -163,6 +169,45 @@ namespace ReglasDelNegocio
 
 
             return dtDetalle;
+        }
+
+        private Boolean suficienteStockBit(int nIdReceta, int nCantidad)
+        {
+            bool bAllOk = true;
+            long lCantidad = 0;
+            int nMax = 0;
+            DataTable dt = new DataTable();
+            try
+            {
+                Inventario xInv = new Inventario(xConnection);
+
+                string sSQlqry = "select d.id_ingrediente, d.cantidad " +
+                                 "from recetas r " +
+                                 "join detalle_receta d on d.id_receta = r.id_receta " +
+                                 "where r.id_receta = " + nIdReceta;
+                MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                adapter.Fill(dt);
+
+                foreach(DataRow row in dt.Rows)
+                {
+                    lCantidad = nCantidad * Convert.ToInt64(row[1]);
+
+                    if (!xInv.suficienteStock(Convert.ToInt32(row[0]), lCantidad, ref nMax))
+                    {
+                        bAllOk = false;
+                    }
+                }
+
+                command.Dispose();
+                adapter.Dispose();
+            }
+            catch (Exception ex)
+            {
+                sLastError = ex.ToString();
+            }
+
+            return bAllOk;
         }
     }
 }
