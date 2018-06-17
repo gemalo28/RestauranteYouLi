@@ -83,7 +83,7 @@
             // 
             this.btnAceptar.BackColor = System.Drawing.Color.LightYellow;
             this.btnAceptar.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAceptar.Location = new System.Drawing.Point(309, 443);
+            this.btnAceptar.Location = new System.Drawing.Point(308, 429);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(117, 35);
             this.btnAceptar.TabIndex = 10;
@@ -151,6 +151,7 @@
             this.dgvRecetas.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvRecetas.Size = new System.Drawing.Size(412, 215);
             this.dgvRecetas.TabIndex = 21;
+            this.dgvRecetas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRecetas_CellDoubleClick_1);
             // 
             // Column1
             // 
@@ -171,11 +172,11 @@
             this.label5.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.label5.Font = new System.Drawing.Font("Tempus Sans ITC", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(258, 9);
+            this.label5.Location = new System.Drawing.Point(321, 9);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(168, 27);
+            this.label5.Size = new System.Drawing.Size(103, 27);
             this.label5.TabIndex = 24;
-            this.label5.Text = "PREPARACION";
+            this.label5.Text = "RECETAS";
             // 
             // DlgRecetas
             // 
@@ -183,7 +184,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Restaurante.Properties.Resources.image;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(437, 493);
+            this.ClientSize = new System.Drawing.Size(437, 476);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dgvRecetas);
             this.Controls.Add(this.label2);
@@ -196,7 +197,7 @@
             this.MaximizeBox = false;
             this.Name = "DlgRecetas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "PREPARACION";
+            this.Text = "Preparacion";
             this.Load += new System.EventHandler(this.DlgRecetas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecetas)).EndInit();
             this.ResumeLayout(false);

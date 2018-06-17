@@ -28,29 +28,29 @@ namespace Restaurante
 
         private void DlgAgregarIngrediente_Load(object sender, EventArgs e)
         {
-            dgvInventario.DataSource = xInv.ConsultarInventario();
+            llenarIngredientess(xInv.ConsultarInventario());
             tbNombreIng.Select();
+        }
+        public void llenarIngredientess(DataTable dtProductos)
+        {
+
+            dgvInventario.Rows.Clear();
+
+            foreach (DataRow row in dtProductos.Rows)
+            {
+                dgvInventario.Rows.Add(row[0].ToString(), row[1].ToString(), row[2].ToString());
+            }
+
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (tbNombreIng.Text.Length > 0)
-            {
-                dgvInventario.DataSource = xInv.ConsultarInventario(tbNombreIng.Text);
-                tbNombreIng.Clear();
-                tbNombreIng.Select();
-            }
-            else
-            {
-                DlgAgregarIngrediente_Load(sender, e);
-            }
+
         }
 
         private void dgvInventario_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            sNombre = dgvInventario.Rows[e.RowIndex].Cells[1].Value.ToString();
-            nIdIngrediente = Convert.ToInt32(dgvInventario.Rows[e.RowIndex].Cells[0].Value);
-            this.Close();
+
         }
 
         private void dgvInventario_DataSourceChanged(object sender, EventArgs e)
@@ -64,6 +64,26 @@ namespace Restaurante
             {
                 btnBuscar_Click(sender, e);
             }
+        }
+
+        private void tbNombreIng_TextChanged(object sender, EventArgs e)
+        {
+            if (tbNombreIng.Text.Length > 0)
+            {
+                llenarIngredientess(xInv.ConsultarInventario(tbNombreIng.Text));
+                tbNombreIng.Select();
+            }
+            else
+            {
+                llenarIngredientess(xInv.ConsultarInventario());
+            }
+        }
+
+        private void dgvInventario_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            sNombre = dgvInventario.Rows[e.RowIndex].Cells[1].Value.ToString();
+            nIdIngrediente = Convert.ToInt32(dgvInventario.Rows[e.RowIndex].Cells[0].Value);
+            this.Close();
         }
     }
 }

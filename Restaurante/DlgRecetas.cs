@@ -45,7 +45,7 @@ namespace Restaurante
 
             foreach (DataRow row in dtRecetas.Rows)
             {
-                dgvRecetas.Rows.Add(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), "+");
+                dgvRecetas.Rows.Add(row[0].ToString(), row[1].ToString());
             }
 
         }
@@ -77,12 +77,7 @@ namespace Restaurante
 
         private void dgvRecetas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            DlgModificarReceta dlgModificar = new DlgModificarReceta(xConnection, Convert.ToInt32(dgvRecetas.Rows[e.RowIndex].Cells[0].Value), bModify);
-            dlgModificar.ShowDialog();
-            if(!bModify)
-            {
-                llenarRecetas(xRecetas.ConsultarReceta());
-            }
+
             
         }
 
@@ -163,6 +158,17 @@ namespace Restaurante
             {
                 llenarRecetas(xRecetas.ConsultarReceta());
             }
+        }
+
+        private void dgvRecetas_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            DlgModificarReceta dlgModificar = new DlgModificarReceta(xConnection, Convert.ToInt32(dgvRecetas.Rows[e.RowIndex].Cells[0].Value), bModify);
+            dlgModificar.ShowDialog();
+            if (!bModify)
+            {
+                llenarRecetas(xRecetas.ConsultarReceta());
+            }
+
         }
     }
 }
