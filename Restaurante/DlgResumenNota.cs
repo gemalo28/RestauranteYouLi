@@ -38,6 +38,7 @@ namespace Restaurante
                 dEfectivo = Convert.ToDouble(tbEfectivo.Text);
                 dCambio = dEfectivo - dTotal;
                 bConfirmar = true;
+                
                 this.Close();
             }
             else

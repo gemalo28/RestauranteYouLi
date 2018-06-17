@@ -54,6 +54,8 @@ id_orden int not null,
 
 id_producto int not null,
 
+flag_pagado int not null default 0,
+
 foreign key fk_ondenesInDetalleOrden(id_orden) references ordenes(id_orden),
 
 foreign key fk_ProductosInDetalleOrden(id_producto) references productos(id_producto)
@@ -181,5 +183,44 @@ where I.id_ingrediente = src.id_ingrediente;
 END
 $$
 
+Delimiter $$
+CREATE TRIGGER tr_Insert_Detalle 
+AFTER INSERT ON you_li.detalle_orden FOR EACH ROW
+BEGIN
+   update ordenes o, (select sum(p.precio) as Total
+						from detalle_orden d
+						join productos p on p.id_producto = d.id_producto
+						where d.id_orden = new.id_orden) src
+   set o.total = src.Total
+   where o.id_orden = new.id_orden;
+END 
+$$
 
+Delimiter $$
+CREATE TRIGGER tr_Delete_Detalle 
+AFTER DELETE ON you_li.detalle_orden FOR EACH ROW
+BEGIN
+   update ordenes o, (select coalesce((select sum(p.precio) 
+						from detalle_orden d
+						join productos p on p.id_producto = d.id_producto
+						where d.id_orden = old.id_orden), 0 ) as Total) src
+   set o.total = src.Total
+   where o.id_orden = old.id_orden;
+END 
+$$
+
+Delimiter $$
+CREATE TRIGGER tr_Update_Detalle 
+AFTER UPDATE ON detalle_orden FOR EACH ROW
+BEGIN   
+   select coalesce((select count(flag_pagado) 
+   from detalle_orden
+   where id_orden = new.id_orden and flag_pagado = 0),0) into @nopagados;   
+   
+   if @nopagados = 0 then   
+   update ordenes set flag_pagado = 1
+   where id_orden = new.id_orden;
+   end if;
+END 
+$$
 
