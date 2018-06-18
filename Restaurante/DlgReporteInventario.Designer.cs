@@ -41,13 +41,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvRecetas = new System.Windows.Forms.DataGridView();
+            this.dgvIngredientes = new System.Windows.Forms.DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvIngredientes = new System.Windows.Forms.DataGridView();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecetas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIngredientes)).BeginInit();
             this.SuspendLayout();
@@ -123,6 +126,8 @@
             this.dgvRecetas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvRecetas.ColumnHeadersHeight = 30;
             this.dgvRecetas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column3,
+            this.Column4,
             this.Column9,
             this.Column10,
             this.Column11});
@@ -145,25 +150,6 @@
             this.dgvRecetas.Size = new System.Drawing.Size(427, 357);
             this.dgvRecetas.TabIndex = 23;
             // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "nombre";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "Fecha";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            // 
-            // Column11
-            // 
-            this.Column11.FillWeight = 50F;
-            this.Column11.HeaderText = "Cantidad";
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            // 
             // dgvIngredientes
             // 
             this.dgvIngredientes.AllowUserToAddRows = false;
@@ -180,6 +166,7 @@
             this.dgvIngredientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvIngredientes.ColumnHeadersHeight = 30;
             this.dgvIngredientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column5,
             this.Column1,
             this.Column2});
             this.dgvIngredientes.EnableHeadersVisualStyles = false;
@@ -201,6 +188,58 @@
             this.dgvIngredientes.Size = new System.Drawing.Size(344, 357);
             this.dgvIngredientes.TabIndex = 24;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label5.Font = new System.Drawing.Font("Tempus Sans ITC", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(540, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(249, 27);
+            this.label5.TabIndex = 25;
+            this.label5.Text = "REPORTE INVENTARIO";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "id_det_bit";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Visible = false;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "id_receta";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Visible = false;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "nombre";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Fecha";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            // 
+            // Column11
+            // 
+            this.Column11.FillWeight = 50F;
+            this.Column11.HeaderText = "Cantidad";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "id_ingrediente";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Visible = false;
+            // 
             // Column1
             // 
             this.Column1.HeaderText = "Nombre";
@@ -213,18 +252,6 @@
             this.Column2.HeaderText = "Total";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Font = new System.Drawing.Font("Tempus Sans ITC", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(540, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(249, 27);
-            this.label5.TabIndex = 25;
-            this.label5.Text = "REPORTE INVENTARIO";
             // 
             // DlgReporteInventario
             // 
@@ -262,12 +289,15 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvRecetas;
+        private System.Windows.Forms.DataGridView dgvIngredientes;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.DataGridView dgvIngredientes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.Label label5;
     }
 }

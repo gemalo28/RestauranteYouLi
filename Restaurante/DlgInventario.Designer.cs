@@ -36,10 +36,10 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvInventario = new System.Windows.Forms.DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInventario)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,6 +115,18 @@
             this.dgvInventario.Size = new System.Drawing.Size(439, 338);
             this.dgvInventario.TabIndex = 21;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label5.Font = new System.Drawing.Font("Tempus Sans ITC", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(302, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(149, 27);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "INVENTARIO";
+            // 
             // Column1
             // 
             this.Column1.HeaderText = "ID_Producto";
@@ -130,22 +142,10 @@
             // 
             // Column3
             // 
-            this.Column3.FillWeight = 30F;
-            this.Column3.HeaderText = "Cantidad";
+            this.Column3.FillWeight = 40F;
+            this.Column3.HeaderText = "Cantidad(Gr)";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Font = new System.Drawing.Font("Tempus Sans ITC", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(302, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(149, 27);
-            this.label5.TabIndex = 23;
-            this.label5.Text = "INVENTARIO";
             // 
             // DlgInventario
             // 
@@ -154,7 +154,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(464, 521);
+            this.ClientSize = new System.Drawing.Size(463, 521);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dgvInventario);
             this.Controls.Add(this.label1);
@@ -177,9 +177,9 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvInventario;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.Label label5;
     }
 }
