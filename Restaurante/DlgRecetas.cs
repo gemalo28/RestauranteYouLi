@@ -111,21 +111,30 @@ namespace Restaurante
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if(tbCantidad.Text.Length > 0 && dgvRecetas.SelectedCells.Count == 1)
+            if(tbCantidad.Text.Length > 0 && dgvRecetas.SelectedCells.Count == 1 )
             {
-                Bitacora xBit = new Bitacora(xConnection);
-                int nRowIndex = dgvRecetas.SelectedCells[0].RowIndex;
+                try
+                {
+                    Bitacora xBit = new Bitacora(xConnection);
+                    int nRowIndex = dgvRecetas.SelectedCells[0].RowIndex;
 
-                if(xBit.AgregarBitacora(Convert.ToInt32(dgvRecetas.Rows[nRowIndex].Cells[0].Value), Convert.ToInt32(tbCantidad.Text)))
-                {
-                    MessageBox.Show("¡Receta registrada!");
-                    tbCantidad.Clear();
-                    tbCantidad.Select();
+                    if (xBit.AgregarBitacora(Convert.ToInt32(dgvRecetas.Rows[nRowIndex].Cells[0].Value), Convert.ToInt32(tbCantidad.Text)))
+                    {
+                        MessageBox.Show("¡Receta registrada!");
+                        tbCantidad.Clear();
+                        tbCantidad.Select();
+                    }
+                    else
+                    {
+                        MessageBox.Show(xBit.sLastError);
+                    }
                 }
-                else
+                catch (Exception)
                 {
-                    MessageBox.Show(xBit.sLastError);
+
+                    MessageBox.Show("Ingrese cantidad correcta, por favor!");
                 }
+
             }
             else
             {
