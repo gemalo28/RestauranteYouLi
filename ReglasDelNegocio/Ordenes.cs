@@ -61,18 +61,21 @@ namespace ReglasDelNegocio
         public Boolean BorrarOrden(int nIdOrden)
         {
             bool bAllOk = false;
-
+            MySqlTransaction transaction;
+            transaction = xConnection.BeginTransaction();
             try
             {
-                string sSQlqry = "delete from ordenes " +
-                                 "where id_orden = " + nIdOrden;
-                MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
+                string sSQlqry = "delete from detalle_orden where id_orden = " + nIdOrden + "; " +
+                                 "delete from ordenes where id_orden = " + nIdOrden + ";";
+                MySqlCommand command = new MySqlCommand(sSQlqry, xConnection, transaction);
                 command.ExecuteNonQuery();
                 command.Dispose();
                 bAllOk = true;
+                transaction.Commit();
             }
             catch (Exception ex)
             {
+                transaction.Rollback();
                 sLastError = "Error >>> " + ex.ToString();
             }
 
