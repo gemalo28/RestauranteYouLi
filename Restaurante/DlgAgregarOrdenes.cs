@@ -69,7 +69,6 @@ namespace Restaurante
             {
                 MessageBox.Show("Propietario incorrecto");
                 tbProp.Focus();
-
             }
 
         }
@@ -78,15 +77,34 @@ namespace Restaurante
         {
             if (tbProp.Text.Length > 0)
             {
-                DialogResult dialogResult = MessageBox.Show("¿Esta seguro que desea cerrar?", "Confirmación", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("¿Esta seguro que desea eliminar orden?", "Confirmación", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    this.Close();
+                    AdminConfirmation dlgAdmin = new AdminConfirmation(xConnection);
+                    dlgAdmin.ShowDialog();
+
+                    if(dlgAdmin.bValido)
+                    {
+                        if(xOrdenes.BorrarOrden(nidOrd))
+                        {
+                            MessageBox.Show("Orden eliminada...");
+                            limpiar();
+                            llenarOrdenes(xOrdenes.ConsultarOrdenes());
+                        }
+                        else
+                        {
+                            MessageBox.Show("No es posible eliminar una orden parcialmente pagada...");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sólo el adminsitrador puede eliminar ordenes...");
+                    }
                 }
             }
             else
             {
-                this.Close();
+                MessageBox.Show("Favor de elegir una orden...");
             }
         }
 
@@ -94,6 +112,7 @@ namespace Restaurante
         {
             llenarOrdenes(xOrdenes.ConsultarOrdenes());
         }
+
         public void llenarOrdenes(DataTable dtOrdenes)
         {
             dgvOrdenes.Rows.Clear();
