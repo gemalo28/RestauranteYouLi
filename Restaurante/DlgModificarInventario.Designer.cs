@@ -105,6 +105,7 @@ namespace Restaurante
             // 
             // cbxUnidad
             // 
+            this.cbxUnidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxUnidad.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxUnidad.FormattingEnabled = true;
             this.cbxUnidad.Location = new System.Drawing.Point(440, 133);
