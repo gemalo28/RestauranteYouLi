@@ -310,9 +310,8 @@
             this.tbNombre.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbNombre.ForeColor = System.Drawing.Color.Red;
             this.tbNombre.Location = new System.Drawing.Point(978, 127);
-            this.tbNombre.Multiline = true;
             this.tbNombre.Name = "tbNombre";
-            this.tbNombre.Size = new System.Drawing.Size(368, 38);
+            this.tbNombre.Size = new System.Drawing.Size(368, 32);
             this.tbNombre.TabIndex = 6;
             this.tbNombre.TextChanged += new System.EventHandler(this.tbNombre_TextChanged);
             // 
@@ -321,9 +320,8 @@
             this.tbNomProd.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbNomProd.ForeColor = System.Drawing.Color.Red;
             this.tbNomProd.Location = new System.Drawing.Point(268, 128);
-            this.tbNomProd.Multiline = true;
             this.tbNomProd.Name = "tbNomProd";
-            this.tbNomProd.Size = new System.Drawing.Size(346, 38);
+            this.tbNomProd.Size = new System.Drawing.Size(346, 32);
             this.tbNomProd.TabIndex = 18;
             this.tbNomProd.TextChanged += new System.EventHandler(this.tbNomProd_TextChanged);
             // 
@@ -486,6 +484,7 @@
             this.tbDescripcion.Location = new System.Drawing.Point(620, 127);
             this.tbDescripcion.Multiline = true;
             this.tbDescripcion.Name = "tbDescripcion";
+            this.tbDescripcion.ReadOnly = true;
             this.tbDescripcion.Size = new System.Drawing.Size(352, 69);
             this.tbDescripcion.TabIndex = 9;
             // 
