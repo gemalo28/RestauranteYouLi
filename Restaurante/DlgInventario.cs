@@ -82,34 +82,6 @@ namespace Restaurante
             }
         }
 
-        private void dgvInventario_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("¿Está seguro de que desea borrar este ingrediente?", "Confirmación", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                AdminConfirmation dgAdmin = new AdminConfirmation(xConnection);
-                dgAdmin.ShowDialog();
-
-                if(dgAdmin.bValido)
-                {
-                    if(xInv.BorrarInventario(Convert.ToInt32(dgvInventario.Rows[e.Row.Index].Cells[0].Value.ToString())))
-                    {
-                        MessageBox.Show("Ingrediente eliminado con éxito...");
-                    }
-                    else
-                    {
-                        e.Cancel = true;
-                        MessageBox.Show(xInv.sLastError);
-                    }
-                }
-                else
-                {
-                    e.Cancel = true;
-                    MessageBox.Show("¡Sólo el administrador puede eliminar ingredientes del inventario!");
-                }
-            }
-        }
-
         private void tbNombreIng_TextChanged(object sender, EventArgs e)
         {
             if (tbNombreIng.Text.Length > 0)

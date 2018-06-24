@@ -88,7 +88,7 @@
             this.dgvDetalles.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightYellow;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -107,20 +107,18 @@
             this.dgvDetalles.Name = "dgvDetalles";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDetalles.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDetalles.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tempus Sans ITC", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvDetalles.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDetalles.Size = new System.Drawing.Size(352, 414);
             this.dgvDetalles.TabIndex = 0;
-            this.dgvDetalles.DataSourceChanged += new System.EventHandler(this.dataGridView1_DataSourceChanged);
             this.dgvDetalles.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalles_CellClick);
-            this.dgvDetalles.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalles_CellDoubleClick);
             // 
             // Column1
             // 
@@ -144,7 +142,6 @@
             // 
             this.Column4.HeaderText = "PRODUCTO";
             this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
             this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
@@ -153,7 +150,6 @@
             this.Column5.FillWeight = 50F;
             this.Column5.HeaderText = "PRECIO";
             this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
             this.Column5.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Column5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
@@ -177,7 +173,7 @@
             this.dgvOrdenes.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.LightYellow;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -198,14 +194,14 @@
             this.dgvOrdenes.ReadOnly = true;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvOrdenes.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvOrdenes.RowHeadersVisible = false;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tempus Sans ITC", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvOrdenes.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvOrdenes.Size = new System.Drawing.Size(368, 517);
             this.dgvOrdenes.TabIndex = 1;
@@ -257,7 +253,7 @@
             // btnInventario
             // 
             this.btnInventario.BackColor = System.Drawing.Color.LightYellow;
-            this.btnInventario.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInventario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInventario.ForeColor = System.Drawing.Color.Black;
             this.btnInventario.Location = new System.Drawing.Point(12, 522);
             this.btnInventario.Name = "btnInventario";
@@ -270,7 +266,7 @@
             // btnRecetas
             // 
             this.btnRecetas.BackColor = System.Drawing.Color.LightYellow;
-            this.btnRecetas.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRecetas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRecetas.ForeColor = System.Drawing.Color.Black;
             this.btnRecetas.Location = new System.Drawing.Point(12, 565);
             this.btnRecetas.Name = "btnRecetas";
@@ -283,7 +279,7 @@
             // btnProductos
             // 
             this.btnProductos.BackColor = System.Drawing.Color.LightYellow;
-            this.btnProductos.Font = new System.Drawing.Font("Tempus Sans ITC", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProductos.Location = new System.Drawing.Point(268, 12);
             this.btnProductos.Name = "btnProductos";
             this.btnProductos.Size = new System.Drawing.Size(346, 100);
@@ -295,7 +291,7 @@
             // btnCtrlVentas
             // 
             this.btnCtrlVentas.BackColor = System.Drawing.Color.LightYellow;
-            this.btnCtrlVentas.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCtrlVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCtrlVentas.ForeColor = System.Drawing.Color.Black;
             this.btnCtrlVentas.Location = new System.Drawing.Point(12, 651);
             this.btnCtrlVentas.Name = "btnCtrlVentas";
@@ -307,21 +303,21 @@
             // 
             // tbNombre
             // 
-            this.tbNombre.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbNombre.ForeColor = System.Drawing.Color.Red;
             this.tbNombre.Location = new System.Drawing.Point(978, 127);
             this.tbNombre.Name = "tbNombre";
-            this.tbNombre.Size = new System.Drawing.Size(368, 32);
+            this.tbNombre.Size = new System.Drawing.Size(368, 29);
             this.tbNombre.TabIndex = 6;
             this.tbNombre.TextChanged += new System.EventHandler(this.tbNombre_TextChanged);
             // 
             // tbNomProd
             // 
-            this.tbNomProd.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNomProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbNomProd.ForeColor = System.Drawing.Color.Red;
             this.tbNomProd.Location = new System.Drawing.Point(268, 128);
             this.tbNomProd.Name = "tbNomProd";
-            this.tbNomProd.Size = new System.Drawing.Size(346, 32);
+            this.tbNomProd.Size = new System.Drawing.Size(346, 29);
             this.tbNomProd.TabIndex = 18;
             this.tbNomProd.TextChanged += new System.EventHandler(this.tbNomProd_TextChanged);
             // 
@@ -333,7 +329,7 @@
             this.dgvProductos.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.LightYellow;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -353,20 +349,19 @@
             this.dgvProductos.ReadOnly = true;
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvProductos.RowHeadersVisible = false;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Tempus Sans ITC", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvProductos.RowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvProductos.Size = new System.Drawing.Size(346, 517);
             this.dgvProductos.TabIndex = 17;
             this.dgvProductos.DataSourceChanged += new System.EventHandler(this.dgvProductos_DataSourceChanged);
             this.dgvProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellClick);
-            this.dgvProductos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellDoubleClick);
             // 
             // Column6
             // 
@@ -411,7 +406,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.LightYellow;
-            this.button1.Font = new System.Drawing.Font("Tempus Sans ITC", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(978, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(368, 100);
@@ -423,7 +418,7 @@
             // btnTotal
             // 
             this.btnTotal.BackColor = System.Drawing.Color.LightYellow;
-            this.btnTotal.Font = new System.Drawing.Font("Tempus Sans ITC", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTotal.Location = new System.Drawing.Point(620, 622);
             this.btnTotal.Name = "btnTotal";
             this.btnTotal.Size = new System.Drawing.Size(352, 66);
@@ -436,11 +431,11 @@
             // 
             this.lbfecha.AutoSize = true;
             this.lbfecha.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbfecha.Font = new System.Drawing.Font("Tempus Sans ITC", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbfecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbfecha.ForeColor = System.Drawing.Color.Red;
             this.lbfecha.Location = new System.Drawing.Point(770, 108);
             this.lbfecha.Name = "lbfecha";
-            this.lbfecha.Size = new System.Drawing.Size(50, 19);
+            this.lbfecha.Size = new System.Drawing.Size(54, 18);
             this.lbfecha.TabIndex = 13;
             this.lbfecha.Text = "Fecha";
             // 
@@ -448,10 +443,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Font = new System.Drawing.Font("Tempus Sans ITC", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(718, 108);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 19);
+            this.label3.Size = new System.Drawing.Size(59, 18);
             this.label3.TabIndex = 12;
             this.label3.Text = "Fecha:";
             // 
@@ -459,10 +454,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Font = new System.Drawing.Font("Tempus Sans ITC", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(621, 108);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 19);
+            this.label2.Size = new System.Drawing.Size(103, 18);
             this.label2.TabIndex = 11;
             this.label2.Text = "Descripción:";
             // 
@@ -470,16 +465,16 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Font = new System.Drawing.Font("Tempus Sans ITC", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(621, 72);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 19);
+            this.label1.Size = new System.Drawing.Size(96, 18);
             this.label1.TabIndex = 10;
             this.label1.Text = "Propietario:";
             // 
             // tbDescripcion
             // 
-            this.tbDescripcion.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbDescripcion.ForeColor = System.Drawing.Color.Red;
             this.tbDescripcion.Location = new System.Drawing.Point(620, 127);
             this.tbDescripcion.Multiline = true;
@@ -492,18 +487,18 @@
             // 
             this.lbPropietario.AutoSize = true;
             this.lbPropietario.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lbPropietario.Font = new System.Drawing.Font("Tempus Sans ITC", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPropietario.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPropietario.ForeColor = System.Drawing.Color.Red;
             this.lbPropietario.Location = new System.Drawing.Point(707, 55);
             this.lbPropietario.Name = "lbPropietario";
-            this.lbPropietario.Size = new System.Drawing.Size(163, 38);
+            this.lbPropietario.Size = new System.Drawing.Size(167, 33);
             this.lbPropietario.TabIndex = 8;
             this.lbPropietario.Text = "Propietario";
             // 
             // btnAgregarReceta
             // 
             this.btnAgregarReceta.BackColor = System.Drawing.Color.LightYellow;
-            this.btnAgregarReceta.Font = new System.Drawing.Font("Tempus Sans ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarReceta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarReceta.ForeColor = System.Drawing.Color.Black;
             this.btnAgregarReceta.Location = new System.Drawing.Point(12, 608);
             this.btnAgregarReceta.Name = "btnAgregarReceta";

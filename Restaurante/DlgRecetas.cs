@@ -77,37 +77,41 @@ namespace Restaurante
 
         private void dgvRecetas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
-            
-        }
-
-        private void dgvRecetas_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("¿Está seguro de que desea borrar esta receta?", "Confirmación", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            DlgModificarReceta dlgModificar = new DlgModificarReceta(xConnection, Convert.ToInt32(dgvRecetas.Rows[e.RowIndex].Cells[0].Value), bModify);
+            dlgModificar.ShowDialog();
+            if (!bModify)
             {
-                AdminConfirmation dgAdmin = new AdminConfirmation(xConnection);
-                dgAdmin.ShowDialog();
-
-                if (dgAdmin.bValido)
-                {
-                    if (xRecetas.BorrarReceta(Convert.ToInt32(dgvRecetas.Rows[e.Row.Index].Cells[0].Value.ToString())))
-                    {
-                        MessageBox.Show("Receta eliminada con éxito...");
-                    }
-                    else
-                    {
-                        e.Cancel = true;
-                        MessageBox.Show(xRecetas.sLastError);
-                    }
-                }
-                else
-                {
-                    e.Cancel = true;
-                    MessageBox.Show("¡Sólo el administrador puede eliminar recetas!");
-                }
+                llenarRecetas(xRecetas.ConsultarReceta());
             }
         }
+
+        //private void dgvRecetas_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        //{
+        //    DialogResult dialogResult = MessageBox.Show("¿Está seguro de que desea borrar esta receta?", "Confirmación", MessageBoxButtons.YesNo);
+        //    if (dialogResult == DialogResult.Yes)
+        //    {
+        //        AdminConfirmation dgAdmin = new AdminConfirmation(xConnection);
+        //        dgAdmin.ShowDialog();
+
+        //        if (dgAdmin.bValido)
+        //        {
+        //            if (xRecetas.BorrarReceta(Convert.ToInt32(dgvRecetas.Rows[e.Row.Index].Cells[0].Value.ToString())))
+        //            {
+        //                MessageBox.Show("Receta eliminada con éxito...");
+        //            }
+        //            else
+        //            {
+        //                e.Cancel = true;
+        //                MessageBox.Show(xRecetas.sLastError);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            e.Cancel = true;
+        //            MessageBox.Show("¡Sólo el administrador puede eliminar recetas!");
+        //        }
+        //    }
+        //}
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
@@ -167,17 +171,6 @@ namespace Restaurante
             {
                 llenarRecetas(xRecetas.ConsultarReceta());
             }
-        }
-
-        private void dgvRecetas_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            DlgModificarReceta dlgModificar = new DlgModificarReceta(xConnection, Convert.ToInt32(dgvRecetas.Rows[e.RowIndex].Cells[0].Value), bModify);
-            dlgModificar.ShowDialog();
-            if (!bModify)
-            {
-                llenarRecetas(xRecetas.ConsultarReceta());
-            }
-
         }
     }
 }
