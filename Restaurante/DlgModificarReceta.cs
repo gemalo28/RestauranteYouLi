@@ -48,6 +48,7 @@ namespace Restaurante
                 btnAgregar.Visible = false;
                 btnConfirmar.Visible = false;
                 dgvIngredientes.Columns[3].ReadOnly = true;
+                dgvIngredientes.Columns[4].Visible = false;
             }            
         }
 
@@ -144,7 +145,7 @@ namespace Restaurante
 
             foreach(DataRow row in dtIngredientes.Rows)
             {
-                dgvIngredientes.Rows.Add(1, row[0].ToString(), row[1].ToString(), row[2].ToString());
+                dgvIngredientes.Rows.Add(1, row[0].ToString(), row[1].ToString(), row[2].ToString(), "-");
             }
         }
 
@@ -156,7 +157,7 @@ namespace Restaurante
 
             foreach (DataRow row in dtDetalle.Rows)
             {
-                dgvIngredientes.Rows.Add(1, row[0], row[2], row[3]);
+                dgvIngredientes.Rows.Add(1, row[0], row[2], row[3],"-");
             }
         }
 
@@ -174,6 +175,15 @@ namespace Restaurante
             {
                 MessageBox.Show("Insuficiente stock...");
                 dgvIngredientes.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = nMax;
+            }
+        }
+
+        private void dgvIngredientes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.ColumnIndex == 4)
+            {
+                dgvIngredientes.Rows[e.RowIndex].Visible = false;
+                dgvIngredientes.Rows[e.RowIndex].Cells[0].Value = -1;
             }
         }
     }

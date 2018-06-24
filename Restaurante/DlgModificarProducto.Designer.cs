@@ -42,18 +42,18 @@
             // 
             // tbNombre
             // 
-            this.tbNombre.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbNombre.ForeColor = System.Drawing.Color.Red;
             this.tbNombre.Location = new System.Drawing.Point(12, 134);
             this.tbNombre.Name = "tbNombre";
-            this.tbNombre.Size = new System.Drawing.Size(303, 32);
+            this.tbNombre.Size = new System.Drawing.Size(303, 29);
             this.tbNombre.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 107);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 24);
@@ -64,16 +64,16 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 171);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 24);
+            this.label2.Size = new System.Drawing.Size(121, 24);
             this.label2.TabIndex = 5;
             this.label2.Text = "Descripción";
             // 
             // tbDescripcion
             // 
-            this.tbDescripcion.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbDescripcion.ForeColor = System.Drawing.Color.Red;
             this.tbDescripcion.Location = new System.Drawing.Point(12, 198);
             this.tbDescripcion.Multiline = true;
@@ -85,28 +85,28 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(329, 107);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(66, 24);
+            this.label3.Size = new System.Drawing.Size(70, 24);
             this.label3.TabIndex = 9;
             this.label3.Text = "Precio";
             // 
             // tbPrecio
             // 
-            this.tbPrecio.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPrecio.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPrecio.ForeColor = System.Drawing.Color.Red;
             this.tbPrecio.Location = new System.Drawing.Point(335, 134);
             this.tbPrecio.MaxLength = 7;
             this.tbPrecio.Name = "tbPrecio";
-            this.tbPrecio.Size = new System.Drawing.Size(79, 32);
+            this.tbPrecio.Size = new System.Drawing.Size(79, 29);
             this.tbPrecio.TabIndex = 8;
             this.tbPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPrecio_KeyPress);
             // 
             // btnGuardar
             // 
             this.btnGuardar.BackColor = System.Drawing.Color.LightYellow;
-            this.btnGuardar.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Location = new System.Drawing.Point(297, 301);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(117, 34);
@@ -118,10 +118,10 @@
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.LightYellow;
-            this.btnCancelar.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Location = new System.Drawing.Point(17, 301);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(125, 34);
+            this.btnCancelar.Size = new System.Drawing.Size(130, 34);
             this.btnCancelar.TabIndex = 11;
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -131,11 +131,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Font = new System.Drawing.Font("Tempus Sans ITC", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Red;
             this.label4.Location = new System.Drawing.Point(274, 9);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(140, 27);
+            this.label4.Size = new System.Drawing.Size(154, 25);
             this.label4.TabIndex = 20;
             this.label4.Text = "PRODUCTOS";
             // 

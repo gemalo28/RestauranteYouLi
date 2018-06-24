@@ -141,5 +141,32 @@ namespace Restaurante
                 e.Handled = true;
             }
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("¿Está seguro de que desea borrar este ingrediente?", "Confirmación", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                AdminConfirmation dgAdmin = new AdminConfirmation(xConnection);
+                dgAdmin.ShowDialog();
+
+                if (dgAdmin.bValido)
+                {
+                    if (xInv.BorrarInventario(nIdIngrediente))
+                    {
+                        MessageBox.Show("Ingrediente eliminado con éxito...");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show(xInv.sLastError);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("¡Sólo el administrador puede eliminar ingredientes del inventario!");
+                }
+            }
+        }
     }
 }

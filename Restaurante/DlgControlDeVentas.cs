@@ -15,7 +15,6 @@ namespace Restaurante
     public partial class DlgControlDeVentas : Form
     {
         private MySqlConnection xConnection = new MySqlConnection();
-        private Notas xNotas;
 
         public DlgControlDeVentas(MySqlConnection xConnection)
         {

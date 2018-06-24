@@ -54,7 +54,7 @@ namespace Restaurante
             
                 if (nIdProdcuto != 0)
                 {
-                bAllOk = xProd.ActualizarProducto(nIdProdcuto,tbNombre.Text,tbDescripcion.Text,Convert.ToDouble(tbPrecio.Text));
+                    bAllOk = xProd.ActualizarProducto(nIdProdcuto,tbNombre.Text,tbDescripcion.Text,Convert.ToDouble(tbPrecio.Text));
                 }
                 else
                 {
@@ -98,6 +98,33 @@ namespace Restaurante
             tbNombre.Clear();
             tbPrecio.Clear();
             tbDescripcion.Clear();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("¿Está seguro de que desea borrar este producto?", "Confirmación", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                AdminConfirmation dgAdmin = new AdminConfirmation(xConnection);
+                dgAdmin.ShowDialog();
+
+                if (dgAdmin.bValido)
+                {
+                    if (xProd.BorrarProducto(nIdProdcuto))
+                    {
+                        MessageBox.Show("Producto eliminado con éxito...");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show(xProd.sLastError);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("¡Sólo el administrador puede eliminar productos!");
+                }
+            }
         }
     }
 }

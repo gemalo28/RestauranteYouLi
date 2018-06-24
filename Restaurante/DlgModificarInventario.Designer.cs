@@ -40,20 +40,20 @@ namespace Restaurante
             // 
             // tbNombre
             // 
-            this.tbNombre.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbNombre.ForeColor = System.Drawing.Color.Red;
             this.tbNombre.Location = new System.Drawing.Point(28, 133);
             this.tbNombre.Name = "tbNombre";
-            this.tbNombre.Size = new System.Drawing.Size(256, 32);
+            this.tbNombre.Size = new System.Drawing.Size(256, 29);
             this.tbNombre.TabIndex = 0;
             // 
             // tbCantidad
             // 
-            this.tbCantidad.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbCantidad.ForeColor = System.Drawing.Color.Red;
             this.tbCantidad.Location = new System.Drawing.Point(331, 133);
             this.tbCantidad.Name = "tbCantidad";
-            this.tbCantidad.Size = new System.Drawing.Size(103, 32);
+            this.tbCantidad.Size = new System.Drawing.Size(103, 29);
             this.tbCantidad.TabIndex = 1;
             this.tbCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCantidad_KeyPress);
             // 
@@ -61,7 +61,7 @@ namespace Restaurante
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(28, 106);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 24);
@@ -72,17 +72,17 @@ namespace Restaurante
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(327, 106);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 24);
+            this.label2.Size = new System.Drawing.Size(92, 24);
             this.label2.TabIndex = 5;
             this.label2.Text = "Cantidad";
             // 
             // btnConfirmar
             // 
             this.btnConfirmar.BackColor = System.Drawing.Color.LightYellow;
-            this.btnConfirmar.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirmar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirmar.Location = new System.Drawing.Point(381, 186);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(110, 35);
@@ -94,7 +94,7 @@ namespace Restaurante
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.LightYellow;
-            this.btnCancelar.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Location = new System.Drawing.Point(28, 186);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(110, 35);
@@ -106,7 +106,7 @@ namespace Restaurante
             // cbxUnidad
             // 
             this.cbxUnidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxUnidad.Font = new System.Drawing.Font("Tempus Sans ITC", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxUnidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxUnidad.FormattingEnabled = true;
             this.cbxUnidad.Location = new System.Drawing.Point(440, 133);
             this.cbxUnidad.Name = "cbxUnidad";
@@ -118,11 +118,11 @@ namespace Restaurante
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Font = new System.Drawing.Font("Tempus Sans ITC", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Red;
             this.label5.Location = new System.Drawing.Point(224, 9);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(267, 27);
+            this.label5.Size = new System.Drawing.Size(282, 25);
             this.label5.TabIndex = 23;
             this.label5.Text = "AGREGAR INGREDIENTE";
             // 

@@ -61,17 +61,6 @@ namespace Restaurante
             Reset();
         }
 
-        private void dataGridView1_DataSourceChanged(object sender, EventArgs e)
-        {
-            //if (dgvDetalles.DataSource != null)
-            //{
-            //    dgvDetalles.Columns[0].Visible = false;
-            //    dgvDetalles.Columns[1].Visible = false;
-            //    dgvDetalles.Columns[2].Visible = false;
-            //}
-
-        }
-
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex>=0)
@@ -85,9 +74,6 @@ namespace Restaurante
                 // dgvDetalles.DataSource = xDetProd.ConsultarDetalle(nIdSelected);
                 llenarDetalle();
             }
-
-
-
         }
 
         private void dgvOrdenes_DataSourceChanged(object sender, EventArgs e)
@@ -137,17 +123,6 @@ namespace Restaurante
         {
             dgvProductos.Columns[0].Visible = false;
             dgvProductos.Columns[2].Visible = false;
-        }
-
-        private void dgvProductos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //AQUI
-
-        }
-
-        private void dgvDetalles_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void llenarDetalle()
@@ -298,8 +273,8 @@ namespace Restaurante
                 ticket.TextoIzq("");
                 ticket.TextoCentro("¡GRACIAS POR SU COMPRA!");
                 ticket.CortaTicket();
-                //ticket.Imprimirticket("EPSON TM-U220 Receipt");
-                ticket.Imprimirticket("Microsoft XPS Document Writer");
+                ticket.Imprimirticket("EPSON TM-U220 Receipt");
+               // ticket.Imprimirticket("Microsoft XPS Document Writer");
                 bAllOk = true;
             }
             catch (Exception ex)
@@ -336,17 +311,13 @@ namespace Restaurante
                         MessageBox.Show(xDetProd.sLastError);
                     }
                 }
-
             }
-
         }
 
         private void dgvProductos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-
-
                 if (dgvProductos.Rows[e.RowIndex].Cells[e.ColumnIndex] == dgvProductos.Rows[e.RowIndex].Cells[4])
                 {
                     if (nIdSelected > 0)
@@ -366,7 +337,6 @@ namespace Restaurante
                     {
                         MessageBox.Show("Seleccione una orden, Por favor!");
                     }
-
                 }
             }
 

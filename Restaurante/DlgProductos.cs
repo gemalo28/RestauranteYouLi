@@ -41,16 +41,11 @@ namespace Restaurante
 
         }
 
-        public void btnBuscar_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void tbBuscar_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 13)
             {
-                btnBuscar_Click(sender,e);
+                tbBuscar_TextChanged(sender, e);
             }
         }
 
