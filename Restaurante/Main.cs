@@ -129,6 +129,7 @@ namespace Restaurante
         {
             DataTable dtDetalle = xDetProd.ConsultarDetalle(nIdSelected);
             dgvDetalles.Rows.Clear();
+            dTotal = 0;
 
             foreach(DataRow row in dtDetalle.Rows)
             {
