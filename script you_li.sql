@@ -165,6 +165,16 @@ primary key(id_detalle_bit, id_ingrediente)
   
 );
 
+create table clientes(
+id_cliente int auto_increment primary key,
+nombre varchar(50) not null default '',
+direccion varchar(100) not null default '',
+referencia varchar(100) not null default '',
+num_telefono varchar(10) not null default ''
+);
+
+
+
 Delimiter $$
 CREATE PROCEDURE `ActualizarInventario` (IN IdReceta int)
 BEGIN
