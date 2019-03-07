@@ -94,7 +94,7 @@ namespace ReglasDelNegocio
 
             try
             {
-                string sSQlqry = "select id_nota as ID, propietario as Propietario, date(fecha) as Fecha, descripcion as Descripcion, total as Total " +
+                string sSQlqry = "select id_nota as ID, propietario as Propietario, fecha as Fecha, descripcion as Descripcion, total as Total " +
                                  "from notas " +
                                  "where date(fecha) = date(now())";
                 MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);

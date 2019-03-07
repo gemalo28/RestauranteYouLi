@@ -26,7 +26,7 @@ namespace Restaurante
 
         private void Inventario_Load(object sender, EventArgs e)
         {
-            dgvInventario.DataSource = xInv.ConsultarInventario();
+            llenarInventario(xInv.ConsultarInventario());
             tbNombreIng.Select();
         }
 
@@ -42,6 +42,17 @@ namespace Restaurante
             {
                 Inventario_Load(sender, e);
             }
+        }
+        public void llenarInventario(DataTable dtOrdenes)
+        {
+
+            dgvInventario.Rows.Clear();
+
+            foreach (DataRow row in dtOrdenes.Rows)
+            {
+                dgvInventario.Rows.Add(row[0].ToString(), row[1].ToString(), row[2].ToString());
+            }
+
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -71,31 +82,17 @@ namespace Restaurante
             }
         }
 
-        private void dgvInventario_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        private void tbNombreIng_TextChanged(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("¿Está seguro de que desea borrar este ingrediente?", "Confirmación", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
+            if (tbNombreIng.Text.Length > 0)
             {
-                AdminConfirmation dgAdmin = new AdminConfirmation(xConnection);
-                dgAdmin.ShowDialog();
+                llenarInventario( xInv.ConsultarInventario(tbNombreIng.Text));
 
-                if(dgAdmin.bValido)
-                {
-                    if(xInv.BorrarInventario(Convert.ToInt32(dgvInventario.Rows[e.Row.Index].Cells[0].Value.ToString())))
-                    {
-                        MessageBox.Show("Ingrediente eliminado con éxito...");
-                    }
-                    else
-                    {
-                        e.Cancel = true;
-                        MessageBox.Show(xInv.sLastError);
-                    }
-                }
-                else
-                {
-                    e.Cancel = true;
-                    MessageBox.Show("¡Sólo el administrador puede eliminar ingredientes del inventario!");
-                }
+                tbNombreIng.Select();
+            }
+            else
+            {
+                llenarInventario(xInv.ConsultarInventario());
             }
         }
     }

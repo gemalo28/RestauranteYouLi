@@ -165,6 +165,16 @@ primary key(id_detalle_bit, id_ingrediente)
   
 );
 
+create table clientes(
+id_cliente int auto_increment primary key,
+nombre varchar(50) not null default '',
+direccion varchar(100) not null default '',
+referencia varchar(100) not null default '',
+num_telefono varchar(10) not null default ''
+);
+
+
+
 Delimiter $$
 CREATE PROCEDURE `ActualizarInventario` (IN IdReceta int)
 BEGIN
@@ -200,12 +210,29 @@ Delimiter $$
 CREATE TRIGGER tr_Delete_Detalle 
 AFTER DELETE ON you_li.detalle_orden FOR EACH ROW
 BEGIN
-   update ordenes o, (select sum(p.precio) as Total
+   update ordenes o, (select coalesce((select sum(p.precio) 
 						from detalle_orden d
 						join productos p on p.id_producto = d.id_producto
-						where d.id_orden = old.id_orden) src
+						where d.id_orden = old.id_orden), 0 ) as Total) src
    set o.total = src.Total
    where o.id_orden = old.id_orden;
 END 
 $$
+
+Delimiter $$
+CREATE TRIGGER tr_Update_Detalle 
+AFTER UPDATE ON detalle_orden FOR EACH ROW
+BEGIN   
+   select coalesce((select count(flag_pagado) 
+   from detalle_orden
+   where id_orden = new.id_orden and flag_pagado = 0),0) into @nopagados;   
+   
+   if @nopagados = 0 then   
+   update ordenes set flag_pagado = 1
+   where id_orden = new.id_orden;
+   end if;
+END 
+$$
+
+
 

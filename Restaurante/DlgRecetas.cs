@@ -36,14 +36,25 @@ namespace Restaurante
 
         private void DlgRecetas_Load(object sender, EventArgs e)
         {
-            dgvRecetas.DataSource = xRecetas.ConsultarReceta();
+            llenarRecetas (xRecetas.ConsultarReceta());
+        }
+        public void llenarRecetas(DataTable dtRecetas)
+        {
+
+            dgvRecetas.Rows.Clear();
+
+            foreach (DataRow row in dtRecetas.Rows)
+            {
+                dgvRecetas.Rows.Add(row[0].ToString(), row[1].ToString());
+            }
+
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             DlgModificarReceta dlgModificar = new DlgModificarReceta(xConnection);
             dlgModificar.ShowDialog();
-            DlgRecetas_Load(sender, e);
+            llenarRecetas(xRecetas.ConsultarReceta());
         }
 
         private void dgvRecetas_DataSourceChanged(object sender, EventArgs e)
@@ -53,16 +64,7 @@ namespace Restaurante
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (tbNombre.Text.Length > 0)
-            {
-                dgvRecetas.DataSource = xRecetas.ConsultarReceta(tbNombre.Text);
-                tbNombre.Clear();
-                tbNombre.Select();
-            }
-            else
-            {
-                DlgRecetas_Load(sender, e);
-            }
+
         }
 
         private void tbNombre_KeyUp(object sender, KeyEventArgs e)
@@ -77,62 +79,97 @@ namespace Restaurante
         {
             DlgModificarReceta dlgModificar = new DlgModificarReceta(xConnection, Convert.ToInt32(dgvRecetas.Rows[e.RowIndex].Cells[0].Value), bModify);
             dlgModificar.ShowDialog();
-            if(!bModify)
+            if (!bModify)
             {
-                DlgRecetas_Load(sender, e);
-            }
-            
-        }
-
-        private void dgvRecetas_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("¿Está seguro de que desea borrar esta receta?", "Confirmación", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                AdminConfirmation dgAdmin = new AdminConfirmation(xConnection);
-                dgAdmin.ShowDialog();
-
-                if (dgAdmin.bValido)
-                {
-                    if (xRecetas.BorrarReceta(Convert.ToInt32(dgvRecetas.Rows[e.Row.Index].Cells[0].Value.ToString())))
-                    {
-                        MessageBox.Show("Receta eliminada con éxito...");
-                    }
-                    else
-                    {
-                        e.Cancel = true;
-                        MessageBox.Show(xRecetas.sLastError);
-                    }
-                }
-                else
-                {
-                    e.Cancel = true;
-                    MessageBox.Show("¡Sólo el administrador puede eliminar recetas!");
-                }
+                llenarRecetas(xRecetas.ConsultarReceta());
             }
         }
+
+        //private void dgvRecetas_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        //{
+        //    DialogResult dialogResult = MessageBox.Show("¿Está seguro de que desea borrar esta receta?", "Confirmación", MessageBoxButtons.YesNo);
+        //    if (dialogResult == DialogResult.Yes)
+        //    {
+        //        AdminConfirmation dgAdmin = new AdminConfirmation(xConnection);
+        //        dgAdmin.ShowDialog();
+
+        //        if (dgAdmin.bValido)
+        //        {
+        //            if (xRecetas.BorrarReceta(Convert.ToInt32(dgvRecetas.Rows[e.Row.Index].Cells[0].Value.ToString())))
+        //            {
+        //                MessageBox.Show("Receta eliminada con éxito...");
+        //            }
+        //            else
+        //            {
+        //                e.Cancel = true;
+        //                MessageBox.Show(xRecetas.sLastError);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            e.Cancel = true;
+        //            MessageBox.Show("¡Sólo el administrador puede eliminar recetas!");
+        //        }
+        //    }
+        //}
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if(tbCantidad.Text.Length > 0 && dgvRecetas.SelectedCells.Count == 1)
+            if(tbCantidad.Text.Length > 0 && dgvRecetas.SelectedCells.Count == 1 )
             {
-                Bitacora xBit = new Bitacora(xConnection);
-                int nRowIndex = dgvRecetas.SelectedCells[0].RowIndex;
+                try
+                {
+                    Bitacora xBit = new Bitacora(xConnection);
+                    int nRowIndex = dgvRecetas.SelectedCells[0].RowIndex;
 
-                if(xBit.AgregarBitacora(Convert.ToInt32(dgvRecetas.Rows[nRowIndex].Cells[0].Value), Convert.ToInt32(tbCantidad.Text)))
-                {
-                    MessageBox.Show("¡Receta registrada!");
-                    tbCantidad.Clear();
-                    tbCantidad.Select();
+                    if (xBit.AgregarBitacora(Convert.ToInt32(dgvRecetas.Rows[nRowIndex].Cells[0].Value), Convert.ToInt32(tbCantidad.Text)))
+                    {
+                        MessageBox.Show("¡Receta registrada!");
+                        tbCantidad.Clear();
+                        tbCantidad.Select();
+                    }
+                    else
+                    {
+                        MessageBox.Show(xBit.sLastError);
+                    }
                 }
-                else
+                catch (Exception)
                 {
-                    MessageBox.Show(xBit.sLastError);
+
+                    MessageBox.Show("Ingrese cantidad correcta, por favor!");
                 }
+
             }
             else
             {
                 MessageBox.Show("Favor de llenar todos los campos...");
+            }
+        }
+
+        private void tbCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tbNombre_TextChanged(object sender, EventArgs e)
+        {
+            if (tbNombre.Text.Length > 0)
+            {
+                llenarRecetas(xRecetas.ConsultarReceta(tbNombre.Text));
+                tbNombre.Select();
+            }
+            else
+            {
+                llenarRecetas(xRecetas.ConsultarReceta());
             }
         }
     }

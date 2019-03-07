@@ -17,19 +17,29 @@ namespace Restaurante
         private MySqlConnection xConnection = new MySqlConnection();
         private Recetas xReceta;
         private DetalleReceta xDetalleRec;
+        private Bitacora xBitacora;
+        private Inventario xInventario;
         private int nIdReceta;
+        private int nIdDetalleBit;
 
-        public DlgModificarReceta(MySqlConnection xConnection, int nIdReceta = 0, bool bModify = false)
+        public DlgModificarReceta(MySqlConnection xConnection, int nIdReceta = 0, bool bModify = false, int nIdDetalleBit = 0)
         {
             InitializeComponent();
             this.xConnection = xConnection;
             this.xReceta = new Recetas(xConnection);
             this.xDetalleRec = new DetalleReceta(xConnection);
+            this.xBitacora = new Bitacora(xConnection);
+            this.xInventario = new Inventario(xConnection);
             this.nIdReceta = nIdReceta;
+            this.nIdDetalleBit = nIdDetalleBit;
 
-            if(nIdReceta > 0)
+            if (nIdReceta > 0)
             {
                 ConsultarReceta();
+            }
+            else if(nIdDetalleBit > 0)
+            {
+                ConsultarBitacora();
             }
 
             if(bModify)
@@ -38,12 +48,8 @@ namespace Restaurante
                 btnAgregar.Visible = false;
                 btnConfirmar.Visible = false;
                 dgvIngredientes.Columns[3].ReadOnly = true;
-            }
-        }
-
-        private void DlgModificarReceta_Load(object sender, EventArgs e)
-        {
-
+                dgvIngredientes.Columns[4].Visible = false;
+            }            
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -54,7 +60,7 @@ namespace Restaurante
             if(dlgAgregar.nIdIngrediente > 0)
             {
                 if(validarDuplicado(dlgAgregar.nIdIngrediente))
-                {
+                {                    
                     dgvIngredientes.Rows.Add(0, dlgAgregar.nIdIngrediente, dlgAgregar.sNombre, 0);
                 }                
             }
@@ -66,7 +72,7 @@ namespace Restaurante
 
             for(int i = 0; i < dgvIngredientes.Rows.Count; i++)
             {
-                if(nIdIngrediente == Convert.ToInt32(dgvIngredientes.Rows[i].Cells[0].Value))
+                if(nIdIngrediente == Convert.ToInt32(dgvIngredientes.Rows[i].Cells[1].Value))
                 {
                     MessageBox.Show("Ingrediente ya existe en receta...");
                     bAllOk = false;
@@ -139,7 +145,19 @@ namespace Restaurante
 
             foreach(DataRow row in dtIngredientes.Rows)
             {
-                dgvIngredientes.Rows.Add(1, row[0].ToString(), row[1].ToString(), row[2].ToString());
+                dgvIngredientes.Rows.Add(1, row[0].ToString(), row[1].ToString(), row[2].ToString(), "-");
+            }
+        }
+
+        private void ConsultarBitacora()
+        {            
+            DataTable dtDetalle = xBitacora.ConsultarDetalle(nIdDetalleBit);
+
+            tbNombre.Text = dtDetalle.Rows[0][1].ToString();
+
+            foreach (DataRow row in dtDetalle.Rows)
+            {
+                dgvIngredientes.Rows.Add(1, row[0], row[2], row[3],"-");
             }
         }
 
@@ -148,6 +166,25 @@ namespace Restaurante
             dgvIngredientes.Rows[e.Row.Index].Visible = false;
             dgvIngredientes.Rows[e.Row.Index].Cells[0].Value =-1;
             e.Cancel = true;
+        }
+
+        private void dgvIngredientes_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            int nMax = 0;
+            if (!xInventario.suficienteStock(Convert.ToInt32(dgvIngredientes.Rows[e.RowIndex].Cells[1].Value), Convert.ToInt64(dgvIngredientes.Rows[e.RowIndex].Cells[e.ColumnIndex].Value), ref nMax))
+            {
+                MessageBox.Show("Insuficiente stock...");
+                dgvIngredientes.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = nMax;
+            }
+        }
+
+        private void dgvIngredientes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.ColumnIndex == 4)
+            {
+                dgvIngredientes.Rows[e.RowIndex].Visible = false;
+                dgvIngredientes.Rows[e.RowIndex].Cells[0].Value = -1;
+            }
         }
     }
 }

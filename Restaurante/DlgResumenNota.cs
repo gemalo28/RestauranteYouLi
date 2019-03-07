@@ -36,9 +36,17 @@ namespace Restaurante
             if(tbEfectivo.Text.Length > 0)
             {
                 dEfectivo = Convert.ToDouble(tbEfectivo.Text);
-                dCambio = dEfectivo - dTotal;
-                bConfirmar = true;
-                this.Close();
+                if (dEfectivo>=dTotal)
+                {
+                    dCambio = dEfectivo - dTotal;
+                    bConfirmar = true;
+                    this.Close();
+
+                }
+                else
+                {
+                    MessageBox.Show("Falta efectivo!");
+                }     
             }
             else
             {
@@ -46,7 +54,6 @@ namespace Restaurante
             }
             
         }
-
         private void DlgResumenNota_Load(object sender, EventArgs e)
         {
             tbPropietario.Text = sPropietario;
@@ -73,6 +80,11 @@ namespace Restaurante
             {
                 e.Handled = true;
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

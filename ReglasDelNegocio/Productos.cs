@@ -99,6 +99,57 @@ namespace ReglasDelNegocio
             return dtProductos;
         }
 
+        public DataTable ConsultarProductos(DateTime fecha)
+        {
+            DataTable dtNotas = new DataTable();
+
+            try
+            {
+                string sSQlqry = "select p.id_producto, p.nombre, p.descripcion, p.precio, count(*) as Cantidad, (count(*) * p.precio) as Total " +
+                                 "from detalle_nota d " +
+                                 "join productos p on p.id_producto = d.id_producto " +
+                                 "join notas n on n.id_nota = d.id_nota " +
+                                 "where date(n.fecha) = '"+ fecha.ToString("yyyy-MM-dd") + "' "+
+                                 "group by p.id_producto " +
+                                 "order by p.id_producto asc; ";
+                MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                adapter.Fill(dtNotas);
+            }
+            catch (Exception ex)
+            {
+                sLastError = "Error >>> " + ex.ToString();
+            }
+
+            return dtNotas;
+        }
+
+        public DataTable ConsultarProductos(DateTime dtFechaIn, DateTime dtFechaFin)
+        {
+            DataTable dtNotas = new DataTable();
+
+            try
+            {
+                string sSQlqry = "select p.id_producto, p.nombre, p.descripcion, p.precio, count(*) as Cantidad, (count(*) * p.precio) as Total " +
+                                 "from detalle_nota d " +
+                                 "join productos p on p.id_producto = d.id_producto " +
+                                 "join notas n on n.id_nota = d.id_nota " +
+                                 "where date(n.fecha) between '" + dtFechaIn.ToString("yyyy-MM-dd") + "' and '" + dtFechaFin.ToString("yyyy-MM-dd") + "' "+
+                                 " group by p.id_producto " +
+                                 "order by p.id_producto asc; ";
+                MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+                adapter.Fill(dtNotas);
+            }
+            catch (Exception ex)
+            {
+                sLastError = "Error >>> " + ex.ToString();
+            }
+
+            return dtNotas;
+        }
+
+
         public Boolean BorrarProducto(int nIdProducto)
         {
             bool bAllOk = false;

@@ -11,7 +11,8 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <PublishUrl>publicar\</PublishUrl>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Carlos\Desktop\You_li instalador\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -21,10 +22,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationRevision>4</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -45,6 +46,21 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>ABE4E7E160130BD05C2FE6277258ADF0A731B8FB</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Restaurante_ClaveTemporal.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo_youli_0bg_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Google.Protobuf, Version=3.5.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
@@ -130,6 +146,12 @@
     <Compile Include="DlgModificarReceta.Designer.cs">
       <DependentUpon>DlgModificarReceta.cs</DependentUpon>
     </Compile>
+    <Compile Include="DlgNotas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgNotas.Designer.cs">
+      <DependentUpon>DlgNotas.cs</DependentUpon>
+    </Compile>
     <Compile Include="DlgProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,17 +164,23 @@
     <Compile Include="DlgRecetas.Designer.cs">
       <DependentUpon>DlgRecetas.cs</DependentUpon>
     </Compile>
+    <Compile Include="DlgReporteInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgReporteInventario.Designer.cs">
+      <DependentUpon>DlgReporteInventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgReportesProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgReportesProductos.Designer.cs">
+      <DependentUpon>DlgReportesProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="DlgResumenNota.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DlgResumenNota.Designer.cs">
       <DependentUpon>DlgResumenNota.cs</DependentUpon>
-    </Compile>
-    <Compile Include="logIn.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="logIn.Designer.cs">
-      <DependentUpon>logIn.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -189,17 +217,23 @@
     <EmbeddedResource Include="DlgModificarReceta.resx">
       <DependentUpon>DlgModificarReceta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DlgNotas.resx">
+      <DependentUpon>DlgNotas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DlgProductos.resx">
       <DependentUpon>DlgProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DlgRecetas.resx">
       <DependentUpon>DlgRecetas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DlgReporteInventario.resx">
+      <DependentUpon>DlgReporteInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgReportesProductos.resx">
+      <DependentUpon>DlgReportesProductos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DlgResumenNota.resx">
       <DependentUpon>DlgResumenNota.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="logIn.resx">
-      <DependentUpon>logIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -212,6 +246,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -223,6 +258,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Restaurante_ClaveTemporal.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -238,6 +274,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logo_youli_0bg_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

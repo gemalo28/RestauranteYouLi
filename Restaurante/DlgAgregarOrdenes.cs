@@ -31,8 +31,6 @@ namespace Restaurante
             {
                 if (nidOrd == 0)
                 {
-
-
                     if (xOrdenes.AgregarOrden(tbProp.Text, tbDesc.Text))
                     {
                         MessageBox.Show("Se agregó correcamente la orden " + tbProp.Text);
@@ -65,14 +63,12 @@ namespace Restaurante
                             tbProp.Focus();
                         }
                     }
-
                 }
             }
             else
             {
                 MessageBox.Show("Propietario incorrecto");
                 tbProp.Focus();
-
             }
 
         }
@@ -81,27 +77,56 @@ namespace Restaurante
         {
             if (tbProp.Text.Length > 0)
             {
-                DialogResult dialogResult = MessageBox.Show("¿Esta seguro que desea cerrar?", "Confirmación", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("¿Esta seguro que desea eliminar orden?", "Confirmación", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    this.Close();
+                    AdminConfirmation dlgAdmin = new AdminConfirmation(xConnection);
+                    dlgAdmin.ShowDialog();
+
+                    if(dlgAdmin.bValido)
+                    {
+                        if(xOrdenes.BorrarOrden(nidOrd))
+                        {
+                            MessageBox.Show("Orden eliminada...");
+                            limpiar();
+                            llenarOrdenes(xOrdenes.ConsultarOrdenes());
+                        }
+                        else
+                        {
+                            MessageBox.Show("No es posible eliminar una orden parcialmente pagada...");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sólo el adminsitrador puede eliminar ordenes...");
+                    }
                 }
             }
             else
             {
-                this.Close();
+                MessageBox.Show("Favor de elegir una orden...");
             }
         }
 
         private void DlgAgregarOrdenes_Load(object sender, EventArgs e)
         {
-            dgvOrdenes.DataSource = xOrdenes.ConsultarOrdenes();
+            llenarOrdenes(xOrdenes.ConsultarOrdenes());
+        }
+
+        public void llenarOrdenes(DataTable dtOrdenes)
+        {
+            dgvOrdenes.Rows.Clear();
+
+            foreach (DataRow row in dtOrdenes.Rows)
+            {
+                dgvOrdenes.Rows.Add(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString(), row[5].ToString());
+            }
         }
 
         private void dgvOrdenes_DataSourceChanged(object sender, EventArgs e)
         {
-            dgvOrdenes.Columns[0].Visible = false;
-            dgvOrdenes.Columns[5].Visible = false;
+           
+            //dgvOrdenes.Columns[5].Visible = false;
 
         }
         public void limpiar()
@@ -121,16 +146,24 @@ namespace Restaurante
         {
             try
             {
-                nidOrd = Convert.ToInt32(dgvOrdenes.Rows[e.RowIndex].Cells[0].Value.ToString());
-                tbProp.Text = dgvOrdenes.Rows[e.RowIndex].Cells[1].Value.ToString();
-                tbDesc.Text = dgvOrdenes.Rows[e.RowIndex].Cells[3].Value.ToString();
+                if(e.RowIndex >= 0)
+                {
+                    nidOrd = Convert.ToInt32(dgvOrdenes.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    tbProp.Text = dgvOrdenes.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    tbDesc.Text = dgvOrdenes.Rows[e.RowIndex].Cells[3].Value.ToString();
+                }               
             }
             catch (Exception)
             {
 
-
+                MessageBox.Show("Error");
             }
 
+
+        }
+
+        private void dgvOrdenes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

@@ -136,5 +136,45 @@ namespace ReglasDelNegocio
 
             return bAllOk;
         }
+
+
+        public Boolean suficienteStock(int nIdIngrediente, long lCantidad, ref int nMax)
+        {
+            bool bAllOk = false;
+
+            int nStock = 0;
+
+            try
+            {
+                string sSQlqry = "select cantidad from inventario where id_ingrediente =  " + nIdIngrediente;
+                MySqlCommand command = new MySqlCommand(sSQlqry, xConnection);
+                MySqlDataReader reader;
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    nStock = Convert.ToInt32(reader[0]);
+                }
+
+                if (nStock > lCantidad)
+                {
+                    bAllOk = true;
+                }
+                else
+                {
+                    nMax = nStock;
+                }
+
+                command.Dispose();
+                reader.Dispose();
+            }
+            catch (Exception ex)
+            {
+                sLastError = "Error >>> " + ex.ToString();
+            }
+
+            return bAllOk;
+
+        }
     }
 }
